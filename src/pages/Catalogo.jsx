@@ -58,7 +58,7 @@ export default function Catalogo() {
   return (
     <div className="animate-fade-in" style={{ paddingTop: '80px', paddingBottom: '4rem' }}>
       <div className="container" style={{ marginTop: '3rem' }}>
-        <h1 className="heading-lg text-center">Catálogo de Productos</h1>
+        <h1 className="heading-lg text-center text-gradient">Catálogo de Productos</h1>
         <p className="text-muted text-center" style={{ maxWidth: '600px', margin: '1rem auto 3rem' }}>
           Conozca nuestras soluciones de embalaje diseñadas con ingeniería de materiales para asegurar su línea de producción.
         </p>
@@ -68,9 +68,11 @@ export default function Catalogo() {
             <button 
               key={filter}
               className={`btn ${activeFilter === filter ? 'btn-primary' : 'btn-outline'}`}
+              style={activeFilter === filter ? { boxShadow: '0 0 20px rgba(234, 88, 12, 0.4)' } : { borderRadius: '100px' }}
               onClick={() => setActiveFilter(filter)}
             >
               {filter}
+              {activeFilter === filter && <span style={{ marginLeft: '0.25rem', opacity: 0.8, fontSize: '0.8rem' }}>({filteredProducts.length})</span>}
             </button>
           ))}
         </div>
@@ -79,7 +81,7 @@ export default function Catalogo() {
           {filteredProducts.map(p => (
             <div key={p.id} className="card text-left">
               <div className="card-img-wrapper" style={{ height: '240px' }}>
-                <img src={p.img} alt={p.title} />
+                <img src={p.img} alt={p.title} loading="lazy" />
               </div>
               <div className="card-content">
                 <span className="badge">{p.category}</span>
@@ -88,8 +90,13 @@ export default function Catalogo() {
                   {p.desc}
                 </p>
                 <div style={{ borderTop: '1px solid var(--border-color)', paddingTop: '1rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                  <Link to="/contacto" className="text-accent" style={{ fontWeight: 600, display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
-                    Cotizar <ChevronRight size={16} />
+                  <Link 
+                    to="/contacto" 
+                    state={{ prefillMessage: `Hola, me interesa cotizar el producto: ${p.title}. Por favor bríndeme más información.` }}
+                    className="text-accent" 
+                    style={{ fontWeight: 600, display: 'flex', alignItems: 'center', gap: '0.25rem' }}
+                  >
+                    Cotizar Rápido <ChevronRight size={16} />
                   </Link>
                 </div>
               </div>

@@ -10,7 +10,7 @@ export default function Home() {
         <div className="hero-overlay"></div>
         <div className="container hero-content">
           <span className="badge">Soluciones Industriales</span>
-          <h1 className="heading-xl">Protección óptima para<br/>su cadena de valor</h1>
+          <h1 className="heading-xl text-gradient">Protección óptima para<br/>su cadena de valor</h1>
           <p className="hero-subtitle text-muted">
             Fabricamos y proveemos soluciones integrales en materiales de empaque con los más altos estándares de calidad y eficiencia para el sector logístico e industrial.
           </p>

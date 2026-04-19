@@ -1,13 +1,21 @@
 import { MapPin, Phone, Mail, Clock } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
 export default function Contacto() {
+  const location = useLocation();
   const [formData, setFormData] = useState({
     nombre: '',
     empresa: '',
     email: '',
-    mensaje: ''
+    mensaje: location.state?.prefillMessage || ''
   });
+
+  useEffect(() => {
+    if (location.state?.prefillMessage) {
+      setFormData(prev => ({ ...prev, mensaje: location.state.prefillMessage }));
+    }
+  }, [location.state]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
