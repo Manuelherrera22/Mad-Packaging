@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Propuesta Rediseño Web - Packaging Industrial SRL</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap');
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: 'Outfit', sans-serif;
+      background-color: #0a0a0c;
+      color: #fff;
+      overflow: hidden;
+    }
+
+    .slides-container {
+      display: flex;
+      width: 100vw;
+      height: 100vh;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+    }
+
+    .slide {
+      flex: 0 0 100vw;
+      height: 100vh;
+      scroll-snap-align: start;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 4rem 10vw;
+      background: radial-gradient(circle at center, #1e1f24 0%, #0a0a0c 100%);
+      position: relative;
+    }
+
+    .slide-title {
+      font-size: 3.5rem;
+      margin-bottom: 1.5rem;
+      color: #f97316; /* Naranja industrial */
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .slide-content {
+      font-size: 1.5rem;
+      color: #9ea3b0;
+      line-height: 1.6;
+      max-width: 800px;
+    }
+
+    .list-items {
+      margin-top: 1.5rem;
+      list-style-type: none;
+    }
+
+    .list-items li {
+      margin-bottom: 1rem;
+      padding-left: 2rem;
+      position: relative;
+    }
+
+    .list-items li::before {
+      content: '►';
+      position: absolute;
+      left: 0;
+      color: #3b82f6; /* Azul Acero */
+      font-size: 1.2rem;
+    }
+
+    /* Navegación */
+    .controls {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      display: flex;
+      gap: 1rem;
+      z-index: 100;
+    }
+
+    .btn {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: white;
+      padding: 1rem 1.5rem;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 1.2rem;
+      border-radius: 8px;
+      backdrop-filter: blur(5px);
+      transition: all 0.3s;
+    }
+
+    .btn:hover {
+      background: #f97316;
+      border-color: #f97316;
+    }
+
+    .progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      background: #f97316;
+      width: 0%;
+      transition: width 0.3s;
+      z-index: 100;
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="progress" id="progressBar"></div>
+
+  <div class="slides-container" id="slider">
+    
+    <!-- Slide 1 -->
+    <section class="slide">
+      <h1 class="slide-title" style="font-size: 4.5rem; color: #fff;">Propuesta de Rediseño Web</h1>
+      <div class="slide-content" style="font-size: 2rem; color: #3b82f6;">
+        <strong>Packaging Industrial SRL</strong>
+      </div>
+      <div class="slide-content" style="margin-top: 2rem; opacity: 0.6; font-size: 1.2rem;">
+        16/03/2026
+      </div>
+    </section>
+
+    <!-- Slide 2 -->
+    <section class="slide">
+      <h2 class="slide-title">Objetivo del Proyecto</h2>
+      <div class="slide-content">
+        Desarrollar un nuevo sitio web moderno, profesional y autoadministrable que permita presentar el catálogo de productos de forma clara y fortalecer la captación de nuevos clientes corporativos.
+        <ul class="list-items" style="margin-top: 2rem;">
+          <li>Mejorar la imagen digital corporativa.</li>
+          <li>Optimizar la experiencia de navegación (UX).</li>
+          <li>Resaltar las ventajas del catálogo de productos.</li>
+          <li>Automatizar y facilitar cotizaciones.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Slide 3 -->
+    <section class="slide">
+      <h2 class="slide-title">Tecnología de Desarrollo</h2>
+      <div class="slide-content">
+        El sitio final será una plataforma <strong>Escalable, Optimizada (SEO) y Completamente Responsive</strong> (móviles y tablets), superando la limitación inicial orientando hacia:
+        <ul class="list-items" style="margin-top: 2rem;">
+          <li>Frontend super rápido (React/Vite Architecture).</li>
+          <li>Gestión integral para el equipo de ventas.</li>
+          <li>Altos puntajes de indexación en Google.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Slide 4 -->
+    <section class="slide">
+      <h2 class="slide-title">Arquitectura del Sitio Web</h2>
+      <div class="slide-content">
+        <ul class="list-items">
+          <li><strong>Inicio</strong>: Impacto visual, ventajas y llamada a cotizar.</li>
+          <li><strong>Empresa</strong>: Historia, experiencia de 15 años y capacidad.</li>
+          <li><strong>Catálogo</strong>: Stretch, Polietileno, Packaging Complementario.</li>
+          <li><strong>Sectores (Industrias)</strong>: Logística, Alimentos, Retail, Manufactura.</li>
+          <li><strong>Contacto</strong>: Formulario interactivo, WhatsApp y Mapas.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Slide 5 -->
+    <section class="slide">
+      <h2 class="slide-title">Funcionalidades Incluidas</h2>
+      <div class="slide-content">
+        <ul class="list-items">
+          <li>Diseño Visual "Premium" y Glassmorphism.</li>
+          <li>Integración Flotante con WhatsApp.</li>
+          <li>Catálogo Dinámico e Intuitivo (Filtros en tiempo real).</li>
+          <li>Sistema de "Cotización Inteligente Auto-rellenada".</li>
+          <li>Carga Diferida (Lazy Loading) para alto rendimiento de navegación.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Slide 6 -->
+    <section class="slide" style="text-align: center; align-items: center;">
+      <h2 class="slide-title" style="margin-bottom: 2rem;">¿Comenzamos el Despliegue?</h2>
+      <div class="slide-content">
+        <p>El código preliminar ya ha sido empujado al repositorio corporativo para su revisión y análisis con el equipo técnico.</p>
+        <button class="btn" style="margin-top: 3rem; background: #3b82f6; border: none; font-weight: bold; width: 200px;" onclick="document.getElementById('slider').scrollTo({left: 0, behavior: 'smooth'})">Volver al Inicio</button>
+      </div>
+    </section>
+
+  </div>
+
+  <div class="controls">
+    <button class="btn" onclick="moveSlide(-1)">❮ Atrás</button>
+    <button class="btn" onclick="moveSlide(1)">Sig ❯</button>
+  </div>
+
+  <script>
+    const slider = document.getElementById('slider');
+    const progressBar = document.getElementById('progressBar');
+    const slides = document.querySelectorAll('.slide');
+    const totalSlides = slides.length;
+
+    function moveSlide(dir) {
+      const currentScroll = slider.scrollLeft;
+      const width = window.innerWidth;
+      const target = currentScroll + (dir * width);
+      slider.scrollTo({ left: target, behavior: 'smooth' });
+    }
+
+    slider.addEventListener('scroll', () => {
+      const currentScroll = slider.scrollLeft;
+      const maxScroll = slider.scrollWidth - window.innerWidth;
+      const progress = (currentScroll / maxScroll) * 100;
+      progressBar.style.width = progress + '%';
+    });
+    
+    // Iniciar con un leve width de progreso
+    progressBar.style.width = '2%';
+  </script>
+</body>
+</html>
