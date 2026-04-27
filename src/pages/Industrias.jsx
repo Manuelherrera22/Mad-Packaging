@@ -9,12 +9,12 @@ export default function Industrias() {
       desc: 'Protegemos su carga de consolidación durante largas travesías, reduciendo mermas y evitando daños ambientales durante depósitos y aduanas.'
     },
     {
-      icon: <Utensils size={32} className="text-steel" />,
+      icon: <Utensils size={32} className="text-accent" />,
       title: 'Industria Alimenticia',
       desc: 'Materiales autorizados y certificados (como nuestro Film Termocontraíble) para el contacto indirecto, asegurando higiene y trazabilidad del producto.'
     },
     {
-      icon: <Construction size={32} className="text-steel" />,
+      icon: <Construction size={32} className="text-teal" />,
       title: 'Manufactura y Construcción',
       desc: 'Bolsas de alta densidad y films especiales para el resguardo de materiales pesados, perfiles de aluminio y polvos industriales.'
     },
@@ -29,7 +29,8 @@ export default function Industrias() {
     <div className="animate-fade-in" style={{ paddingTop: '80px' }}>
       <section className="section bg-secondary" style={{ borderBottom: '1px solid var(--border-color)', minHeight: '40vh', display: 'flex', alignItems: 'center' }}>
         <div className="container text-center">
-          <h1 className="heading-lg">Soluciones por Industria</h1>
+          <span className="badge">Sectores</span>
+          <h1 className="heading-lg">Soluciones por <span className="text-accent">Industria</span></h1>
           <p className="text-muted" style={{ maxWidth: '650px', margin: '1.5rem auto 0', fontSize: '1.1rem' }}>
             Adaptamos nuestro catálogo de productos para responder a los altos requerimientos de distintos rubros, cada uno con desafíos específicos.
           </p>
@@ -41,7 +42,7 @@ export default function Industrias() {
           <div className="grid grid-cols-2">
             {sectors.map((sector, i) => (
               <div key={i} className="card" style={{ display: 'flex', padding: '2rem', gap: '1.5rem', alignItems: 'flex-start' }}>
-                <div style={{ padding: '1rem', backgroundColor: 'rgba(59, 130, 246, 0.1)', borderRadius: 'var(--radius-md)' }}>
+                <div style={{ padding: '1rem', backgroundColor: 'rgba(0, 112, 167, 0.1)', borderRadius: 'var(--radius-md)', flexShrink: 0 }}>
                   {sector.icon}
                 </div>
                 <div>

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Package, Mail, MapPin, Phone } from 'lucide-react';
+import { Mail, MapPin, Phone } from 'lucide-react';
 import './Footer.css';
 
 export default function Footer() {
@@ -9,8 +9,7 @@ export default function Footer() {
         <div className="footer-grid">
           <div className="footer-brand">
             <Link to="/" className="footer-logo">
-              <Package className="text-accent" size={32} />
-              <span>PACKAGING<br/>INDUSTRIAL SRL</span>
+              <img src="/mad-logo.svg" alt="MAD Packaging" className="footer-logo-img" />
             </Link>
             <p className="text-muted mt-4">
               Socios estratégicos en soluciones de empaque para la industria. 
@@ -41,13 +40,13 @@ export default function Footer() {
               </li>
               <li>
                 <Mail size={20} className="text-accent" />
-                <span>ventas@packagingindustrial.com</span>
+                <span>ventas@madpackaging.com</span>
               </li>
             </ul>
           </div>
         </div>
         <div className="footer-bottom">
-          <p>&copy; {new Date().getFullYear()} Packaging Industrial SRL. Todos los derechos reservados.</p>
+          <p>&copy; {new Date().getFullYear()} MAD Packaging Industrial SRL. Todos los derechos reservados.</p>
         </div>
       </div>
     </footer>

@@ -58,6 +58,7 @@ export default function Catalogo() {
   return (
     <div className="animate-fade-in" style={{ paddingTop: '80px', paddingBottom: '4rem' }}>
       <div className="container" style={{ marginTop: '3rem' }}>
+        <span className="badge" style={{ display: 'block', textAlign: 'center' }}>Productos</span>
         <h1 className="heading-lg text-center text-gradient">Catálogo de Productos</h1>
         <p className="text-muted text-center" style={{ maxWidth: '600px', margin: '1rem auto 3rem' }}>
           Conozca nuestras soluciones de embalaje diseñadas con ingeniería de materiales para asegurar su línea de producción.
@@ -68,7 +69,7 @@ export default function Catalogo() {
             <button 
               key={filter}
               className={`btn ${activeFilter === filter ? 'btn-primary' : 'btn-outline'}`}
-              style={activeFilter === filter ? { boxShadow: '0 0 20px rgba(234, 88, 12, 0.4)' } : { borderRadius: '100px' }}
+              style={activeFilter === filter ? {} : { borderRadius: '100px' }}
               onClick={() => setActiveFilter(filter)}
             >
               {filter}
@@ -94,7 +95,7 @@ export default function Catalogo() {
                     to="/contacto" 
                     state={{ prefillMessage: `Hola, me interesa cotizar el producto: ${p.title}. Por favor bríndeme más información.` }}
                     className="text-accent" 
-                    style={{ fontWeight: 600, display: 'flex', alignItems: 'center', gap: '0.25rem' }}
+                    style={{ fontWeight: 700, display: 'flex', alignItems: 'center', gap: '0.25rem' }}
                   >
                     Cotizar Rápido <ChevronRight size={16} />
                   </Link>

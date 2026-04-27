@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Package, Menu, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
 import './Navbar.css';
 
@@ -10,8 +10,7 @@ export default function Navbar() {
     <header className="navbar">
       <div className="container nav-container">
         <Link to="/" className="nav-logo">
-          <Package className="text-accent" size={32} />
-          <span>PACKAGING<br/>INDUSTRIAL</span>
+          <img src="/mad-logo.svg" alt="MAD Packaging" className="nav-logo-img" />
         </Link>
         
         <nav className={`nav-links ${isOpen ? 'active' : ''}`}>
@@ -24,7 +23,7 @@ export default function Navbar() {
           </Link>
         </nav>
 
-        <button className="mobile-toggle" onClick={() => setIsOpen(!isOpen)}>
+        <button className="mobile-toggle" onClick={() => setIsOpen(!isOpen)} aria-label="Toggle menu">
           {isOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
       </div>

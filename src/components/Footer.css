@@ -16,11 +16,16 @@
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  font-family: var(--font-heading);
-  font-weight: 800;
-  font-size: 1.1rem;
-  line-height: 1.1;
-  color: var(--text-primary);
+  transition: opacity var(--transition-fast);
+}
+
+.footer-logo:hover {
+  opacity: 0.8;
+}
+
+.footer-logo-img {
+  height: 56px;
+  width: auto;
 }
 
 .footer-brand .mt-4 {
@@ -29,9 +34,24 @@
 }
 
 .footer-heading {
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   color: white;
   margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 700;
+  position: relative;
+  padding-bottom: 0.75rem;
+}
+
+.footer-heading::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 30px;
+  height: 2px;
+  background: var(--accent-color);
 }
 
 .footer-links ul {
@@ -43,10 +63,13 @@
 
 .footer-links a {
   color: var(--text-secondary);
+  font-weight: 400;
+  transition: color var(--transition-fast), padding-left var(--transition-fast);
 }
 
 .footer-links a:hover {
   color: var(--accent-color);
+  padding-left: 4px;
 }
 
 .contact-list {
@@ -68,7 +91,7 @@
   border-top: 1px solid var(--border-color);
   text-align: center;
   color: var(--text-secondary);
-  font-size: 0.875rem;
+  font-size: 0.85rem;
 }
 
 @media (max-width: 992px) {

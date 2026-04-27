@@ -28,10 +28,24 @@ export default function Contacto() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const inputStyle = {
+    width: '100%',
+    padding: '0.85rem 1rem',
+    borderRadius: 'var(--radius-md)',
+    border: '1px solid var(--border-color)',
+    background: 'var(--bg-primary)',
+    color: 'white',
+    fontFamily: 'inherit',
+    fontSize: '0.95rem',
+    transition: 'border-color 0.2s ease',
+    outline: 'none',
+  };
+
   return (
     <div className="animate-fade-in" style={{ paddingTop: '80px', paddingBottom: '4rem' }}>
       <div className="container">
-        <h1 className="heading-lg text-center" style={{ marginTop: '2rem' }}>Contacto y Cotizaciones</h1>
+        <span className="badge" style={{ display: 'block', textAlign: 'center', marginTop: '2rem' }}>Contacto</span>
+        <h1 className="heading-lg text-center">Contacto y <span className="text-accent">Cotizaciones</span></h1>
         <p className="text-muted text-center" style={{ maxWidth: '600px', margin: '1rem auto 3rem' }}>
           Deje sus datos y los requerimientos de su empresa. Un asesor corporativo analizará su solicitud y preparará una cotización a medida.
         </p>
@@ -43,7 +57,7 @@ export default function Contacto() {
             <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
                 <div>
-                  <label htmlFor="nombre" style={{ display: 'block', marginBottom: '0.5rem', color: 'var(--text-secondary)' }}>Nombre Completo</label>
+                  <label htmlFor="nombre" style={{ display: 'block', marginBottom: '0.5rem', color: 'var(--text-secondary)', fontSize: '0.9rem', fontWeight: 500 }}>Nombre Completo</label>
                   <input 
                     type="text" 
                     id="nombre" 
@@ -51,11 +65,13 @@ export default function Contacto() {
                     value={formData.nombre}
                     onChange={handleChange}
                     required
-                    style={{ width: '100%', padding: '0.75rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)', background: 'var(--bg-primary)', color: 'white' }} 
+                    style={inputStyle}
+                    onFocus={(e) => e.target.style.borderColor = 'var(--accent-color)'}
+                    onBlur={(e) => e.target.style.borderColor = 'var(--border-color)'}
                   />
                 </div>
                 <div>
-                  <label htmlFor="empresa" style={{ display: 'block', marginBottom: '0.5rem', color: 'var(--text-secondary)' }}>Empresa</label>
+                  <label htmlFor="empresa" style={{ display: 'block', marginBottom: '0.5rem', color: 'var(--text-secondary)', fontSize: '0.9rem', fontWeight: 500 }}>Empresa</label>
                   <input 
                     type="text" 
                     id="empresa" 
@@ -63,13 +79,15 @@ export default function Contacto() {
                     value={formData.empresa}
                     onChange={handleChange}
                     required
-                    style={{ width: '100%', padding: '0.75rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)', background: 'var(--bg-primary)', color: 'white' }} 
+                    style={inputStyle}
+                    onFocus={(e) => e.target.style.borderColor = 'var(--accent-color)'}
+                    onBlur={(e) => e.target.style.borderColor = 'var(--border-color)'}
                   />
                 </div>
               </div>
               
               <div>
-                <label htmlFor="email" style={{ display: 'block', marginBottom: '0.5rem', color: 'var(--text-secondary)' }}>Email Corporativo</label>
+                <label htmlFor="email" style={{ display: 'block', marginBottom: '0.5rem', color: 'var(--text-secondary)', fontSize: '0.9rem', fontWeight: 500 }}>Email Corporativo</label>
                 <input 
                   type="email" 
                   id="email" 
@@ -77,12 +95,14 @@ export default function Contacto() {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  style={{ width: '100%', padding: '0.75rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)', background: 'var(--bg-primary)', color: 'white' }} 
+                  style={inputStyle}
+                  onFocus={(e) => e.target.style.borderColor = 'var(--accent-color)'}
+                  onBlur={(e) => e.target.style.borderColor = 'var(--border-color)'}
                 />
               </div>
 
               <div>
-                <label htmlFor="mensaje" style={{ display: 'block', marginBottom: '0.5rem', color: 'var(--text-secondary)' }}>Detalle sus requerimientos (volumen, material, etc.)</label>
+                <label htmlFor="mensaje" style={{ display: 'block', marginBottom: '0.5rem', color: 'var(--text-secondary)', fontSize: '0.9rem', fontWeight: 500 }}>Detalle sus requerimientos (volumen, material, etc.)</label>
                 <textarea 
                   id="mensaje" 
                   name="mensaje" 
@@ -90,7 +110,9 @@ export default function Contacto() {
                   value={formData.mensaje}
                   onChange={handleChange}
                   required
-                  style={{ width: '100%', padding: '0.75rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)', background: 'var(--bg-primary)', color: 'white', resize: 'vertical' }} 
+                  style={{ ...inputStyle, resize: 'vertical' }}
+                  onFocus={(e) => e.target.style.borderColor = 'var(--accent-color)'}
+                  onBlur={(e) => e.target.style.borderColor = 'var(--border-color)'}
                 ></textarea>
               </div>
 
@@ -109,14 +131,14 @@ export default function Contacto() {
                 <p className="text-muted" style={{ fontSize: '0.9rem' }}>Av. Industrial 1234<br/>Parque Industrial Sur</p>
               </div>
               <div className="card" style={{ padding: '1.5rem', textAlign: 'center' }}>
-                <Phone className="text-accent" size={32} style={{ margin: '0 auto 1rem' }} />
+                <Phone className="text-steel" size={32} style={{ margin: '0 auto 1rem' }} />
                 <h4 style={{ marginBottom: '0.5rem' }}>Ventas Directas</h4>
                 <p className="text-muted" style={{ fontSize: '0.9rem' }}>+54 9 11 1234-5678<br/>0800-444-PACK</p>
               </div>
               <div className="card" style={{ padding: '1.5rem', textAlign: 'center' }}>
-                <Mail className="text-accent" size={32} style={{ margin: '0 auto 1rem' }} />
+                <Mail className="text-teal" size={32} style={{ margin: '0 auto 1rem' }} />
                 <h4 style={{ marginBottom: '0.5rem' }}>Casilla Electrónica</h4>
-                <p className="text-muted" style={{ fontSize: '0.9rem' }}>ventas@packaging.com<br/>info@packaging.com</p>
+                <p className="text-muted" style={{ fontSize: '0.9rem' }}>ventas@madpackaging.com<br/>info@madpackaging.com</p>
               </div>
               <div className="card" style={{ padding: '1.5rem', textAlign: 'center' }}>
                 <Clock className="text-accent" size={32} style={{ margin: '0 auto 1rem' }} />

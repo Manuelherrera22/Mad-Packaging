@@ -2,15 +2,19 @@
   animation: fadeIn var(--transition-normal) forwards;
 }
 
+/* ═══════════════════════════════════════════════════════════════
+   HERO SECTION
+   ═══════════════════════════════════════════════════════════════ */
+
 .hero {
   position: relative;
-  min-height: 80vh;
+  min-height: 90vh;
   display: flex;
   align-items: center;
   background-image: url('https://images.unsplash.com/photo-1587293852726-70cdb56c2866?q=80&w=1920');
   background-size: cover;
   background-position: center;
-  margin-top: 80px; /* Offset for navbar */
+  margin-top: 80px;
 }
 
 .hero-overlay {
@@ -19,7 +23,24 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, rgba(10,10,12,0.95) 0%, rgba(10,10,12,0.6) 100%);
+  background: linear-gradient(
+    150deg, 
+    rgba(10,10,12,0.97) 0%, 
+    rgba(10,10,12,0.85) 40%, 
+    rgba(10,10,12,0.6) 100%
+  );
+}
+
+.hero-bg-pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(circle at 20% 80%, rgba(228, 71, 46, 0.06) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(0, 112, 167, 0.06) 0%, transparent 50%);
+  pointer-events: none;
 }
 
 .hero-content {
@@ -29,15 +50,59 @@
 }
 
 .hero-subtitle {
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   margin: 1.5rem 0 2.5rem;
   max-width: 650px;
+  line-height: 1.7;
 }
 
 .hero-actions {
   display: flex;
   gap: 1rem;
 }
+
+/* ── Hero Stats ── */
+.hero-stats {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.hero-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.hero-stat-value {
+  font-size: 2rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, #E4472E 0%, #0070A7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-stat-label {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 500;
+}
+
+.hero-stat-divider {
+  width: 1px;
+  height: 40px;
+  background: var(--border-color);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   FEATURES GRID
+   ═══════════════════════════════════════════════════════════════ */
 
 .features-grid {
   display: grid;
@@ -47,16 +112,45 @@
 
 .feature-card {
   background-color: var(--bg-tertiary);
-  border: 1px solid rgba(255,255,255,0.05);
+  border: 1px solid var(--border-subtle);
 }
 
+.feature-card:hover {
+  border-color: rgba(228, 71, 46, 0.3);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   CTA SECTION
+   ═══════════════════════════════════════════════════════════════ */
+
 .cta-section {
-  background: linear-gradient(rgba(10,10,12,0.95), rgba(10,10,12,0.95)), url('https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=1920');
+  background: 
+    linear-gradient(rgba(10,10,12,0.95), rgba(10,10,12,0.95)), 
+    url('https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=1920');
   background-size: cover;
   background-position: center;
   border-top: 1px solid var(--border-color);
   border-bottom: 1px solid var(--border-color);
+  position: relative;
+  overflow: hidden;
 }
+
+.cta-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 30% 50%, rgba(228, 71, 46, 0.05) 0%, transparent 60%),
+    radial-gradient(circle at 70% 50%, rgba(0, 112, 167, 0.05) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════════════════════════ */
 
 @media (max-width: 768px) {
   .hero {
@@ -66,6 +160,17 @@
   
   .hero-actions {
     flex-direction: column;
+  }
+  
+  .hero-stats {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+
+  .hero-stat-divider {
+    width: 40px;
+    height: 1px;
   }
   
   .features-grid {
