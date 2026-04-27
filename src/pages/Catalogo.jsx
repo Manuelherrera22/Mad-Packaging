@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { ChevronRight } from 'lucide-react';
+import { ChevronRight, ShoppingCart, Check } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useCart } from '../context/CartContext';
 
 const products = [
   {
@@ -47,6 +48,37 @@ const products = [
   }
 ];
 
+function AddToCartButton({ product }) {
+  const { addItem, items } = useCart();
+  const [justAdded, setJustAdded] = useState(false);
+  const inCart = items.find(item => item.id === product.id);
+
+  const handleAdd = () => {
+    addItem(product);
+    setJustAdded(true);
+    setTimeout(() => setJustAdded(false), 1200);
+  };
+
+  return (
+    <button
+      className={`add-to-cart-btn ${justAdded ? 'added' : ''}`}
+      onClick={handleAdd}
+    >
+      {justAdded ? (
+        <>
+          <Check size={14} />
+          Agregado
+        </>
+      ) : (
+        <>
+          <ShoppingCart size={14} />
+          {inCart ? `En carrito (${inCart.quantity})` : 'Agregar'}
+        </>
+      )}
+    </button>
+  );
+}
+
 export default function Catalogo() {
   const [activeFilter, setActiveFilter] = useState('Todos');
   const filters = ['Todos', 'Film Stretch', 'Polietileno', 'Complementario'];
@@ -61,7 +93,7 @@ export default function Catalogo() {
         <span className="badge" style={{ display: 'block', textAlign: 'center' }}>Productos</span>
         <h1 className="heading-lg text-center text-gradient">Catálogo de Productos</h1>
         <p className="text-muted text-center" style={{ maxWidth: '600px', margin: '1rem auto 3rem' }}>
-          Conozca nuestras soluciones de embalaje diseñadas con ingeniería de materiales para asegurar su línea de producción.
+          Seleccione los productos que le interesen y solicite cotización directamente por WhatsApp.
         </p>
 
         <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', flexWrap: 'wrap', marginBottom: '3rem' }}>
@@ -95,10 +127,11 @@ export default function Catalogo() {
                     to="/contacto" 
                     state={{ prefillMessage: `Hola, me interesa cotizar el producto: ${p.title}. Por favor bríndeme más información.` }}
                     className="text-accent" 
-                    style={{ fontWeight: 700, display: 'flex', alignItems: 'center', gap: '0.25rem' }}
+                    style={{ fontWeight: 700, display: 'flex', alignItems: 'center', gap: '0.25rem', fontSize: '0.85rem' }}
                   >
-                    Cotizar Rápido <ChevronRight size={16} />
+                    Cotizar <ChevronRight size={16} />
                   </Link>
+                  <AddToCartButton product={p} />
                 </div>
               </div>
             </div>
