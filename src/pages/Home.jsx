@@ -18,17 +18,37 @@ export default function Home() {
   return (
     <div className="home-page animate-fade-in">
       {/* Ultra Modern Hero Section */}
-      <section className="hero" style={{ padding: '8rem 0 4rem', position: 'relative' }}>
-        <div className="hero-overlay" style={{ background: 'radial-gradient(circle at center, rgba(3,3,5,0) 0%, rgba(3,3,5,1) 100%)' }}></div>
+      <section className="hero" style={{ padding: '6rem 0', position: 'relative', overflow: 'hidden' }}>
+        <div className="hero-overlay" style={{ background: 'linear-gradient(90deg, rgba(3,3,5,1) 0%, rgba(3,3,5,0.8) 50%, rgba(3,3,5,0.4) 100%)' }}></div>
         <div className="hero-bg-pattern"></div>
-        <div className="container hero-content text-center">
-          <span className="badge" style={{ marginBottom: '1.5rem', animation: 'pulse-glow 2s infinite' }}>Soluciones de Alta Tecnología</span>
-          <h1 className="heading-xl text-gradient" style={{ fontSize: '4.5rem', lineHeight: '1.1' }}>
-            Protección Absoluta <br/> para su Cadena de Valor
-          </h1>
-          <p className="hero-subtitle text-muted" style={{ maxWidth: '700px', margin: '2rem auto' }}>
-            Descubra el catálogo más innovador en materiales de empaque industrial. Calidad testeada bajo normas internacionales para asegurar su logística sin fricciones.
-          </p>
+        
+        <div className="container" style={{ position: 'relative', zIndex: 10 }}>
+          <div className="grid grid-cols-2" style={{ alignItems: 'center', gap: '4rem' }}>
+            {/* Left: Clear Copy */}
+            <div className="hero-content text-left">
+              <span className="badge" style={{ marginBottom: '1.5rem', animation: 'pulse-glow 2s infinite' }}>Calidad Garantizada</span>
+              <h1 className="heading-xl" style={{ fontSize: '4rem', lineHeight: '1.1', color: 'white' }}>
+                Fabricantes líderes en <span className="text-accent">Film Stretch</span> de alta calidad
+              </h1>
+              <p className="hero-subtitle text-muted" style={{ maxWidth: '600px', margin: '2rem 0', fontSize: '1.25rem' }}>
+                Producimos y proveemos soluciones integrales de embalaje industrial. Optimice sus costos y asegure su mercadería con nuestra tecnología de extrusión multicapa.
+              </p>
+              <div style={{ display: 'flex', gap: '1rem' }}>
+                <a href="#catalogo" className="btn btn-primary" onClick={(e) => { e.preventDefault(); document.getElementById('catalogo').scrollIntoView({ behavior: 'smooth' }); }} style={{ padding: '1rem 2rem' }}>Ver Catálogo</a>
+                <Link to="/contacto" className="btn btn-outline" style={{ padding: '1rem 2rem' }}>Contactar Ventas</Link>
+              </div>
+            </div>
+
+            {/* Right: Direct Product Image */}
+            <div className="hero-image-wrapper animate-fade-in" style={{ position: 'relative' }}>
+              <div style={{ position: 'absolute', top: '-10%', right: '-10%', width: '120%', height: '120%', background: 'radial-gradient(circle, rgba(228,71,46,0.2) 0%, transparent 70%)', zIndex: -1 }}></div>
+              <img 
+                src="https://images.unsplash.com/photo-1587293852726-70cdb56c2866?q=80&w=800" 
+                alt="Rollos de Film Stretch Industrial" 
+                style={{ width: '100%', borderRadius: 'var(--radius-lg)', boxShadow: '0 20px 40px rgba(0,0,0,0.5)', border: '1px solid rgba(255,255,255,0.1)', transform: 'perspective(1000px) rotateY(-5deg)' }} 
+              />
+            </div>
+          </div>
         </div>
       </section>
 
