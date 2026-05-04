@@ -17,7 +17,7 @@ export default function Navbar() {
           <Link to="/" onClick={() => setIsOpen(false)}>Inicio</Link>
           <Link to="/empresa" onClick={() => setIsOpen(false)}>Empresa</Link>
           <Link to="/productos" onClick={() => setIsOpen(false)}>Catálogo</Link>
-          <Link to="/industrias" onClick={() => setIsOpen(false)}>Industrias</Link>
+          <Link to="/contacto" onClick={() => setIsOpen(false)}>Contacto</Link>
           <Link to="/contacto" className="btn btn-primary nav-btn" onClick={() => setIsOpen(false)}>
             Cotizar
           </Link>
