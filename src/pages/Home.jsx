@@ -1,115 +1,88 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, ShieldCheck, Truck, Zap } from 'lucide-react';
+import { ArrowRight, ShieldCheck, Truck, Zap, Timer, PackageOpen } from 'lucide-react';
+import ProductCard from '../components/ProductCard';
+import { products } from '../data/products';
 import './Home.css';
 
 export default function Home() {
+  const [activeFilter, setActiveFilter] = useState('Todos');
+  const filters = ['Todos', 'Film Stretch', 'Polietileno', 'Complementario'];
+
+  const filteredProducts = activeFilter === 'Todos' 
+    ? products 
+    : products.filter(p => p.category === activeFilter);
+
+  const newProducts = products.filter(p => p.isNew);
+
   return (
     <div className="home-page animate-fade-in">
-      {/* Hero Section */}
-      <section className="hero">
-        <div className="hero-overlay"></div>
+      {/* Ultra Modern Hero Section */}
+      <section className="hero" style={{ padding: '8rem 0 4rem', position: 'relative' }}>
+        <div className="hero-overlay" style={{ background: 'radial-gradient(circle at center, rgba(3,3,5,0) 0%, rgba(3,3,5,1) 100%)' }}></div>
         <div className="hero-bg-pattern"></div>
-        <div className="container hero-content">
-          <span className="badge">Soluciones Industriales de Embalaje</span>
-          <h1 className="heading-xl text-gradient">Protección óptima para<br/>su cadena de valor</h1>
-          <p className="hero-subtitle text-muted">
-            Fabricamos y proveemos soluciones integrales en materiales de empaque con los más altos estándares de calidad y eficiencia para el sector logístico e industrial.
+        <div className="container hero-content text-center">
+          <span className="badge" style={{ marginBottom: '1.5rem', animation: 'pulse-glow 2s infinite' }}>Soluciones de Alta Tecnología</span>
+          <h1 className="heading-xl text-gradient" style={{ fontSize: '4.5rem', lineHeight: '1.1' }}>
+            Protección Absoluta <br/> para su Cadena de Valor
+          </h1>
+          <p className="hero-subtitle text-muted" style={{ maxWidth: '700px', margin: '2rem auto' }}>
+            Descubra el catálogo más innovador en materiales de empaque industrial. Calidad testeada bajo normas internacionales para asegurar su logística sin fricciones.
           </p>
-          <div className="hero-actions">
-            <Link to="/productos" className="btn btn-primary">Ver Catálogo</Link>
-            <Link to="/contacto" className="btn btn-outline">Solicitar Cotización</Link>
-          </div>
-
-          {/* Stats strip */}
-          <div className="hero-stats">
-            <div className="hero-stat">
-              <span className="hero-stat-value">15+</span>
-              <span className="hero-stat-label">Años de experiencia</span>
-            </div>
-            <div className="hero-stat-divider"></div>
-            <div className="hero-stat">
-              <span className="hero-stat-value">500+</span>
-              <span className="hero-stat-label">Ton/mes procesadas</span>
-            </div>
-            <div className="hero-stat-divider"></div>
-            <div className="hero-stat">
-              <span className="hero-stat-value">300%</span>
-              <span className="hero-stat-label">Rendimiento de film</span>
-            </div>
-          </div>
         </div>
       </section>
 
-      {/* Intro Section */}
-      <section className="section intro-section">
+      {/* 48hs Delivery Emphasis Banner */}
+      <div className="delivery-banner">
+        <Timer size={40} className="text-teal" />
+        <span className="delivery-text text-white">ENTREGA INMEDIATA EN <span className="text-teal">48 HORAS</span> PARA ZONAS INDUSTRIALES</span>
+        <Truck size={40} className="text-teal" />
+      </div>
+
+      {/* Lanzamientos Novedosos */}
+      <section className="section bg-secondary" style={{ padding: '5rem 0' }}>
         <div className="container">
-          <div className="grid grid-cols-2" style={{ alignItems: 'center' }}>
-            <div>
-              <span className="badge">Nuestra Propuesta</span>
-              <h2 className="heading-lg">Empaque seguro, <br/><span className="text-accent">logística eficiente.</span></h2>
-              <p className="text-muted" style={{ marginTop: '1.5rem', fontSize: '1.1rem' }}>
-                En MAD Packaging Industrial nos dedicamos a optimizar los procesos de embalaje de nuestros clientes. Proveemos materiales resistentes que aseguran la carga durante el transporte y almacenamiento.
-              </p>
-              <Link to="/empresa" className="btn btn-outline" style={{ marginTop: '2rem' }}>
-                Conocer la Empresa <ArrowRight size={18} />
-              </Link>
-            </div>
-            <div className="features-grid">
-              <div className="feature-card card">
-                <div className="card-content">
-                  <ShieldCheck size={36} className="text-accent" />
-                  <h3 style={{ marginTop: '1rem', fontSize: '1.25rem' }}>Calidad Certificada</h3>
-                  <p className="text-muted" style={{ fontSize: '0.9rem' }}>Materiales de alta resistencia testeados bajo normas industriales.</p>
-                </div>
-              </div>
-              <div className="feature-card card">
-                <div className="card-content">
-                  <Truck size={36} className="text-steel" />
-                  <h3 style={{ marginTop: '1rem', fontSize: '1.25rem' }}>Entrega Rápida</h3>
-                  <p className="text-muted" style={{ fontSize: '0.9rem' }}>Contamos con stock permanente y flota propia para despachos.</p>
-                </div>
-              </div>
-              <div className="feature-card card" style={{ gridColumn: 'span 2' }}>
-                <div className="card-content">
-                  <Zap size={36} className="text-teal" />
-                  <h3 style={{ marginTop: '1rem', fontSize: '1.25rem' }}>Rendimiento Superior</h3>
-                  <p className="text-muted" style={{ fontSize: '0.9rem' }}>Nuestros films stretch rinden hasta un 300% asegurando mayor eficiencia y reducción de costos.</p>
-                </div>
-              </div>
-            </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '3rem' }}>
+            <Zap size={32} className="text-accent" />
+            <h2 className="heading-lg" style={{ margin: 0 }}>Lanzamientos Novedosos</h2>
           </div>
-        </div>
-      </section>
-
-      {/* Featured Categories */}
-      <section className="section bg-secondary">
-        <div className="container text-center">
-          <span className="badge">Productos</span>
-          <h2 className="heading-lg">Categorías Destacadas</h2>
-          <p className="text-muted" style={{ maxWidth: '600px', margin: '1rem auto 3rem' }}>
-            Explora las soluciones de empaque principal que manejamos para cubrir todas sus necesidades operativas.
-          </p>
-
           <div className="grid grid-cols-3">
-            {[
-              { title: 'Film Stretch', img: '/img/film_stretch.png', url: '/productos' },
-              { title: 'Bolsas de Polietileno', img: '/img/bolsas_industriales.png', url: '/productos' },
-              { title: 'Cintas Adhesivas', img: '/img/cintas_adhesivas.png', url: '/productos' }
-            ].map((cat, i) => (
-              <div key={i} className="card text-left">
-                <div className="card-img-wrapper" style={{ height: '220px' }}>
-                  <img src={cat.img} alt={cat.title} />
-                </div>
-                <div className="card-content text-center">
-                  <h3>{cat.title}</h3>
-                  <Link to={cat.url} className="text-accent" style={{ display: 'inline-block', marginTop: '1rem', fontWeight: 700 }}>Ver más →</Link>
-                </div>
-              </div>
+            {newProducts.map(p => (
+              <ProductCard key={`new-${p.id}`} product={p} />
             ))}
           </div>
-          
-          <div style={{ marginTop: '4rem' }}>
-            <Link to="/productos" className="btn btn-primary">Ver todo el catálogo</Link>
+        </div>
+      </section>
+
+      {/* Catálogo en Vivo (Zero Friction) */}
+      <section className="section" style={{ padding: '2rem 0 6rem' }}>
+        <div className="container">
+          <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+            <span className="badge">Catálogo Completo</span>
+            <h2 className="heading-lg" style={{ marginTop: '1rem' }}>Compre Sin Fricción</h2>
+            <p className="text-muted text-center" style={{ maxWidth: '600px', margin: '1rem auto' }}>
+              Filtre, seleccione y cotice directamente desde aquí. Sin pasos extras.
+            </p>
+          </div>
+
+          <div className="catalog-filters" style={{ display: 'flex', justifyContent: 'center', gap: '1rem', flexWrap: 'wrap' }}>
+            {filters.map(filter => (
+              <button 
+                key={filter}
+                className={`btn ${activeFilter === filter ? 'btn-primary' : 'btn-outline'}`}
+                style={activeFilter === filter ? {} : { borderRadius: '100px' }}
+                onClick={() => setActiveFilter(filter)}
+              >
+                {filter}
+                {activeFilter === filter && <span style={{ marginLeft: '0.25rem', opacity: 0.8, fontSize: '0.8rem' }}>({filteredProducts.length})</span>}
+              </button>
+            ))}
+          </div>
+
+          <div className="grid grid-cols-3">
+            {filteredProducts.map(p => (
+              <ProductCard key={p.id} product={p} />
+            ))}
           </div>
         </div>
       </section>
@@ -117,11 +90,12 @@ export default function Home() {
       {/* CTA Section */}
       <section className="section cta-section">
         <div className="container text-center">
-          <h2 className="heading-lg">¿Listo para optimizar su embalaje?</h2>
+          <PackageOpen size={48} className="text-accent" style={{ margin: '0 auto 1.5rem' }} />
+          <h2 className="heading-lg">¿Requiere un volumen mayorista?</h2>
           <p className="text-muted" style={{ maxWidth: '600px', margin: '1.5rem auto 2.5rem' }}>
             Nuestro equipo de técnicos comerciales le asesorará para elegir el material exacto que su línea de producción o logística requiere.
           </p>
-          <Link to="/contacto" className="btn btn-primary" style={{ padding: '1.25rem 3rem', fontSize: '1rem' }}>Solicitar Cotización Ahora</Link>
+          <Link to="/contacto" className="btn btn-primary" style={{ padding: '1.25rem 3rem', fontSize: '1rem' }}>Contactar Asesor</Link>
         </div>
       </section>
     </div>

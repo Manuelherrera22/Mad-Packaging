@@ -28,7 +28,13 @@ export default function Contacto() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert('Cotización solicitada con éxito. Nos pondremos en contacto a la brevedad.');
+    
+    const subject = encodeURIComponent(`Solicitud de Cotización Web - ${formData.empresa || formData.nombre}`);
+    const bodyText = `Nombre: ${formData.nombre}\nEmpresa: ${formData.empresa}\nEmail: ${formData.email}\n\nRequerimientos:\n${formData.mensaje}`;
+    const body = encodeURIComponent(bodyText);
+    
+    window.location.href = `mailto:ventas@madpackaging.com?subject=${subject}&body=${body}`;
+
     setFormData({ nombre: '', empresa: '', email: '', mensaje: '' });
     if (items.length > 0) clearCart();
   };
