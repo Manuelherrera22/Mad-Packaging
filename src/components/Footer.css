@@ -7,7 +7,7 @@
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-columns: 2fr 1fr 1.5fr 1fr;
   gap: var(--space-lg);
   padding-bottom: var(--space-lg);
 }
@@ -92,6 +92,29 @@
   text-align: center;
   color: var(--text-secondary);
   font-size: 0.85rem;
+}
+
+.social-links {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 50%;
+  color: var(--text-secondary);
+  transition: all var(--transition-fast);
+}
+
+.social-links a:hover {
+  background: var(--accent-color);
+  color: white;
+  transform: translateY(-3px);
 }
 
 @media (max-width: 992px) {

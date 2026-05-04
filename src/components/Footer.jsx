@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Mail, MapPin, Phone } from 'lucide-react';
+import { Mail, MapPin, Phone, Linkedin, Instagram, Facebook } from 'lucide-react';
 import './Footer.css';
 
 export default function Footer() {
@@ -43,6 +43,21 @@ export default function Footer() {
                 <span>ventas@madpackaging.com</span>
               </li>
             </ul>
+          </div>
+
+          <div className="footer-social">
+            <h4 className="footer-heading">Seguinos en</h4>
+            <div className="social-links">
+              <a href="https://linkedin.com" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+                <Linkedin size={18} />
+              </a>
+              <a href="https://instagram.com" target="_blank" rel="noreferrer" aria-label="Instagram">
+                <Instagram size={18} />
+              </a>
+              <a href="https://facebook.com" target="_blank" rel="noreferrer" aria-label="Facebook">
+                <Facebook size={18} />
+              </a>
+            </div>
           </div>
         </div>
         <div className="footer-bottom">
