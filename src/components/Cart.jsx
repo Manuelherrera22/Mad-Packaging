@@ -1,5 +1,7 @@
-import { ShoppingCart, X, Minus, Plus, Trash2, MessageCircle, ShoppingBag } from 'lucide-react';
+import { ShoppingCart, X, Minus, Plus, Trash2, MessageCircle, ShoppingBag, FileText } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
+import WhatsAppIcon from './WhatsAppIcon';
 import './Cart.css';
 
 export default function Cart() {
@@ -85,19 +87,29 @@ export default function Cart() {
                 <span>{items.length} producto{items.length !== 1 ? 's' : ''}</span>
                 <span>{totalItems} unidad{totalItems !== 1 ? 'es' : ''} total</span>
               </div>
-              <a
-                href={getWhatsAppUrl()}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="cart-checkout-btn"
-                onClick={() => {
-                  closeCart();
-                }}
-              >
-                <MessageCircle size={20} />
-                Solicitar Cotización por WhatsApp
-              </a>
-              <button className="cart-clear-btn" onClick={clearCart}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', width: '100%' }}>
+                <Link
+                  to="/contacto"
+                  className="btn btn-primary"
+                  style={{ width: '100%', justifyContent: 'center' }}
+                  onClick={closeCart}
+                >
+                  <FileText size={20} />
+                  Cotizar por Formulario
+                </Link>
+                <a
+                  href={getWhatsAppUrl()}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="cart-checkout-btn"
+                  style={{ background: '#25D366', color: '#fff', border: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', padding: '1rem', borderRadius: 'var(--radius-md)', fontWeight: 700, transition: 'all var(--transition-fast)' }}
+                  onClick={closeCart}
+                >
+                  <WhatsAppIcon size={20} />
+                  Cotizar por WhatsApp
+                </a>
+              </div>
+              <button className="cart-clear-btn" onClick={clearCart} style={{ marginTop: '0.5rem' }}>
                 Vaciar carrito
               </button>
             </div>

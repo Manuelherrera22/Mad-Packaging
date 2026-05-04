@@ -92,9 +92,9 @@ export default function Home() {
 
           <div className="grid grid-cols-3">
             {[
-              { title: 'Film Stretch', img: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=800', url: '/productos' },
-              { title: 'Bolsas de Polietileno', img: 'https://images.unsplash.com/photo-1605642878415-dcbd4ddbabe5?q=80&w=800', url: '/productos' },
-              { title: 'Cintas Adhesivas', img: 'https://images.unsplash.com/photo-1622216091373-c600122e2098?q=80&w=800', url: '/productos' }
+              { title: 'Film Stretch', img: '/img/film_stretch.png', url: '/productos' },
+              { title: 'Bolsas de Polietileno', img: '/img/bolsas_industriales.png', url: '/productos' },
+              { title: 'Cintas Adhesivas', img: '/img/cintas_adhesivas.png', url: '/productos' }
             ].map((cat, i) => (
               <div key={i} className="card text-left">
                 <div className="card-img-wrapper" style={{ height: '220px' }}>

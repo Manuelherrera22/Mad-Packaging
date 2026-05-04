@@ -9,42 +9,42 @@ const products = [
     category: 'Film Stretch',
     title: 'Film Stretch Manual y Automático',
     desc: 'Alta capacidad de elongación, cristalino y resistente al punzado. Ideal para paletizado y consolidación de carga en depósitos.',
-    img: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=600'
+    img: '/img/film_stretch.png'
   },
   {
     id: 2,
     category: 'Polietileno',
     title: 'Bolsas Industriales',
     desc: 'Polietileno de alta y baja densidad. Distintos espesores y medidas a pedido. Uso en el agro, construcción industrial y comercio.',
-    img: 'https://images.unsplash.com/photo-1605642878415-dcbd4ddbabe5?q=80&w=600'
+    img: '/img/bolsas_industriales.png'
   },
   {
     id: 3,
     category: 'Polietileno',
     title: 'Film Termocontraíble',
     desc: 'Empaque secundario que se adapta a la forma del producto mediante la aplicación de calor, brindando inviolabilidad visual.',
-    img: 'https://images.unsplash.com/photo-1578575437130-527eed3abbec?q=80&w=600'
+    img: '/img/film_termocontraible.png'
   },
   {
     id: 4,
     category: 'Polietileno',
     title: 'Film con Burbujas',
     desc: 'Máxima protección contra impactos para mercadería frágil. Rollos en varios anchos y gramajes.',
-    img: 'https://images.unsplash.com/photo-1590247813693-5541d1c609fd?q=80&w=600'
+    img: '/img/film_burbujas.png'
   },
   {
     id: 5,
     category: 'Complementario',
     title: 'Cintas Adhesivas',
     desc: 'Cintas de embalaje acrílicas y hot melt. Cintas de enmascarar, doble faz y con impresiones personalizadas.',
-    img: 'https://images.unsplash.com/photo-1622216091373-c600122e2098?q=80&w=600'
+    img: '/img/cintas_adhesivas.png'
   },
   {
     id: 6,
     category: 'Complementario',
     title: 'Flejes y Hebillas',
     desc: 'Flejes plásticos (PP y PET) orientados a soportar alta tensión. Sistemas de cierre para un enzunchado seguro.',
-    img: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=600'
+    img: '/img/flejes_hebillas.png'
   }
 ];
 

@@ -1,9 +1,12 @@
-import { MapPin, Phone, Mail, Clock } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, ShoppingBag } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import { useCart } from '../context/CartContext';
 
 export default function Contacto() {
   const location = useLocation();
+  const { items, totalItems, clearCart } = useCart();
+  
   const [formData, setFormData] = useState({
     nombre: '',
     empresa: '',
@@ -14,14 +17,20 @@ export default function Contacto() {
   useEffect(() => {
     if (location.state?.prefillMessage) {
       setFormData(prev => ({ ...prev, mensaje: location.state.prefillMessage }));
+    } else if (items.length > 0) {
+      let cartMsg = "Hola, solicito cotización para los siguientes productos:\n\n";
+      items.forEach(item => {
+        cartMsg += `- ${item.quantity}x ${item.title}\n`;
+      });
+      setFormData(prev => ({ ...prev, mensaje: cartMsg }));
     }
-  }, [location.state]);
+  }, [location.state, items]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Aquí iría la lógica real de envío, pero en demostración:
-    alert('Mensaje enviado. Nos pondremos en contacto a la brevedad.');
+    alert('Cotización solicitada con éxito. Nos pondremos en contacto a la brevedad.');
     setFormData({ nombre: '', empresa: '', email: '', mensaje: '' });
+    if (items.length > 0) clearCart();
   };
 
   const handleChange = (e) => {
@@ -54,6 +63,24 @@ export default function Contacto() {
           {/* Form */}
           <div className="card" style={{ padding: '2.5rem' }}>
             <h2 className="heading-md" style={{ marginBottom: '1.5rem' }}>Complete el formulario</h2>
+            
+            {items.length > 0 && (
+              <div style={{ marginBottom: '2rem', padding: '1rem', background: 'rgba(0, 123, 184, 0.1)', border: '1px solid rgba(0, 123, 184, 0.3)', borderRadius: 'var(--radius-md)' }}>
+                <h3 style={{ fontSize: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem' }}>
+                  <ShoppingBag size={18} className="text-steel" />
+                  Productos Seleccionados ({totalItems})
+                </h3>
+                <ul style={{ listStyle: 'none', fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
+                  {items.map(item => (
+                    <li key={item.id} style={{ display: 'flex', justifyContent: 'space-between', padding: '0.25rem 0', borderBottom: '1px solid var(--border-subtle)' }}>
+                      <span>{item.title}</span>
+                      <span style={{ fontWeight: 'bold', color: 'var(--text-primary)' }}>{item.quantity} un.</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
             <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
                 <div>

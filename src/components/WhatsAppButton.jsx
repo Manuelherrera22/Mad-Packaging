@@ -1,4 +1,4 @@
-import { MessageCircle } from 'lucide-react';
+import WhatsAppIcon from './WhatsAppIcon';
 
 export default function WhatsAppButton() {
   const whatsappNumber = "5491112345678"; // Replace with real number
@@ -29,7 +29,7 @@ export default function WhatsAppButton() {
       onMouseOut={(e) => e.currentTarget.style.transform = 'scale(1)'}
       aria-label="Contactar por WhatsApp"
     >
-      <MessageCircle size={32} />
+      <WhatsAppIcon size={32} />
     </a>
   );
 }
