@@ -124,7 +124,7 @@ export default function Home() {
 
           <div className="grid grid-cols-3">
             {mainCategories.map(cat => (
-              <Link to={`/catalogo?categoria=${encodeURIComponent(cat.name)}`} key={cat.id} className="card text-left" style={{ cursor: 'pointer', textDecoration: 'none' }}>
+              <Link to={`/productos?categoria=${encodeURIComponent(cat.name)}`} key={cat.id} className="card text-left" style={{ cursor: 'pointer', textDecoration: 'none' }}>
                 <div className="card-img-wrapper" style={{ height: '200px' }}>
                   <img src={cat.img} alt={cat.name} loading="lazy" />
                 </div>

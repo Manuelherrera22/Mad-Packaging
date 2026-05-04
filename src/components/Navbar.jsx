@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, X, Mail, Phone, Linkedin, Instagram, Facebook } from 'lucide-react';
+import { Menu, X, Mail, Phone } from 'lucide-react';
 import './Navbar.css';
 
 export default function Navbar() {
@@ -16,9 +16,9 @@ export default function Navbar() {
             <span><Mail size={12} className="text-accent"/> ventas@madpackaging.com</span>
           </div>
           <div className="top-bar-socials hidden md:flex">
-            <a href="https://linkedin.com" target="_blank" rel="noreferrer" aria-label="LinkedIn"><Linkedin size={14} /></a>
-            <a href="https://instagram.com" target="_blank" rel="noreferrer" aria-label="Instagram"><Instagram size={14} /></a>
-            <a href="https://facebook.com" target="_blank" rel="noreferrer" aria-label="Facebook"><Facebook size={14} /></a>
+            <a href="https://linkedin.com" target="_blank" rel="noreferrer" aria-label="LinkedIn" style={{fontWeight: 'bold', fontSize: '14px'}}>in</a>
+            <a href="https://instagram.com" target="_blank" rel="noreferrer" aria-label="Instagram" style={{fontWeight: 'bold', fontSize: '14px'}}>ig</a>
+            <a href="https://facebook.com" target="_blank" rel="noreferrer" aria-label="Facebook" style={{fontWeight: 'bold', fontSize: '14px'}}>fb</a>
           </div>
         </div>
       </div>
