@@ -39,6 +39,50 @@ export default function Home() {
         <Truck size={40} className="text-teal" />
       </div>
 
+      {/* Hook Section: Quiénes Somos y Qué Hacemos */}
+      <section className="section bg-tertiary" style={{ padding: '5rem 0', borderBottom: '1px solid var(--border-color)' }}>
+        <div className="container">
+          <div className="grid grid-cols-2" style={{ alignItems: 'center', gap: '4rem' }}>
+            <div>
+              <span className="badge">Nuestra Esencia</span>
+              <h2 className="heading-lg" style={{ marginTop: '1rem', lineHeight: '1.2' }}>No somos solo fabricantes.<br/><span className="text-accent">Somos sus socios estratégicos.</span></h2>
+              <p className="text-muted" style={{ fontSize: '1.1rem', margin: '1.5rem 0', lineHeight: '1.6' }}>
+                En <strong>MAD Packaging Industrial</strong> nos especializamos en entender y resolver los desafíos logísticos más complejos de su empresa. Fabricamos soluciones integrales de empaque que no solo protegen su mercadería, sino que <strong>reducen sus costos operativos</strong> y aumentan la velocidad de sus despachos.
+              </p>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginTop: '2rem' }}>
+                <div style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
+                  <ShieldCheck className="text-accent" size={24} style={{ flexShrink: 0, marginTop: '0.2rem' }} />
+                  <div>
+                    <h4 style={{ fontSize: '1.1rem', marginBottom: '0.25rem' }}>Fabricación de Alto Rendimiento</h4>
+                    <p className="text-muted" style={{ fontSize: '0.9rem' }}>Nuestros films de extrusión multicapa garantizan una elongación superior al 300%.</p>
+                  </div>
+                </div>
+                <div style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
+                  <Zap className="text-teal" size={24} style={{ flexShrink: 0, marginTop: '0.2rem' }} />
+                  <div>
+                    <h4 style={{ fontSize: '1.1rem', marginBottom: '0.25rem' }}>Asesoría Técnica en Planta</h4>
+                    <p className="text-muted" style={{ fontSize: '0.9rem' }}>Auditamos su proceso de empaque para recomendar el micronaje exacto, evitando desperdicios.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="hook-cards" style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+              <div className="card" style={{ padding: '2rem', background: 'linear-gradient(145deg, rgba(3,3,5,0.8), rgba(228, 71, 46, 0.05))', border: '1px solid rgba(228, 71, 46, 0.2)' }}>
+                <h3 className="text-accent" style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>+15 Años</h3>
+                <p style={{ fontWeight: 'bold', fontSize: '1.1rem' }}>Liderando el sector del empaque</p>
+                <p className="text-muted" style={{ fontSize: '0.9rem', marginTop: '0.5rem' }}>Trayectoria comprobable abasteciendo a las industrias más exigentes del país.</p>
+              </div>
+              <div className="card" style={{ padding: '2rem', background: 'linear-gradient(145deg, rgba(3,3,5,0.8), rgba(0, 191, 165, 0.05))', border: '1px solid rgba(0, 191, 165, 0.2)' }}>
+                <h3 className="text-teal" style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>500 Toneladas</h3>
+                <p style={{ fontWeight: 'bold', fontSize: '1.1rem' }}>Capacidad productiva mensual</p>
+                <p className="text-muted" style={{ fontSize: '0.9rem', marginTop: '0.5rem' }}>Stock permanente para garantizar que su línea de producción jamás se detenga.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Lanzamientos Novedosos */}
       <section className="section bg-secondary" style={{ padding: '5rem 0' }}>
         <div className="container">
