@@ -2,17 +2,10 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, ShieldCheck, Truck, Zap, Timer, PackageOpen } from 'lucide-react';
 import ProductCard from '../components/ProductCard';
-import { products } from '../data/products';
+import { products, mainCategories } from '../data/products';
 import './Home.css';
 
 export default function Home() {
-  const [activeFilter, setActiveFilter] = useState('Todos');
-  const filters = ['Todos', 'Film Stretch', 'Polietileno', 'Complementario'];
-
-  const filteredProducts = activeFilter === 'Todos' 
-    ? products 
-    : products.filter(p => p.category === activeFilter);
-
   const newProducts = products.filter(p => p.isNew);
 
   return (
@@ -118,34 +111,35 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Catálogo en Vivo (Zero Friction) */}
+      {/* Categorías Principales */}
       <section className="section" style={{ padding: '2rem 0 6rem' }} id="catalogo">
         <div className="container">
           <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
-            <span className="badge">Catálogo Completo</span>
-            <h2 className="heading-lg" style={{ marginTop: '1rem' }}>Compre Sin Fricción</h2>
+            <span className="badge">Catálogo</span>
+            <h2 className="heading-lg" style={{ marginTop: '1rem' }}>Líneas de Productos</h2>
             <p className="text-muted text-center" style={{ maxWidth: '600px', margin: '1rem auto' }}>
-              Filtre, seleccione y cotice directamente desde aquí. Sin pasos extras.
+              Explore nuestras categorías y encuentre la solución de empaque perfecta para su industria.
             </p>
           </div>
 
-          <div className="catalog-filters" style={{ display: 'flex', justifyContent: 'center', gap: '1rem', flexWrap: 'wrap' }}>
-            {filters.map(filter => (
-              <button 
-                key={filter}
-                className={`btn ${activeFilter === filter ? 'btn-primary' : 'btn-outline'}`}
-                style={activeFilter === filter ? {} : { borderRadius: '100px' }}
-                onClick={() => setActiveFilter(filter)}
-              >
-                {filter}
-                {activeFilter === filter && <span style={{ marginLeft: '0.25rem', opacity: 0.8, fontSize: '0.8rem' }}>({filteredProducts.length})</span>}
-              </button>
-            ))}
-          </div>
-
-          <div className="grid grid-cols-4">
-            {filteredProducts.map(p => (
-              <ProductCard key={p.id} product={p} />
+          <div className="grid grid-cols-3">
+            {mainCategories.map(cat => (
+              <Link to={`/catalogo?categoria=${encodeURIComponent(cat.name)}`} key={cat.id} className="card text-left" style={{ cursor: 'pointer', textDecoration: 'none' }}>
+                <div className="card-img-wrapper" style={{ height: '200px' }}>
+                  <img src={cat.img} alt={cat.name} loading="lazy" />
+                </div>
+                <div className="card-content">
+                  <h3 style={{ fontSize: '1.5rem', margin: '0.5rem 0' }}>{cat.name}</h3>
+                  <p className="text-muted" style={{ fontSize: '0.9rem', marginBottom: '1.5rem', minHeight: '40px' }}>
+                    {cat.desc}
+                  </p>
+                  <div style={{ borderTop: '1px solid var(--border-color)', paddingTop: '1rem' }}>
+                    <span className="text-accent" style={{ fontWeight: 700, display: 'flex', alignItems: 'center', gap: '0.25rem', fontSize: '0.85rem' }}>
+                      Ver Productos <ArrowRight size={16} />
+                    </span>
+                  </div>
+                </div>
+              </Link>
             ))}
           </div>
         </div>

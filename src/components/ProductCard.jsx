@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ChevronRight, ShoppingCart, Check, Maximize, Target } from 'lucide-react';
+import { ChevronRight, ShoppingCart, Check, Maximize, Weight, PackageOpen } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 
@@ -23,7 +23,7 @@ export default function ProductCard({ product }) {
         <img src={product.img} alt={product.title} loading="lazy" />
       </div>
       <div className="card-content">
-        <span className="badge">{product.category}</span>
+        <span className="badge">{product.subcategory || product.category}</span>
         <h3 style={{ fontSize: '1.25rem', margin: '0.5rem 0' }}>{product.title}</h3>
         <p className="text-muted" style={{ fontSize: '0.9rem', marginBottom: '1rem', minHeight: '40px' }}>
           {product.desc}
@@ -31,14 +31,24 @@ export default function ProductCard({ product }) {
 
         {/* Technical Specs */}
         <div className="tech-specs">
-          <div className="spec-item">
-            <Maximize size={14} className="text-steel" />
-            <span className="spec-text">{product.medidas || 'Varías medidas'}</span>
-          </div>
-          <div className="spec-item">
-            <Target size={14} className="text-teal" />
-            <span className="spec-text">{product.micronaje || 'Varios'}</span>
-          </div>
+          {product.medidas && (
+            <div className="spec-item">
+              <Maximize size={14} className="text-steel" />
+              <span className="spec-text">{product.medidas}</span>
+            </div>
+          )}
+          {product.peso && (
+            <div className="spec-item">
+              <Weight size={14} className="text-teal" />
+              <span className="spec-text">{product.peso}</span>
+            </div>
+          )}
+          {product.cantCaja && (
+            <div className="spec-item">
+              <PackageOpen size={14} className="text-accent" />
+              <span className="spec-text">{product.cantCaja} por caja</span>
+            </div>
+          )}
         </div>
 
         <div style={{ borderTop: '1px solid var(--border-color)', paddingTop: '1rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>

@@ -1,52 +1,9 @@
-import { useState } from 'react';
-import { ChevronRight, ShoppingCart, Check } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { useState, useEffect, useMemo } from 'react';
+import { ChevronRight, ShoppingCart, Check, Filter } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
-
-const products = [
-  {
-    id: 1,
-    category: 'Film Stretch',
-    title: 'Film Stretch Manual y Automático',
-    desc: 'Alta capacidad de elongación, cristalino y resistente al punzado. Ideal para paletizado y consolidación de carga en depósitos.',
-    img: '/img/film_stretch.png'
-  },
-  {
-    id: 2,
-    category: 'Polietileno',
-    title: 'Bolsas Industriales',
-    desc: 'Polietileno de alta y baja densidad. Distintos espesores y medidas a pedido. Uso en el agro, construcción industrial y comercio.',
-    img: '/img/bolsas_industriales.png'
-  },
-  {
-    id: 3,
-    category: 'Polietileno',
-    title: 'Film Termocontraíble',
-    desc: 'Empaque secundario que se adapta a la forma del producto mediante la aplicación de calor, brindando inviolabilidad visual.',
-    img: '/img/film_termocontraible.png'
-  },
-  {
-    id: 4,
-    category: 'Polietileno',
-    title: 'Film con Burbujas',
-    desc: 'Máxima protección contra impactos para mercadería frágil. Rollos en varios anchos y gramajes.',
-    img: '/img/film_burbujas.png'
-  },
-  {
-    id: 5,
-    category: 'Complementario',
-    title: 'Cintas Adhesivas',
-    desc: 'Cintas de embalaje acrílicas y hot melt. Cintas de enmascarar, doble faz y con impresiones personalizadas.',
-    img: '/img/cintas_adhesivas.png'
-  },
-  {
-    id: 6,
-    category: 'Complementario',
-    title: 'Flejes y Hebillas',
-    desc: 'Flejes plásticos (PP y PET) orientados a soportar alta tensión. Sistemas de cierre para un enzunchado seguro.',
-    img: '/img/flejes_hebillas.png'
-  }
-];
+import { products, mainCategories } from '../data/products';
+import ProductCard from '../components/ProductCard';
 
 function AddToCartButton({ product }) {
   const { addItem, items } = useCart();
@@ -80,62 +37,95 @@ function AddToCartButton({ product }) {
 }
 
 export default function Catalogo() {
-  const [activeFilter, setActiveFilter] = useState('Todos');
-  const filters = ['Todos', 'Film Stretch', 'Polietileno', 'Complementario'];
+  const location = useLocation();
+  const [activeCategory, setActiveCategory] = useState('Todos');
 
-  const filteredProducts = activeFilter === 'Todos' 
-    ? products 
-    : products.filter(p => p.category === activeFilter);
+  // Inicializar categoría basada en la URL (ej: /catalogo?categoria=Film%20Stretch)
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const catParam = params.get('categoria');
+    if (catParam) {
+      setActiveCategory(catParam);
+    }
+  }, [location]);
+
+  const filteredProducts = useMemo(() => {
+    if (activeCategory === 'Todos') return products;
+    return products.filter(p => p.category === activeCategory);
+  }, [activeCategory]);
 
   return (
-    <div className="animate-fade-in" style={{ paddingTop: '80px', paddingBottom: '4rem' }}>
+    <div className="animate-fade-in" style={{ paddingTop: '80px', paddingBottom: '4rem', minHeight: '100vh', background: 'var(--bg-primary)' }}>
       <div className="container" style={{ marginTop: '3rem' }}>
-        <span className="badge" style={{ display: 'block', textAlign: 'center' }}>Productos</span>
-        <h1 className="heading-lg text-center text-gradient">Catálogo de Productos</h1>
-        <p className="text-muted text-center" style={{ maxWidth: '600px', margin: '1rem auto 3rem' }}>
-          Seleccione los productos que le interesen y solicite cotización directamente por WhatsApp.
+        <span className="badge" style={{ display: 'block', textAlign: 'center', margin: '0 auto' }}>Nuestros Productos</span>
+        <h1 className="heading-lg text-center text-gradient" style={{ marginBottom: '1rem' }}>Catálogo Técnico</h1>
+        <p className="text-muted text-center" style={{ maxWidth: '600px', margin: '0 auto 3rem' }}>
+          Seleccione la línea de productos para visualizar las especificaciones técnicas. Puede solicitar cotización directa y rápida.
         </p>
 
-        <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', flexWrap: 'wrap', marginBottom: '3rem' }}>
-          {filters.map(filter => (
-            <button 
-              key={filter}
-              className={`btn ${activeFilter === filter ? 'btn-primary' : 'btn-outline'}`}
-              style={activeFilter === filter ? {} : { borderRadius: '100px' }}
-              onClick={() => setActiveFilter(filter)}
-            >
-              {filter}
-              {activeFilter === filter && <span style={{ marginLeft: '0.25rem', opacity: 0.8, fontSize: '0.8rem' }}>({filteredProducts.length})</span>}
-            </button>
-          ))}
-        </div>
-
-        <div className="grid grid-cols-3">
-          {filteredProducts.map(p => (
-            <div key={p.id} className="card text-left">
-              <div className="card-img-wrapper" style={{ height: '240px' }}>
-                <img src={p.img} alt={p.title} loading="lazy" />
-              </div>
-              <div className="card-content">
-                <span className="badge">{p.category}</span>
-                <h3 style={{ fontSize: '1.25rem', margin: '0.5rem 0' }}>{p.title}</h3>
-                <p className="text-muted" style={{ fontSize: '0.9rem', marginBottom: '1.5rem', minHeight: '60px' }}>
-                  {p.desc}
-                </p>
-                <div style={{ borderTop: '1px solid var(--border-color)', paddingTop: '1rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                  <Link 
-                    to="/contacto" 
-                    state={{ prefillMessage: `Hola, me interesa cotizar el producto: ${p.title}. Por favor bríndeme más información.` }}
-                    className="text-accent" 
-                    style={{ fontWeight: 700, display: 'flex', alignItems: 'center', gap: '0.25rem', fontSize: '0.85rem' }}
-                  >
-                    Cotizar <ChevronRight size={16} />
-                  </Link>
-                  <AddToCartButton product={p} />
-                </div>
-              </div>
+        <div className="catalog-layout" style={{ display: 'flex', gap: '3rem', alignItems: 'flex-start' }}>
+          
+          {/* Sidebar / Filters */}
+          <aside style={{ width: '250px', flexShrink: 0, position: 'sticky', top: '100px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1.5rem', paddingBottom: '0.5rem', borderBottom: '1px solid var(--border-color)' }}>
+              <Filter size={18} className="text-accent" />
+              <h3 style={{ fontSize: '1.1rem', margin: 0 }}>Categorías</h3>
             </div>
-          ))}
+            
+            <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+              <li>
+                <button
+                  className="btn"
+                  style={{ 
+                    width: '100%', textAlign: 'left', padding: '0.75rem 1rem', 
+                    background: activeCategory === 'Todos' ? 'rgba(228, 71, 46, 0.1)' : 'transparent',
+                    borderLeft: activeCategory === 'Todos' ? '3px solid var(--accent-color)' : '3px solid transparent',
+                    color: activeCategory === 'Todos' ? '#fff' : 'var(--text-muted)'
+                  }}
+                  onClick={() => setActiveCategory('Todos')}
+                >
+                  Ver Todos
+                </button>
+              </li>
+              {mainCategories.map(cat => (
+                <li key={cat.id}>
+                  <button
+                    className="btn"
+                    style={{ 
+                      width: '100%', textAlign: 'left', padding: '0.75rem 1rem', 
+                      background: activeCategory === cat.name ? 'rgba(228, 71, 46, 0.1)' : 'transparent',
+                      borderLeft: activeCategory === cat.name ? '3px solid var(--accent-color)' : '3px solid transparent',
+                      color: activeCategory === cat.name ? '#fff' : 'var(--text-muted)'
+                    }}
+                    onClick={() => setActiveCategory(cat.name)}
+                  >
+                    {cat.name}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </aside>
+
+          {/* Product Grid */}
+          <div style={{ flexGrow: 1 }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2rem' }}>
+              <h2 style={{ fontSize: '1.5rem', margin: 0 }}>{activeCategory}</h2>
+              <span className="text-muted" style={{ fontSize: '0.9rem' }}>{filteredProducts.length} productos</span>
+            </div>
+
+            {filteredProducts.length === 0 ? (
+              <div style={{ textAlign: 'center', padding: '4rem', background: 'var(--bg-secondary)', borderRadius: 'var(--radius-lg)' }}>
+                <p className="text-muted">No se encontraron productos en esta categoría.</p>
+              </div>
+            ) : (
+              <div className="grid" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '2rem' }}>
+                {filteredProducts.map(p => (
+                  <ProductCard key={p.id} product={p} />
+                ))}
+              </div>
+            )}
+          </div>
+
         </div>
       </div>
     </div>
