@@ -35,7 +35,7 @@ export default function Home() {
               </p>
               <div style={{ display: 'flex', gap: '1rem' }}>
                 <a href="#catalogo" className="btn btn-primary" onClick={(e) => { e.preventDefault(); document.getElementById('catalogo').scrollIntoView({ behavior: 'smooth' }); }} style={{ padding: '1rem 2rem' }}>Ver Catálogo</a>
-                <Link to="/contacto" className="btn btn-outline" style={{ padding: '1rem 2rem' }}>Contactar Ventas</Link>
+                <Link to="/contacto" className="btn btn-outline" style={{ padding: '1rem 2rem' }}>Agendar Reunión</Link>
               </div>
             </div>
 
@@ -64,7 +64,7 @@ export default function Home() {
         <div className="container">
           <div className="grid grid-cols-2" style={{ alignItems: 'center', gap: '4rem' }}>
             <div>
-              <span className="badge">Nuestra Esencia</span>
+              <span className="badge">Puntos Clave</span>
               <h2 className="heading-lg" style={{ marginTop: '1rem', lineHeight: '1.2' }}>No somos solo fabricantes.<br/><span className="text-accent">Somos sus socios estratégicos.</span></h2>
               <p className="text-muted" style={{ fontSize: '1.1rem', margin: '1.5rem 0', lineHeight: '1.6' }}>
                 En <strong>MAD Packaging Industrial</strong> nos especializamos en entender y resolver los desafíos logísticos más complejos de su empresa. Fabricamos soluciones integrales de empaque que no solo protegen su mercadería, sino que <strong>reducen sus costos operativos</strong> y aumentan la velocidad de sus despachos.
@@ -87,16 +87,16 @@ export default function Home() {
               </div>
             </div>
             
-            <div className="hook-cards" style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-              <div className="card" style={{ padding: '2rem', background: 'linear-gradient(145deg, rgba(3,3,5,0.8), rgba(228, 71, 46, 0.05))', border: '1px solid rgba(228, 71, 46, 0.2)' }}>
-                <h3 className="text-accent" style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>+15 Años</h3>
-                <p style={{ fontWeight: 'bold', fontSize: '1.1rem' }}>Liderando el sector del empaque</p>
-                <p className="text-muted" style={{ fontSize: '0.9rem', marginTop: '0.5rem' }}>Trayectoria comprobable abasteciendo a las industrias más exigentes del país.</p>
+            <div className="hook-cards" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
+              <div className="card" style={{ padding: '1.5rem', background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.05)', textAlign: 'center' }}>
+                <h3 className="text-accent" style={{ fontSize: '1.5rem', marginBottom: '0.5rem' }}>+15 Años</h3>
+                <p style={{ fontWeight: '600', fontSize: '0.9rem', color: '#fff' }}>Liderando el sector</p>
+                <p className="text-muted" style={{ fontSize: '0.8rem', marginTop: '0.5rem' }}>Trayectoria comprobable abasteciendo a industrias exigentes.</p>
               </div>
-              <div className="card" style={{ padding: '2rem', background: 'linear-gradient(145deg, rgba(3,3,5,0.8), rgba(0, 191, 165, 0.05))', border: '1px solid rgba(0, 191, 165, 0.2)' }}>
-                <h3 className="text-teal" style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>500 Toneladas</h3>
-                <p style={{ fontWeight: 'bold', fontSize: '1.1rem' }}>Capacidad productiva mensual</p>
-                <p className="text-muted" style={{ fontSize: '0.9rem', marginTop: '0.5rem' }}>Stock permanente para garantizar que su línea de producción jamás se detenga.</p>
+              <div className="card" style={{ padding: '1.5rem', background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.05)', textAlign: 'center' }}>
+                <h3 className="text-teal" style={{ fontSize: '1.5rem', marginBottom: '0.5rem' }}>500 Tn</h3>
+                <p style={{ fontWeight: '600', fontSize: '0.9rem', color: '#fff' }}>Capacidad mensual</p>
+                <p className="text-muted" style={{ fontSize: '0.8rem', marginTop: '0.5rem' }}>Stock permanente para garantizar que su línea nunca pare.</p>
               </div>
             </div>
           </div>
@@ -110,7 +110,7 @@ export default function Home() {
             <Zap size={32} className="text-accent" />
             <h2 className="heading-lg" style={{ margin: 0 }}>Lanzamientos Novedosos</h2>
           </div>
-          <div className="grid grid-cols-3">
+          <div className="grid grid-cols-4">
             {newProducts.map(p => (
               <ProductCard key={`new-${p.id}`} product={p} />
             ))}
@@ -119,7 +119,7 @@ export default function Home() {
       </section>
 
       {/* Catálogo en Vivo (Zero Friction) */}
-      <section className="section" style={{ padding: '2rem 0 6rem' }}>
+      <section className="section" style={{ padding: '2rem 0 6rem' }} id="catalogo">
         <div className="container">
           <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
             <span className="badge">Catálogo Completo</span>
@@ -143,7 +143,7 @@ export default function Home() {
             ))}
           </div>
 
-          <div className="grid grid-cols-3">
+          <div className="grid grid-cols-4">
             {filteredProducts.map(p => (
               <ProductCard key={p.id} product={p} />
             ))}
