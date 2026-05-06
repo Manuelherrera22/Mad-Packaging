@@ -20,25 +20,39 @@ export default function Home() {
             {/* Left: Clear Copy */}
             <div className="hero-content text-left">
               <span className="badge" style={{ marginBottom: '1.5rem', animation: 'pulse-glow 2s infinite' }}>Calidad Garantizada</span>
-              <h1 className="heading-xl" style={{ fontSize: '4rem', lineHeight: '1.1', color: 'white' }}>
-                Fabricantes líderes en <span className="text-accent">Film Stretch</span> de alta calidad
+              <h1 className="heading-xl" style={{ fontSize: '3.5rem', lineHeight: '1.1', color: 'white' }}>
+                Soluciones completas en <span className="text-accent">embalaje industrial</span>
               </h1>
-              <p className="hero-subtitle text-muted" style={{ maxWidth: '600px', margin: '2rem 0', fontSize: '1.25rem' }}>
-                Producimos y proveemos soluciones integrales de embalaje industrial. Optimice sus costos y asegure su mercadería con nuestra tecnología de extrusión multicapa.
+              <p className="hero-subtitle text-muted" style={{ maxWidth: '600px', margin: '2rem 0', fontSize: '1.2rem', lineHeight: '1.6' }}>
+                Stretch Film, cintas adhesivas, flejes, cartón y más, para proteger y trasladar tus productos, garantizando su integridad en cada etapa.
               </p>
               <div style={{ display: 'flex', gap: '1rem' }}>
                 <a href="#catalogo" className="btn btn-primary" onClick={(e) => { e.preventDefault(); document.getElementById('catalogo').scrollIntoView({ behavior: 'smooth' }); }} style={{ padding: '1rem 2rem' }}>Ver Catálogo</a>
-                <Link to="/contacto" className="btn btn-outline" style={{ padding: '1rem 2rem' }}>Agendar Reunión</Link>
+                <Link to="/contacto" className="btn btn-outline" style={{ padding: '1rem 2rem' }}>Contactar</Link>
               </div>
             </div>
 
-            {/* Right: Direct Product Image */}
-            <div className="hero-image-wrapper animate-fade-in" style={{ position: 'relative' }}>
-              <div style={{ position: 'absolute', top: '-10%', right: '-10%', width: '120%', height: '120%', background: 'radial-gradient(circle, rgba(228,71,46,0.2) 0%, transparent 70%)', zIndex: -1 }}></div>
+            {/* Right: Floating Product Images */}
+            <div className="hero-image-wrapper animate-fade-in" style={{ position: 'relative', height: '420px' }}>
+              <div style={{ position: 'absolute', top: '-10%', right: '-10%', width: '120%', height: '120%', background: 'radial-gradient(circle, rgba(228,71,46,0.15) 0%, transparent 70%)', zIndex: -1 }}></div>
+              
+              {/* Film Stretch - main */}
               <img 
-                src="https://images.unsplash.com/photo-1587293852726-70cdb56c2866?q=80&w=800" 
-                alt="Rollos de Film Stretch Industrial" 
-                style={{ width: '100%', borderRadius: 'var(--radius-lg)', boxShadow: '0 20px 40px rgba(0,0,0,0.5)', border: '1px solid rgba(255,255,255,0.1)', transform: 'perspective(1000px) rotateY(-5deg)' }} 
+                src="/img/film_stretch.png" 
+                alt="Film Stretch" 
+                style={{ position: 'absolute', top: '5%', left: '10%', width: '220px', borderRadius: 'var(--radius-lg)', boxShadow: '0 20px 40px rgba(0,0,0,0.5)', border: '1px solid rgba(255,255,255,0.1)', transform: 'rotate(-5deg)', animation: 'float 6s ease-in-out infinite', zIndex: 3 }} 
+              />
+              {/* Cintas Adhesivas */}
+              <img 
+                src="/img/cintas_adhesivas.png" 
+                alt="Cintas Adhesivas" 
+                style={{ position: 'absolute', top: '35%', right: '5%', width: '180px', borderRadius: 'var(--radius-lg)', boxShadow: '0 15px 30px rgba(0,0,0,0.4)', border: '1px solid rgba(255,255,255,0.08)', transform: 'rotate(3deg)', animation: 'float 6s ease-in-out 1s infinite', zIndex: 2 }} 
+              />
+              {/* Bolsas/Cartón */}
+              <img 
+                src="/img/bolsas_industriales.png" 
+                alt="Embalaje Industrial" 
+                style={{ position: 'absolute', bottom: '5%', left: '25%', width: '160px', borderRadius: 'var(--radius-lg)', boxShadow: '0 12px 24px rgba(0,0,0,0.4)', border: '1px solid rgba(255,255,255,0.06)', transform: 'rotate(-2deg)', animation: 'float 6s ease-in-out 2s infinite', zIndex: 1 }} 
               />
             </div>
           </div>

@@ -182,3 +182,12 @@
     grid-column: span 1 !important;
   }
 }
+
+/* ═══════════════════════════════════════════════════════════════
+   FLOATING PRODUCT ANIMATION
+   ═══════════════════════════════════════════════════════════════ */
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(var(--float-rotation, -5deg)); }
+  50% { transform: translateY(-15px) rotate(var(--float-rotation, -5deg)); }
+}

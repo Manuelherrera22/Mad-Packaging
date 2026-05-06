@@ -36,11 +36,11 @@ export default function Footer() {
               </li>
               <li>
                 <Phone size={20} className="text-accent" />
-                <span>+54 9 11 1234-5678</span>
+                <span>5263-3648</span>
               </li>
               <li>
                 <Mail size={20} className="text-accent" />
-                <span>ventas@madpackaging.com</span>
+                <span>ventas@madpackaging.com.ar</span>
               </li>
             </ul>
           </div>

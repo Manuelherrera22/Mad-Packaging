@@ -12,8 +12,8 @@ export default function Navbar() {
       <div className="top-bar">
         <div className="container">
           <div className="top-bar-info">
-            <span><Phone size={12} className="text-accent"/> +54 9 11 1234-5678</span>
-            <span><Mail size={12} className="text-accent"/> ventas@madpackaging.com</span>
+            <span><Phone size={12} className="text-accent"/> 5263-3648</span>
+            <span><Mail size={12} className="text-accent"/> ventas@madpackaging.com.ar</span>
           </div>
           <div className="top-bar-socials hidden md:flex">
             <a href="https://linkedin.com" target="_blank" rel="noreferrer" aria-label="LinkedIn" style={{fontWeight: 'bold', fontSize: '14px'}}>in</a>
