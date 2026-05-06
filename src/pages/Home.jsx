@@ -33,33 +33,33 @@ export default function Home() {
             </div>
 
             {/* Right: Organized Product Showcase */}
-            <div className="hero-image-wrapper animate-fade-in" style={{ position: 'relative', display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+            <div className="hero-image-wrapper animate-fade-in" style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
               {/* Top row: 2 images side by side */}
-              <div style={{ display: 'flex', gap: '1.25rem' }}>
-                <div style={{ flex: 1, borderRadius: 'var(--radius-lg)', overflow: 'hidden', boxShadow: '0 16px 40px rgba(0,0,0,0.4)', border: '1px solid rgba(255,255,255,0.08)', animation: 'float 6s ease-in-out infinite' }}>
-                  <img src="/img/film_stretch.png" alt="Film Stretch" style={{ width: '100%', height: '200px', objectFit: 'cover', display: 'block' }} />
-                  <div style={{ background: 'rgba(15,15,18,0.9)', padding: '0.75rem 1rem', backdropFilter: 'blur(8px)' }}>
-                    <span style={{ fontSize: '0.75rem', color: 'var(--accent-color)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em' }}>Línea Principal</span>
-                    <p style={{ fontSize: '0.9rem', fontWeight: 600, color: '#fff', margin: '0.15rem 0 0' }}>Film Stretch</p>
+              <div style={{ display: 'flex', gap: '0.75rem' }}>
+                <div style={{ flex: 1, borderRadius: '12px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.08)' }}>
+                  <img src="/img/film_stretch.png" alt="Film Stretch" style={{ width: '100%', height: '180px', objectFit: 'cover', display: 'block' }} />
+                  <div style={{ background: 'rgba(10,10,12,0.95)', padding: '0.7rem 1rem' }}>
+                    <span style={{ fontSize: '0.65rem', color: 'var(--accent-color)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em' }}>Línea Principal</span>
+                    <p style={{ fontSize: '0.85rem', fontWeight: 600, color: '#fff', margin: '0.1rem 0 0' }}>Film Stretch</p>
                   </div>
                 </div>
-                <div style={{ flex: 1, borderRadius: 'var(--radius-lg)', overflow: 'hidden', boxShadow: '0 16px 40px rgba(0,0,0,0.4)', border: '1px solid rgba(255,255,255,0.08)', animation: 'float 6s ease-in-out 1s infinite' }}>
-                  <img src="/img/cintas_adhesivas.png" alt="Cintas Adhesivas" style={{ width: '100%', height: '200px', objectFit: 'cover', display: 'block' }} />
-                  <div style={{ background: 'rgba(15,15,18,0.9)', padding: '0.75rem 1rem', backdropFilter: 'blur(8px)' }}>
-                    <span style={{ fontSize: '0.75rem', color: 'var(--teal)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em' }}>Complementarios</span>
-                    <p style={{ fontSize: '0.9rem', fontWeight: 600, color: '#fff', margin: '0.15rem 0 0' }}>Cintas Adhesivas</p>
+                <div style={{ flex: 1, borderRadius: '12px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.08)' }}>
+                  <img src="/img/cintas_adhesivas.png" alt="Cintas Adhesivas" style={{ width: '100%', height: '180px', objectFit: 'cover', display: 'block' }} />
+                  <div style={{ background: 'rgba(10,10,12,0.95)', padding: '0.7rem 1rem' }}>
+                    <span style={{ fontSize: '0.65rem', color: 'var(--teal)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em' }}>Complementarios</span>
+                    <p style={{ fontSize: '0.85rem', fontWeight: 600, color: '#fff', margin: '0.1rem 0 0' }}>Cintas Adhesivas</p>
                   </div>
                 </div>
               </div>
-              {/* Bottom row: 1 wider image centered */}
-              <div style={{ borderRadius: 'var(--radius-lg)', overflow: 'hidden', boxShadow: '0 16px 40px rgba(0,0,0,0.4)', border: '1px solid rgba(255,255,255,0.08)', animation: 'float 6s ease-in-out 2s infinite' }}>
-                <img src="/img/bolsas_industriales.png" alt="Embalaje Industrial" style={{ width: '100%', height: '160px', objectFit: 'cover', display: 'block' }} />
-                <div style={{ background: 'rgba(15,15,18,0.9)', padding: '0.75rem 1rem', backdropFilter: 'blur(8px)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              {/* Bottom row */}
+              <div style={{ borderRadius: '12px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.08)' }}>
+                <img src="/img/bolsas_industriales.png" alt="Embalaje Industrial" style={{ width: '100%', height: '140px', objectFit: 'cover', display: 'block' }} />
+                <div style={{ background: 'rgba(10,10,12,0.95)', padding: '0.7rem 1rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                   <div>
-                    <span style={{ fontSize: '0.75rem', color: 'var(--steel-blue)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em' }}>Protección</span>
-                    <p style={{ fontSize: '0.9rem', fontWeight: 600, color: '#fff', margin: '0.15rem 0 0' }}>Bolsas y Cartón Corrugado</p>
+                    <span style={{ fontSize: '0.65rem', color: 'var(--steel-blue)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em' }}>Protección</span>
+                    <p style={{ fontSize: '0.85rem', fontWeight: 600, color: '#fff', margin: '0.1rem 0 0' }}>Bolsas y Cartón Corrugado</p>
                   </div>
-                  <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)', border: '1px solid var(--border-color)', padding: '0.25rem 0.75rem', borderRadius: '100px' }}>+20 productos</span>
+                  <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', border: '1px solid var(--border-color)', padding: '0.2rem 0.6rem', borderRadius: '100px' }}>+20 productos</span>
                 </div>
               </div>
             </div>
