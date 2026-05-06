@@ -32,28 +32,36 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Right: Floating Product Images */}
-            <div className="hero-image-wrapper animate-fade-in" style={{ position: 'relative', height: '420px' }}>
-              <div style={{ position: 'absolute', top: '-10%', right: '-10%', width: '120%', height: '120%', background: 'radial-gradient(circle, rgba(228,71,46,0.15) 0%, transparent 70%)', zIndex: -1 }}></div>
-              
-              {/* Film Stretch - main */}
-              <img 
-                src="/img/film_stretch.png" 
-                alt="Film Stretch" 
-                style={{ position: 'absolute', top: '5%', left: '10%', width: '220px', borderRadius: 'var(--radius-lg)', boxShadow: '0 20px 40px rgba(0,0,0,0.5)', border: '1px solid rgba(255,255,255,0.1)', transform: 'rotate(-5deg)', animation: 'float 6s ease-in-out infinite', zIndex: 3 }} 
-              />
-              {/* Cintas Adhesivas */}
-              <img 
-                src="/img/cintas_adhesivas.png" 
-                alt="Cintas Adhesivas" 
-                style={{ position: 'absolute', top: '35%', right: '5%', width: '180px', borderRadius: 'var(--radius-lg)', boxShadow: '0 15px 30px rgba(0,0,0,0.4)', border: '1px solid rgba(255,255,255,0.08)', transform: 'rotate(3deg)', animation: 'float 6s ease-in-out 1s infinite', zIndex: 2 }} 
-              />
-              {/* Bolsas/Cartón */}
-              <img 
-                src="/img/bolsas_industriales.png" 
-                alt="Embalaje Industrial" 
-                style={{ position: 'absolute', bottom: '5%', left: '25%', width: '160px', borderRadius: 'var(--radius-lg)', boxShadow: '0 12px 24px rgba(0,0,0,0.4)', border: '1px solid rgba(255,255,255,0.06)', transform: 'rotate(-2deg)', animation: 'float 6s ease-in-out 2s infinite', zIndex: 1 }} 
-              />
+            {/* Right: Organized Product Showcase */}
+            <div className="hero-image-wrapper animate-fade-in" style={{ position: 'relative', display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+              {/* Top row: 2 images side by side */}
+              <div style={{ display: 'flex', gap: '1.25rem' }}>
+                <div style={{ flex: 1, borderRadius: 'var(--radius-lg)', overflow: 'hidden', boxShadow: '0 16px 40px rgba(0,0,0,0.4)', border: '1px solid rgba(255,255,255,0.08)', animation: 'float 6s ease-in-out infinite' }}>
+                  <img src="/img/film_stretch.png" alt="Film Stretch" style={{ width: '100%', height: '200px', objectFit: 'cover', display: 'block' }} />
+                  <div style={{ background: 'rgba(15,15,18,0.9)', padding: '0.75rem 1rem', backdropFilter: 'blur(8px)' }}>
+                    <span style={{ fontSize: '0.75rem', color: 'var(--accent-color)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em' }}>Línea Principal</span>
+                    <p style={{ fontSize: '0.9rem', fontWeight: 600, color: '#fff', margin: '0.15rem 0 0' }}>Film Stretch</p>
+                  </div>
+                </div>
+                <div style={{ flex: 1, borderRadius: 'var(--radius-lg)', overflow: 'hidden', boxShadow: '0 16px 40px rgba(0,0,0,0.4)', border: '1px solid rgba(255,255,255,0.08)', animation: 'float 6s ease-in-out 1s infinite' }}>
+                  <img src="/img/cintas_adhesivas.png" alt="Cintas Adhesivas" style={{ width: '100%', height: '200px', objectFit: 'cover', display: 'block' }} />
+                  <div style={{ background: 'rgba(15,15,18,0.9)', padding: '0.75rem 1rem', backdropFilter: 'blur(8px)' }}>
+                    <span style={{ fontSize: '0.75rem', color: 'var(--teal)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em' }}>Complementarios</span>
+                    <p style={{ fontSize: '0.9rem', fontWeight: 600, color: '#fff', margin: '0.15rem 0 0' }}>Cintas Adhesivas</p>
+                  </div>
+                </div>
+              </div>
+              {/* Bottom row: 1 wider image centered */}
+              <div style={{ borderRadius: 'var(--radius-lg)', overflow: 'hidden', boxShadow: '0 16px 40px rgba(0,0,0,0.4)', border: '1px solid rgba(255,255,255,0.08)', animation: 'float 6s ease-in-out 2s infinite' }}>
+                <img src="/img/bolsas_industriales.png" alt="Embalaje Industrial" style={{ width: '100%', height: '160px', objectFit: 'cover', display: 'block' }} />
+                <div style={{ background: 'rgba(15,15,18,0.9)', padding: '0.75rem 1rem', backdropFilter: 'blur(8px)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <div>
+                    <span style={{ fontSize: '0.75rem', color: 'var(--steel-blue)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em' }}>Protección</span>
+                    <p style={{ fontSize: '0.9rem', fontWeight: 600, color: '#fff', margin: '0.15rem 0 0' }}>Bolsas y Cartón Corrugado</p>
+                  </div>
+                  <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)', border: '1px solid var(--border-color)', padding: '0.25rem 0.75rem', borderRadius: '100px' }}>+20 productos</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
