@@ -24,7 +24,7 @@ export default function Home() {
                 Soluciones completas en <span className="text-accent">embalaje industrial</span>
               </h1>
               <p className="hero-subtitle text-muted" style={{ maxWidth: '600px', margin: '2rem 0', fontSize: '1.2rem', lineHeight: '1.6' }}>
-                Stretch Film, cintas adhesivas, flejes, cartón y más, para proteger y trasladar tus productos, garantizando su integridad en cada etapa.
+                Stretch film, cintas adhesivas, flejes, esquineros, pluribol, cartón y mucho más. Nos ocupamos de brindarte lo necesario para proteger y trasladar tus productos, garantizando su integridad en cada etapa.
               </p>
               <div style={{ display: 'flex', gap: '1rem' }}>
                 <a href="#catalogo" className="btn btn-primary" onClick={(e) => { e.preventDefault(); document.getElementById('catalogo').scrollIntoView({ behavior: 'smooth' }); }} style={{ padding: '1rem 2rem' }}>Ver Catálogo</a>
@@ -37,30 +37,15 @@ export default function Home() {
               {/* Top row: 2 images side by side */}
               <div style={{ display: 'flex', gap: '0.75rem' }}>
                 <div style={{ flex: 1, borderRadius: '12px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.08)' }}>
-                  <img src="/img/film_stretch.png" alt="Film Stretch" style={{ width: '100%', height: '180px', objectFit: 'cover', display: 'block' }} />
-                  <div style={{ background: 'rgba(10,10,12,0.95)', padding: '0.7rem 1rem' }}>
-                    <span style={{ fontSize: '0.65rem', color: 'var(--accent-color)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em' }}>Línea Principal</span>
-                    <p style={{ fontSize: '0.85rem', fontWeight: 600, color: '#fff', margin: '0.1rem 0 0' }}>Film Stretch</p>
-                  </div>
+                  <img src="/img/film_stretch.png" alt="Film Stretch" style={{ width: '100%', height: '240px', objectFit: 'cover', display: 'block' }} />
                 </div>
                 <div style={{ flex: 1, borderRadius: '12px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.08)' }}>
-                  <img src="/img/cintas_adhesivas.png" alt="Cintas Adhesivas" style={{ width: '100%', height: '180px', objectFit: 'cover', display: 'block' }} />
-                  <div style={{ background: 'rgba(10,10,12,0.95)', padding: '0.7rem 1rem' }}>
-                    <span style={{ fontSize: '0.65rem', color: 'var(--teal)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em' }}>Complementarios</span>
-                    <p style={{ fontSize: '0.85rem', fontWeight: 600, color: '#fff', margin: '0.1rem 0 0' }}>Cintas Adhesivas</p>
-                  </div>
+                  <img src="/img/cintas_adhesivas.png" alt="Cintas Adhesivas" style={{ width: '100%', height: '240px', objectFit: 'cover', display: 'block' }} />
                 </div>
               </div>
               {/* Bottom row */}
               <div style={{ borderRadius: '12px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.08)' }}>
-                <img src="/img/bolsas_industriales.png" alt="Embalaje Industrial" style={{ width: '100%', height: '140px', objectFit: 'cover', display: 'block' }} />
-                <div style={{ background: 'rgba(10,10,12,0.95)', padding: '0.7rem 1rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                  <div>
-                    <span style={{ fontSize: '0.65rem', color: 'var(--steel-blue)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em' }}>Protección</span>
-                    <p style={{ fontSize: '0.85rem', fontWeight: 600, color: '#fff', margin: '0.1rem 0 0' }}>Bolsas y Cartón Corrugado</p>
-                  </div>
-                  <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', border: '1px solid var(--border-color)', padding: '0.2rem 0.6rem', borderRadius: '100px' }}>+20 productos</span>
-                </div>
+                <img src="/img/bolsas_industriales.png" alt="Embalaje Industrial" style={{ width: '100%', height: '190px', objectFit: 'cover', display: 'block' }} />
               </div>
             </div>
           </div>
@@ -70,7 +55,7 @@ export default function Home() {
       {/* 48hs Delivery Emphasis Banner */}
       <div className="delivery-banner">
         <Timer size={40} className="text-teal" />
-        <span className="delivery-text text-white">ENTREGA INMEDIATA EN <span className="text-teal">48 HORAS</span> PARA ZONAS INDUSTRIALES</span>
+        <span className="delivery-text text-white" style={{ fontSize: '1.25rem' }}>Entrega rápida en CABA y GBA. Despachamos al interior. <span className="text-teal">Recibí tu pedido hoy o en un máximo de 48 horas.</span></span>
         <Truck size={40} className="text-teal" />
       </div>
 
@@ -80,38 +65,33 @@ export default function Home() {
           <div className="grid grid-cols-2" style={{ alignItems: 'center', gap: '4rem' }}>
             <div>
               <span className="badge">Puntos Clave</span>
-              <h2 className="heading-lg" style={{ marginTop: '1rem', lineHeight: '1.2' }}>No somos solo fabricantes.<br/><span className="text-accent">Somos sus socios estratégicos.</span></h2>
+              <h2 className="heading-lg" style={{ marginTop: '1rem', lineHeight: '1.2' }}>No vendemos solo productos.<br/><span className="text-accent">Impulsamos la eficiencia de su operación.</span></h2>
               <p className="text-muted" style={{ fontSize: '1.1rem', margin: '1.5rem 0', lineHeight: '1.6' }}>
-                En <strong>MAD Packaging Industrial</strong> nos especializamos en entender y resolver los desafíos logísticos más complejos de su empresa. Fabricamos soluciones integrales de empaque que no solo protegen su mercadería, sino que <strong>reducen sus costos operativos</strong> y aumentan la velocidad de sus despachos.
+                En <strong>MAD Packaging</strong> combinamos stock permanente, asesoramiento técnico y soluciones integrales de embalaje para reducir costos, optimizar procesos y asegurar continuidad operativa.
               </p>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginTop: '2rem' }}>
                 <div style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
                   <ShieldCheck className="text-accent" size={24} style={{ flexShrink: 0, marginTop: '0.2rem' }} />
                   <div>
-                    <h4 style={{ fontSize: '1.1rem', marginBottom: '0.25rem' }}>Fabricación de Alto Rendimiento</h4>
-                    <p className="text-muted" style={{ fontSize: '0.9rem' }}>Nuestros films de extrusión multicapa garantizan una elongación superior al 300%.</p>
+                    <h4 style={{ fontSize: '1.1rem', marginBottom: '0.25rem' }}>Calidad Garantizada</h4>
+                    <p className="text-muted" style={{ fontSize: '0.9rem' }}>Todos nuestros productos cumplen con estándares rigurosos, asegurando durabilidad y rendimiento óptimo.</p>
                   </div>
                 </div>
                 <div style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
-                  <Zap className="text-teal" size={24} style={{ flexShrink: 0, marginTop: '0.2rem' }} />
+                  <ShieldCheck className="text-teal" size={24} style={{ flexShrink: 0, marginTop: '0.2rem' }} />
                   <div>
-                    <h4 style={{ fontSize: '1.1rem', marginBottom: '0.25rem' }}>Asesoría Técnica en Planta</h4>
-                    <p className="text-muted" style={{ fontSize: '0.9rem' }}>Auditamos su proceso de empaque para recomendar el micronaje exacto, evitando desperdicios.</p>
+                    <h4 style={{ fontSize: '1.1rem', marginBottom: '0.25rem' }}>Garantía de Satisfacción</h4>
+                    <p className="text-muted" style={{ fontSize: '0.9rem' }}>Respaldamos cada entrega, asegurándonos de que cada cliente reciba exactamente lo que necesita, sin sorpresas.</p>
                   </div>
                 </div>
               </div>
             </div>
             
-            <div className="hook-cards" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
-              <div className="card" style={{ padding: '1.5rem', background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.05)', textAlign: 'center' }}>
-                <h3 className="text-accent" style={{ fontSize: '1.5rem', marginBottom: '0.5rem' }}>+15 Años</h3>
-                <p style={{ fontWeight: '600', fontSize: '0.9rem', color: '#fff' }}>Liderando el sector</p>
-                <p className="text-muted" style={{ fontSize: '0.8rem', marginTop: '0.5rem' }}>Trayectoria comprobable abasteciendo a industrias exigentes.</p>
-              </div>
-              <div className="card" style={{ padding: '1.5rem', background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.05)', textAlign: 'center' }}>
-                <h3 className="text-teal" style={{ fontSize: '1.5rem', marginBottom: '0.5rem' }}>500 Tn</h3>
-                <p style={{ fontWeight: '600', fontSize: '0.9rem', color: '#fff' }}>Capacidad mensual</p>
-                <p className="text-muted" style={{ fontSize: '0.8rem', marginTop: '0.5rem' }}>Stock permanente para garantizar que su línea nunca pare.</p>
+            <div className="hook-cards" style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '1.5rem' }}>
+              <div className="card" style={{ padding: '2.5rem 1.5rem', background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.05)', textAlign: 'center' }}>
+                <h3 className="text-accent" style={{ fontSize: '2.5rem', marginBottom: '0.5rem' }}>+15 Años</h3>
+                <p style={{ fontWeight: '600', fontSize: '1.2rem', color: '#fff' }}>brindando soluciones en embalaje</p>
+                <p className="text-muted" style={{ fontSize: '0.9rem', marginTop: '0.5rem' }}>Trayectoria comprobable abasteciendo a industrias exigentes.</p>
               </div>
             </div>
           </div>
