@@ -37,15 +37,15 @@ export default function Home() {
               {/* Top row: 2 images side by side */}
               <div style={{ display: 'flex', gap: '0.75rem' }}>
                 <div style={{ flex: 1, borderRadius: '12px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.08)' }}>
-                  <img src="/img/film_stretch.png" alt="Film Stretch" style={{ width: '100%', height: '240px', objectFit: 'cover', display: 'block' }} />
+                  <img src="/img/film_stretch_1.jpg" alt="Film Stretch" style={{ width: '100%', height: '240px', objectFit: 'cover', display: 'block' }} />
                 </div>
                 <div style={{ flex: 1, borderRadius: '12px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.08)' }}>
-                  <img src="/img/cintas_adhesivas.png" alt="Cintas Adhesivas" style={{ width: '100%', height: '240px', objectFit: 'cover', display: 'block' }} />
+                  <img src="/img/cinta_torre.jpg" alt="Cintas Adhesivas" style={{ width: '100%', height: '240px', objectFit: 'cover', display: 'block' }} />
                 </div>
               </div>
               {/* Bottom row */}
               <div style={{ borderRadius: '12px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.08)' }}>
-                <img src="/img/bolsas_industriales.png" alt="Embalaje Industrial" style={{ width: '100%', height: '190px', objectFit: 'cover', display: 'block' }} />
+                <img src="/img/film_stretch_2.jpg" alt="Embalaje Industrial" style={{ width: '100%', height: '190px', objectFit: 'cover', display: 'block' }} />
               </div>
             </div>
           </div>
@@ -127,7 +127,7 @@ export default function Home() {
           <div className="grid grid-cols-3">
             {mainCategories.map(cat => (
               <Link to={`/productos?categoria=${encodeURIComponent(cat.name)}`} key={cat.id} className="card text-left" style={{ cursor: 'pointer', textDecoration: 'none' }}>
-                <div className="card-img-wrapper" style={{ height: '200px' }}>
+                <div className="card-img-wrapper">
                   <img src={cat.img} alt={cat.name} loading="lazy" />
                 </div>
                 <div className="card-content">

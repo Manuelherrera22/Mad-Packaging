@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo } from 'react';
-import { ChevronRight, ShoppingCart, Check, Filter } from 'lucide-react';
+import { ChevronRight, ShoppingCart, Check, Filter, Search, LayoutGrid, List } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import { products, mainCategories } from '../data/products';
@@ -39,6 +39,9 @@ function AddToCartButton({ product }) {
 export default function Catalogo() {
   const location = useLocation();
   const [activeCategory, setActiveCategory] = useState('Todos');
+  const [activeSubcategory, setActiveSubcategory] = useState('Todas');
+  const [searchQuery, setSearchQuery] = useState('');
+  const [viewMode, setViewMode] = useState('grid'); // 'grid' o 'list'
 
   // Inicializar categoría basada en la URL (ej: /catalogo?categoria=Film%20Stretch)
   useEffect(() => {
@@ -49,10 +52,36 @@ export default function Catalogo() {
     }
   }, [location]);
 
-  const filteredProducts = useMemo(() => {
-    if (activeCategory === 'Todos') return products;
-    return products.filter(p => p.category === activeCategory);
+  const handleCategoryChange = (cat) => {
+    setActiveCategory(cat);
+    setActiveSubcategory('Todas'); // Reset subcategory when changing main category
+  };
+
+  const currentSubcategories = useMemo(() => {
+    if (activeCategory === 'Todos') return [];
+    const catProducts = products.filter(p => p.category === activeCategory);
+    const subs = new Set(catProducts.map(p => p.subcategory).filter(Boolean));
+    return Array.from(subs);
   }, [activeCategory]);
+
+  const filteredProducts = useMemo(() => {
+    let result = products;
+    if (activeCategory !== 'Todos') {
+      result = result.filter(p => p.category === activeCategory);
+    }
+    if (activeSubcategory !== 'Todas') {
+      result = result.filter(p => p.subcategory === activeSubcategory);
+    }
+    if (searchQuery) {
+      const q = searchQuery.toLowerCase();
+      result = result.filter(p => 
+        p.title.toLowerCase().includes(q) || 
+        p.desc.toLowerCase().includes(q) || 
+        (p.medidas && p.medidas.toLowerCase().includes(q))
+      );
+    }
+    return result;
+  }, [activeCategory, activeSubcategory, searchQuery]);
 
   return (
     <div className="animate-fade-in" style={{ paddingTop: '80px', paddingBottom: '4rem', minHeight: '100vh', background: 'var(--bg-primary)' }}>
@@ -82,7 +111,7 @@ export default function Catalogo() {
                     borderLeft: activeCategory === 'Todos' ? '3px solid var(--accent-color)' : '3px solid transparent',
                     color: activeCategory === 'Todos' ? '#fff' : 'var(--text-muted)'
                   }}
-                  onClick={() => setActiveCategory('Todos')}
+                  onClick={() => handleCategoryChange('Todos')}
                 >
                   Ver Todos
                 </button>
@@ -97,7 +126,7 @@ export default function Catalogo() {
                       borderLeft: activeCategory === cat.name ? '3px solid var(--accent-color)' : '3px solid transparent',
                       color: activeCategory === cat.name ? '#fff' : 'var(--text-muted)'
                     }}
-                    onClick={() => setActiveCategory(cat.name)}
+                    onClick={() => handleCategoryChange(cat.name)}
                   >
                     {cat.name}
                   </button>
@@ -108,17 +137,91 @@ export default function Catalogo() {
 
           {/* Product Grid */}
           <div style={{ flexGrow: 1 }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2rem' }}>
+            
+            {/* Top Toolbar: Search & View Toggle */}
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2rem', flexWrap: 'wrap', gap: '1rem' }}>
+              <div style={{ position: 'relative', flexGrow: 1, maxWidth: '400px' }}>
+                <Search size={18} className="text-muted" style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)' }} />
+                <input 
+                  type="text" 
+                  placeholder="Buscar productos (ej. Cinta de Papel)..." 
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  style={{ 
+                    width: '100%', padding: '0.75rem 1rem 0.75rem 2.5rem', 
+                    background: 'rgba(255,255,255,0.03)', border: '1px solid var(--border-color)', 
+                    borderRadius: 'var(--radius-md)', color: 'white', outline: 'none'
+                  }}
+                />
+              </div>
+
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <span className="text-muted" style={{ fontSize: '0.9rem', marginRight: '0.5rem' }}>Vista:</span>
+                <button 
+                  onClick={() => setViewMode('grid')}
+                  style={{ 
+                    padding: '0.5rem', borderRadius: 'var(--radius-sm)',
+                    background: viewMode === 'grid' ? 'rgba(255,255,255,0.1)' : 'transparent',
+                    color: viewMode === 'grid' ? 'white' : 'var(--text-muted)'
+                  }}
+                >
+                  <LayoutGrid size={20} />
+                </button>
+                <button 
+                  onClick={() => setViewMode('list')}
+                  style={{ 
+                    padding: '0.5rem', borderRadius: 'var(--radius-sm)',
+                    background: viewMode === 'list' ? 'rgba(255,255,255,0.1)' : 'transparent',
+                    color: viewMode === 'list' ? 'white' : 'var(--text-muted)'
+                  }}
+                >
+                  <List size={20} />
+                </button>
+              </div>
+            </div>
+
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
               <h2 style={{ fontSize: '1.5rem', margin: 0 }}>{activeCategory}</h2>
               <span className="text-muted" style={{ fontSize: '0.9rem' }}>{filteredProducts.length} productos</span>
             </div>
+
+            {/* Subcategory Filters */}
+            {currentSubcategories.length > 0 && (
+              <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '2rem', flexWrap: 'wrap' }}>
+                <button
+                  className={`badge ${activeSubcategory === 'Todas' ? 'active' : ''}`}
+                  style={{ 
+                    cursor: 'pointer', border: '1px solid var(--accent-color)',
+                    background: activeSubcategory === 'Todas' ? 'var(--accent-color)' : 'transparent',
+                    color: activeSubcategory === 'Todas' ? '#fff' : 'var(--accent-color)'
+                  }}
+                  onClick={() => setActiveSubcategory('Todas')}
+                >
+                  Todas
+                </button>
+                {currentSubcategories.map(sub => (
+                  <button
+                    key={sub}
+                    className={`badge ${activeSubcategory === sub ? 'active' : ''}`}
+                    style={{ 
+                      cursor: 'pointer', border: '1px solid var(--accent-color)',
+                      background: activeSubcategory === sub ? 'var(--accent-color)' : 'transparent',
+                      color: activeSubcategory === sub ? '#fff' : 'var(--accent-color)'
+                    }}
+                    onClick={() => setActiveSubcategory(sub)}
+                  >
+                    {sub}
+                  </button>
+                ))}
+              </div>
+            )}
 
             {filteredProducts.length === 0 ? (
               <div style={{ textAlign: 'center', padding: '4rem', background: 'var(--bg-secondary)', borderRadius: 'var(--radius-lg)' }}>
                 <p className="text-muted">No se encontraron productos en esta categoría.</p>
               </div>
             ) : (
-              <div className="grid" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '2rem' }}>
+              <div className={viewMode === 'grid' ? 'grid' : 'list-view-container'} style={viewMode === 'grid' ? { gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '2.5rem' } : {}}>
                 {filteredProducts.map(p => (
                   <ProductCard key={p.id} product={p} />
                 ))}

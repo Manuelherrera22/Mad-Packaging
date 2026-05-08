@@ -1,22 +1,22 @@
 export const products = [
   // --- FILM STRETCH ---
-  { id: 'fs-man-10', category: 'Film Stretch', subcategory: 'Manual', title: 'Film Stretch Manual', desc: 'Material Virgen de 10 cm, ideal para paquetes pequeños.', medidas: '10 cm', peso: '0,45 kg', cantCaja: '4', img: '/img/film_stretch.png' },
-  { id: 'fs-man-50', category: 'Film Stretch', subcategory: 'Manual', title: 'Film Stretch Manual', desc: 'Material Virgen de 50 cm para paletizado general.', medidas: '50 cm', peso: '4.5 kg / 5 kg', cantCaja: '4', img: '/img/film_stretch.png' },
-  { id: 'fs-auto-50', category: 'Film Stretch', subcategory: 'Automático', title: 'Film Stretch Automático', desc: 'Formulado para envolvedoras automáticas, elongación superior.', medidas: '50 cm', peso: '12 kg - 15 kg', cantCaja: '1', img: '/img/film_stretch.png' },
-  { id: 'fs-mango-10', category: 'Film Stretch', subcategory: 'Con Mango', title: 'Film Stretch con Mango', desc: 'Material Virgen de 10 cm con buje extendido para fácil aplicación.', medidas: '10 cm', peso: '0,5 kg', cantCaja: '25', img: '/img/film_stretch.png' },
-  { id: 'fs-mango-50', category: 'Film Stretch', subcategory: 'Con Mango', title: 'Film Stretch con Mango', desc: 'Material Virgen de 50 cm con buje extendido.', medidas: '50 cm', peso: '2.5 kg - 5 kg', cantCaja: '1 - 6', img: '/img/film_stretch.png' },
-  { id: 'fs-coreless-50', category: 'Film Stretch', subcategory: 'Coreless', title: 'Film Stretch Coreless', desc: '100% film, sin cartón. Ecológico y elimina el desperdicio del tubo.', medidas: '50 cm', peso: '4 kg', cantCaja: '4', img: '/img/film_stretch.png', isNew: true },
+  { id: 'fs-man-10', category: 'Film Stretch', subcategory: 'Manual', title: 'Film Stretch Manual', desc: 'Material Virgen de 10 cm, ideal para paquetes pequeños.', medidas: '10 cm', peso: '0,45 kg', cantCaja: '4', img: '/img/film_stretch_1.jpg' },
+  { id: 'fs-man-50', category: 'Film Stretch', subcategory: 'Manual', title: 'Film Stretch Manual', desc: 'Material Virgen de 50 cm para paletizado general.', medidas: '50 cm', peso: '4.5 kg / 5 kg', cantCaja: '4', img: '/img/film_stretch_2.jpg' },
+  { id: 'fs-auto-50', category: 'Film Stretch', subcategory: 'Automático', title: 'Film Stretch Automático', desc: 'Formulado para envolvedoras automáticas, elongación superior.', medidas: '50 cm', peso: '12 kg - 15 kg', cantCaja: '1', img: '/img/film_stretch_1.jpg' },
+  { id: 'fs-mango-10', category: 'Film Stretch', subcategory: 'Con Mango', title: 'Film Stretch con Mango', desc: 'Material Virgen de 10 cm con buje extendido para fácil aplicación.', medidas: '10 cm', peso: '0,5 kg', cantCaja: '25', img: '/img/film_mango.jpg' },
+  { id: 'fs-mango-50', category: 'Film Stretch', subcategory: 'Con Mango', title: 'Film Stretch con Mango', desc: 'Material Virgen de 50 cm con buje extendido.', medidas: '50 cm', peso: '2.5 kg - 5 kg', cantCaja: '1 - 6', img: '/img/film_mango.jpg' },
+  { id: 'fs-coreless-50', category: 'Film Stretch', subcategory: 'Coreless', title: 'Film Stretch Coreless', desc: '100% film, sin cartón. Ecológico y elimina el desperdicio del tubo.', medidas: '50 cm', peso: '4 kg', cantCaja: '4', img: '/img/film_stretch_2.jpg', isNew: true },
   
   // --- CINTAS ADHESIVAS ---
-  { id: 'ca-emb-48-100', category: 'Cintas Adhesivas', subcategory: 'Embalaje', title: 'Cinta de Embalar Polipropileno', desc: 'Cinta transparente/marrón para cierre de cajas.', medidas: '48mm x 100m', cantCaja: '36', img: '/img/cintas_adhesivas.png' },
-  { id: 'ca-emb-48-1000', category: 'Cintas Adhesivas', subcategory: 'Embalaje', title: 'Cinta de Embalar Automática', desc: 'Para máquinas precintadoras.', medidas: '48mm x 1000m', cantCaja: '6', img: '/img/cintas_adhesivas.png' },
-  { id: 'ca-fragil-48', category: 'Cintas Adhesivas', subcategory: 'Frágil', title: 'Cinta Adhesiva FRAGIL', desc: 'Cinta pre-impresa indicadora de mercancía frágil.', medidas: '48mm x 100m', cantCaja: '36', img: '/img/cintas_adhesivas.png' },
-  { id: 'ca-impres-48', category: 'Cintas Adhesivas', subcategory: 'Impresas', title: 'Cinta Impresa con Logo', desc: 'Fondo cristal/blanco/color con impresión hasta 4 colores.', medidas: '48mm x 100m', cantCaja: '36', img: '/img/cintas_adhesivas.png', isNew: true },
-  { id: 'ca-papel-48', category: 'Cintas Adhesivas', subcategory: 'Papel', title: 'Cinta de Papel Multiuso', desc: 'Para enmascarar y usos generales.', medidas: '48mm x 40m', cantCaja: '20', img: '/img/cintas_adhesivas.png' },
-  { id: 'ca-papel-alta-48', category: 'Cintas Adhesivas', subcategory: 'Papel', title: 'Cinta de Papel Alta Adherencia', desc: 'Para aplicaciones que requieren mayor fijación.', medidas: '48mm x 50m', cantCaja: '20', img: '/img/cintas_adhesivas.png' },
-  { id: 'ca-doble-48', category: 'Cintas Adhesivas', subcategory: 'Doble Faz', title: 'Cinta Doble Faz Papel', desc: 'Para montaje y fijación temporal.', medidas: '48mm x 30m', cantCaja: '20', img: '/img/cintas_adhesivas.png' },
-  { id: 'ca-especial-duct', category: 'Cintas Adhesivas', subcategory: 'Especiales', title: 'Cinta Duct Tape (Plata)', desc: 'Para reparaciones, sellado y sujeción fuerte.', medidas: '48mm x 25m', cantCaja: '10', img: '/img/cintas_adhesivas.png' },
-  { id: 'ca-especial-anti', category: 'Cintas Adhesivas', subcategory: 'Especiales', title: 'Cinta Antideslizante', desc: 'Para demarcación de zonas peligrosas o escalones.', medidas: '48mm x 50m', cantCaja: '18', img: '/img/cintas_adhesivas.png' },
+  { id: 'ca-emb-48-100', category: 'Cintas Adhesivas', subcategory: 'Embalaje', title: 'Cinta de Embalar Polipropileno', desc: 'Cinta transparente/marrón para cierre de cajas.', medidas: '48mm x 100m', cantCaja: '36', img: '/img/cinta_caja.jpg' },
+  { id: 'ca-emb-48-1000', category: 'Cintas Adhesivas', subcategory: 'Embalaje', title: 'Cinta de Embalar Automática', desc: 'Para máquinas precintadoras.', medidas: '48mm x 1000m', cantCaja: '6', img: '/img/cinta_torre.jpg' },
+  { id: 'ca-fragil-48', category: 'Cintas Adhesivas', subcategory: 'Frágil', title: 'Cinta Adhesiva FRAGIL', desc: 'Cinta pre-impresa indicadora de mercancía frágil.', medidas: '48mm x 100m', cantCaja: '36', img: '/img/cinta_caja.jpg' },
+  { id: 'ca-impres-48', category: 'Cintas Adhesivas', subcategory: 'Impresas', title: 'Cinta Impresa con Logo', desc: 'Fondo cristal/blanco/color con impresión hasta 4 colores.', medidas: '48mm x 100m', cantCaja: '36', img: '/img/cinta_torre.jpg', isNew: true },
+  { id: 'ca-papel-48', category: 'Cintas Adhesivas', subcategory: 'Papel', title: 'Cinta de Papel Multiuso', desc: 'Para enmascarar y usos generales.', medidas: '48mm x 40m', cantCaja: '20', img: '/img/cinta_caja.jpg' },
+  { id: 'ca-papel-alta-48', category: 'Cintas Adhesivas', subcategory: 'Papel', title: 'Cinta de Papel Alta Adherencia', desc: 'Para aplicaciones que requieren mayor fijación.', medidas: '48mm x 50m', cantCaja: '20', img: '/img/cinta_torre.jpg' },
+  { id: 'ca-doble-48', category: 'Cintas Adhesivas', subcategory: 'Doble Faz', title: 'Cinta Doble Faz Papel', desc: 'Para montaje y fijación temporal.', medidas: '48mm x 30m', cantCaja: '20', img: '/img/cinta_caja.jpg' },
+  { id: 'ca-especial-duct', category: 'Cintas Adhesivas', subcategory: 'Especiales', title: 'Cinta Duct Tape (Plata)', desc: 'Para reparaciones, sellado y sujeción fuerte.', medidas: '48mm x 25m', cantCaja: '10', img: '/img/cinta_torre.jpg' },
+  { id: 'ca-especial-anti', category: 'Cintas Adhesivas', subcategory: 'Especiales', title: 'Cinta Antideslizante', desc: 'Para demarcación de zonas peligrosas o escalones.', medidas: '48mm x 50m', cantCaja: '18', img: '/img/cinta_caja.jpg' },
   
   // --- FLEJES Y HEBILLAS ---
   { id: 'fl-negro', category: 'Flejes', subcategory: 'Plástico', title: 'Fleje Plástico Manual Negro', desc: 'Zuncho negro para asegurar cajas y pallets livianos.', medidas: '13mm, 16mm, 19mm', peso: '10 kg', img: '/img/flejes_hebillas.png' },
@@ -41,8 +41,8 @@ export const products = [
 ];
 
 export const mainCategories = [
-  { id: 'film-stretch', name: 'Film Stretch', desc: 'Manual, Automático, Coreless', img: '/img/film_stretch.png' },
-  { id: 'cintas-adhesivas', name: 'Cintas Adhesivas', desc: 'Embalaje, Impresas, Papel, Especiales', img: '/img/cintas_adhesivas.png' },
+  { id: 'film-stretch', name: 'Film Stretch', desc: 'Manual, Automático, Coreless', img: '/img/film_stretch_1.jpg' },
+  { id: 'cintas-adhesivas', name: 'Cintas Adhesivas', desc: 'Embalaje, Impresas, Papel, Especiales', img: '/img/cinta_caja.jpg' },
   { id: 'flejes', name: 'Flejes', desc: 'Plásticos Manuales y Automáticos', img: '/img/flejes_hebillas.png' },
   { id: 'carton-corrugado', name: 'Cartón Corrugado', desc: 'Rollos y Cajas a Medida', img: '/img/bolsas_industriales.png' }, // Usamos imagen disponible
   { id: 'proteccion-empaque', name: 'Protección y Empaque', desc: 'Esquineros, Burbujas, Cobertores', img: '/img/film_burbujas.png' },

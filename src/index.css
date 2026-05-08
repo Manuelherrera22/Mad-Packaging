@@ -57,11 +57,13 @@
   --bg-primary: #030305;
   --bg-secondary: #0a0b0e;
   --bg-tertiary: #121318;
+  --card-bg: rgba(20, 22, 28, 0.6);
   --text-primary: #ffffff;
   --text-secondary: #8c93a1;
 
   /* MAD Red — Primary CTA */
   --accent-color: #f14022;
+  --accent: #f14022;
   --accent-hover: #d2260a;
   --accent-glow: rgba(241, 64, 34, 0.45);
 
@@ -402,10 +404,63 @@ img {
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(228, 71, 46, 0.1);
 }
 
+/* List View Styles */
+.list-view-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.list-view-container .card {
+  flex-direction: row;
+  align-items: center;
+}
+
+.list-view-container .card-img-wrapper {
+  width: 250px;
+  height: 100%;
+  flex-shrink: 0;
+  border-right: 1px solid var(--border-color);
+}
+
+.list-view-container .card-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+}
+
+.list-view-container .tech-specs {
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+  .list-view-container .card {
+    flex-direction: column;
+  }
+  .list-view-container .card-img-wrapper {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid var(--border-color);
+  }
+  .list-view-container .tech-specs {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+
 .card-img-wrapper {
   overflow: hidden;
   position: relative;
-  aspect-ratio: 16/9;
+  aspect-ratio: 4/3;
+  background-color: rgba(255, 255, 255, 0.02);
 }
 
 .card-img-wrapper img {

@@ -16,7 +16,7 @@ export default function ProductCard({ product }) {
 
   return (
     <div className="card text-left product-card">
-      <div className="card-img-wrapper" style={{ height: '240px', position: 'relative' }}>
+      <div className="card-img-wrapper" style={{ position: 'relative' }}>
         {product.isNew && (
           <span className="badge-new">NUEVO</span>
         )}
