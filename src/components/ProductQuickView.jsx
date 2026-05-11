@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { X, ShoppingCart, Check, Maximize, Weight, PackageOpen, Download } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 import { Link } from 'react-router-dom';
@@ -9,11 +10,15 @@ export default function ProductQuickView({ product, onClose }) {
   const [quantity, setQuantity] = useState(1);
   const inCart = items.find(item => item.id === product.id);
 
+  useEffect(() => {
+    // Evitar que el fondo (body) haga scroll cuando el modal está abierto
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, []);
+
   const handleAdd = () => {
-    // Modify addItem to support quantity if possible, or just add multiple times/update
-    // Assuming context handles it or we just add one by one, 
-    // Wait, the current context might not support bulk add if we pass quantity. 
-    // Let's pass the product with a quantity property or add multiple times.
     for (let i = 0; i < quantity; i++) {
         addItem(product);
     }
@@ -23,16 +28,16 @@ export default function ProductQuickView({ product, onClose }) {
 
   const isSpecialOrder = product.subcategory === 'Con Mango' || product.isNew;
 
-  return (
+  const modalContent = (
     <div className="modal-backdrop" onClick={onClose} style={{
       position: 'fixed', top: 0, left: 0, right: 0, bottom: 0,
-      backgroundColor: 'rgba(0,0,0,0.8)', zIndex: 1000,
+      backgroundColor: 'rgba(0,0,0,0.8)', zIndex: 99999,
       display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '1rem'
     }}>
       <div className="modal-content animate-fade-in" onClick={e => e.stopPropagation()} style={{
         background: 'var(--bg-secondary)', borderRadius: 'var(--radius-lg)',
         width: '100%', maxWidth: '900px', display: 'flex', flexWrap: 'wrap',
-        position: 'relative', overflow: 'hidden'
+        position: 'relative', overflow: 'hidden', maxHeight: '90vh', overflowY: 'auto'
       }}>
         <button onClick={onClose} style={{
           position: 'absolute', top: '1rem', right: '1rem', background: 'rgba(255,255,255,0.1)',
@@ -120,4 +125,6 @@ export default function ProductQuickView({ product, onClose }) {
       </div>
     </div>
   );
+
+  return createPortal(modalContent, document.body);
 }
