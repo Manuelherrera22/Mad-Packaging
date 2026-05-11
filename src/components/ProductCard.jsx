@@ -82,15 +82,7 @@ export default function ProductCard({ product, onQuickView, onToggleCompare, isC
         </div>
 
         <div style={{ borderTop: '1px solid var(--border-color)', paddingTop: '1rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <div style={{ display: 'flex', gap: '0.5rem' }}>
-            <button 
-              onClick={() => alert('La descarga de la ficha técnica no está disponible en esta demo.')}
-              title="Descargar Ficha Técnica (PDF)"
-              style={{ background: 'transparent', border: '1px solid var(--border-color)', color: 'var(--text-muted)', width: '36px', height: '36px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }}
-              className="hover-bg-secondary"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
-            </button>
+          <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
             <Link 
               to="/contacto" 
               state={{ prefillMessage: `Hola, me interesa cotizar el producto: ${product.title} (${product.medidas}). Por favor bríndeme más información.` }}

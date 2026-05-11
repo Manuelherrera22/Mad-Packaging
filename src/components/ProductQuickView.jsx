@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import { X, ShoppingCart, Check, Maximize, Weight, PackageOpen, Download } from 'lucide-react';
+import { X, ShoppingCart, Check, Maximize, Weight, PackageOpen } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 import { Link } from 'react-router-dom';
 
@@ -108,10 +108,7 @@ export default function ProductQuickView({ product, onClose }) {
             </button>
           </div>
 
-          <div style={{ display: 'flex', justifyContent: 'space-between', borderTop: '1px solid var(--border-color)', paddingTop: '1.5rem' }}>
-            <button onClick={() => alert('La descarga de la ficha técnica no está disponible en esta demo.')} style={{ background: 'transparent', border: 'none', color: 'var(--text-muted)', display: 'flex', alignItems: 'center', gap: '0.5rem', cursor: 'pointer', fontSize: '0.9rem' }}>
-              <Download size={16} /> Descargar Especificaciones (PDF)
-            </button>
+          <div style={{ display: 'flex', justifyContent: 'flex-end', borderTop: '1px solid var(--border-color)', paddingTop: '1.5rem' }}>
             <Link 
               to="/contacto" 
               state={{ prefillMessage: `Hola, necesito cotizar ${quantity} unidad(es) de: ${product.title} (${product.medidas}).` }}
