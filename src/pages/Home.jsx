@@ -8,7 +8,36 @@ import './Home.css';
 
 export default function Home() {
   const [quickViewProduct, setQuickViewProduct] = useState(null);
+  const [activeIndex, setActiveIndex] = useState(0);
   const newProducts = products.filter(p => p.isNew);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % 3);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const bentoData = [
+    {
+      title: 'Film Stretch',
+      subtitle: 'Máximo rendimiento para paletizado',
+      link: '/productos?categoria=Film%20Stretch',
+      images: ['/img/film_stretch_1.jpg', '/img/film_stretch_2.jpg', '/img/film_mango.jpg']
+    },
+    {
+      title: 'Cintas Industriales',
+      subtitle: 'Alta adherencia para cierres seguros',
+      link: '/productos?categoria=Cintas%20Adhesivas',
+      images: ['/img/cinta_torre.jpg', '/img/cinta_caja.jpg', '/img/cinta_torre.jpg'] // using torra/caja twice to ensure 3 images
+    },
+    {
+      title: 'Insumos Integrales',
+      subtitle: 'Todo lo que tu línea logística requiere',
+      link: '/productos?categoria=Protección%20y%20Empaque',
+      images: ['/img/bolsas_industriales.png', '/img/flejes_hebillas.png', '/img/film_burbujas.png']
+    }
+  ];
 
   const heroSlides = [
     {
@@ -55,39 +84,51 @@ export default function Home() {
             </div>
 
             {/* Right: Bento Grid of Products */}
-            <div className="hero-bento-wrapper animate-fade-in" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gridTemplateRows: '1fr 1fr', gap: '1rem', height: '450px' }}>
-              {/* Main large card */}
-              <Link to="/productos?categoria=Film%20Stretch" className="card" style={{ gridRow: '1 / span 2', position: 'relative', borderRadius: '12px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.08)', boxShadow: '0 20px 40px rgba(0,0,0,0.4)', padding: 0 }}>
-                <div className="card-img-wrapper" style={{ height: '100%', width: '100%' }}>
-                  <img src={heroSlides[0].img} alt={heroSlides[0].title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                </div>
-                <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '1.5rem', background: 'linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.6) 50%, transparent 100%)', pointerEvents: 'none' }}>
-                  <h3 style={{ margin: 0, fontSize: '1.5rem', color: 'white' }}>{heroSlides[0].title}</h3>
-                  <p style={{ margin: '0.25rem 0 0', color: 'var(--text-muted)', fontSize: '0.9rem' }}>{heroSlides[0].subtitle}</p>
-                </div>
-              </Link>
-
-              {/* Top right card */}
-              <Link to="/productos?categoria=Cintas%20Adhesivas" className="card" style={{ position: 'relative', borderRadius: '12px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.08)', boxShadow: '0 10px 20px rgba(0,0,0,0.3)', padding: 0 }}>
-                <div className="card-img-wrapper" style={{ height: '100%', width: '100%' }}>
-                  <img src={heroSlides[1].img} alt={heroSlides[1].title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                </div>
-                <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '1rem', background: 'linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.6) 50%, transparent 100%)', pointerEvents: 'none' }}>
-                  <h3 style={{ margin: 0, fontSize: '1.1rem', color: 'white' }}>{heroSlides[1].title}</h3>
-                  <p style={{ margin: '0.2rem 0 0', color: 'var(--text-muted)', fontSize: '0.75rem' }}>{heroSlides[1].subtitle}</p>
-                </div>
-              </Link>
-
-              {/* Bottom right card */}
-              <Link to="/productos?categoria=Cartón%20Corrugado" className="card" style={{ position: 'relative', borderRadius: '12px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.08)', boxShadow: '0 10px 20px rgba(0,0,0,0.3)', padding: 0 }}>
-                <div className="card-img-wrapper" style={{ height: '100%', width: '100%' }}>
-                  <img src={heroSlides[2].img} alt={heroSlides[2].title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                </div>
-                <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '1rem', background: 'linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.6) 50%, transparent 100%)', pointerEvents: 'none' }}>
-                  <h3 style={{ margin: 0, fontSize: '1.1rem', color: 'white' }}>{heroSlides[2].title}</h3>
-                  <p style={{ margin: '0.2rem 0 0', color: 'var(--text-muted)', fontSize: '0.75rem' }}>{heroSlides[2].subtitle}</p>
-                </div>
-              </Link>
+            <div className="hero-bento-wrapper animate-fade-in" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gridTemplateRows: '1fr 1fr', gap: '1rem', height: '480px' }}>
+              {bentoData.map((bento, index) => {
+                const isMain = index === 0;
+                return (
+                  <Link 
+                    to={bento.link} 
+                    key={index}
+                    className="bento-card"
+                    style={{ 
+                      gridRow: isMain ? '1 / span 2' : 'auto', 
+                      position: 'relative', 
+                      borderRadius: '16px', 
+                      overflow: 'hidden', 
+                      border: '1px solid rgba(255,255,255,0.08)', 
+                      background: 'var(--bg-tertiary)',
+                      display: 'block'
+                    }}
+                  >
+                    {bento.images.map((img, i) => (
+                      <div 
+                        key={i}
+                        style={{
+                          position: 'absolute', top: 0, left: 0, width: '100%', height: '100%',
+                          opacity: activeIndex === i ? 1 : 0,
+                          transition: 'opacity 1s ease-in-out',
+                          zIndex: activeIndex === i ? 5 : 1
+                        }}
+                      >
+                        <img src={img} alt={`${bento.title} ${i}`} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                      </div>
+                    ))}
+                    <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: isMain ? '2rem' : '1.5rem', background: 'linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.6) 50%, transparent 100%)', zIndex: 10, pointerEvents: 'none' }}>
+                      <h3 style={{ margin: 0, fontSize: isMain ? '1.8rem' : '1.2rem', color: 'white', fontWeight: 800 }}>{bento.title}</h3>
+                      <p style={{ margin: '0.25rem 0 0', color: 'var(--text-muted)', fontSize: isMain ? '1rem' : '0.85rem' }}>{bento.subtitle}</p>
+                    </div>
+                    
+                    {/* Tiny indicators inside each card */}
+                    <div style={{ position: 'absolute', top: '1rem', right: '1rem', display: 'flex', gap: '6px', zIndex: 10 }}>
+                      {bento.images.map((_, i) => (
+                        <div key={i} style={{ width: '6px', height: '6px', borderRadius: '50%', backgroundColor: activeIndex === i ? 'var(--accent-color)' : 'rgba(255,255,255,0.3)', transition: 'background-color 0.3s', boxShadow: activeIndex === i ? '0 0 5px var(--accent-color)' : 'none' }} />
+                      ))}
+                    </div>
+                  </Link>
+                )
+              })}
             </div>
           </div>
         </div>
