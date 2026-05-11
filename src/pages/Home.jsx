@@ -151,14 +151,14 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Lanzamientos Novedosos */}
+      {/* Nuevos Productos */}
       <section className="section bg-secondary" style={{ padding: '5rem 0' }}>
         <div className="container">
           <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '3rem' }}>
             <Zap size={32} className="text-accent" />
-            <h2 className="heading-lg" style={{ margin: 0 }}>Lanzamientos Novedosos</h2>
+            <h2 className="heading-lg" style={{ margin: 0 }}>Nuevos Productos</h2>
           </div>
-          <div className="grid grid-cols-4">
+          <div className="grid grid-cols-3">
             {newProducts.map(p => (
               <ProductCard key={`new-${p.id}`} product={p} onQuickView={setQuickViewProduct} />
             ))}
