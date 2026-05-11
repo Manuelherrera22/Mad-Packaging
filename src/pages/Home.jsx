@@ -8,7 +8,6 @@ import './Home.css';
 
 export default function Home() {
   const [quickViewProduct, setQuickViewProduct] = useState(null);
-  const [currentSlide, setCurrentSlide] = useState(0);
   const newProducts = products.filter(p => p.isNew);
 
   const heroSlides = [
@@ -29,12 +28,23 @@ export default function Home() {
     }
   ];
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
-    }, 4000);
-    return () => clearInterval(timer);
-  }, [heroSlides.length]);
+  const heroSlides = [
+    {
+      img: '/img/film_stretch_1.jpg',
+      title: 'Film Stretch',
+      subtitle: 'Máximo rendimiento para paletizado'
+    },
+    {
+      img: '/img/cinta_torre.jpg',
+      title: 'Cintas Industriales',
+      subtitle: 'Alta adherencia para cierres seguros'
+    },
+    {
+      img: '/img/film_stretch_2.jpg',
+      title: 'Insumos Integrales',
+      subtitle: 'Todo lo que tu línea logística requiere'
+    }
+  ];
 
   return (
     <div className="home-page animate-fade-in">
@@ -60,46 +70,40 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Right: Automated Carousel */}
-            <div className="hero-carousel-wrapper animate-fade-in" style={{ position: 'relative', borderRadius: '12px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.08)', height: '450px', boxShadow: '0 20px 40px rgba(0,0,0,0.4)' }}>
-              {heroSlides.map((slide, index) => (
-                <div 
-                  key={index}
-                  style={{
-                    position: 'absolute', top: 0, left: 0, width: '100%', height: '100%',
-                    opacity: currentSlide === index ? 1 : 0,
-                    transition: 'opacity 0.8s ease-in-out',
-                    zIndex: currentSlide === index ? 10 : 1
-                  }}
-                >
-                  <img src={slide.img} alt={slide.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                  {/* Dark gradient to make text readable */}
-                  <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '150px', background: 'linear-gradient(to top, rgba(0,0,0,0.9), transparent)', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', padding: '1.5rem' }}>
-                    <h3 style={{ margin: 0, fontSize: '1.5rem', color: 'white' }}>{slide.title}</h3>
-                    <p style={{ margin: '0.25rem 0 1rem 0', color: 'var(--text-muted)', fontSize: '1rem' }}>{slide.subtitle}</p>
-                  </div>
+            {/* Right: Bento Grid of Products */}
+            <div className="hero-bento-wrapper animate-fade-in" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gridTemplateRows: '1fr 1fr', gap: '1rem', height: '450px' }}>
+              {/* Main large card */}
+              <Link to="/productos?categoria=Film%20Stretch" className="card" style={{ gridRow: '1 / span 2', position: 'relative', borderRadius: '12px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.08)', boxShadow: '0 20px 40px rgba(0,0,0,0.4)', padding: 0 }}>
+                <div className="card-img-wrapper" style={{ height: '100%', width: '100%' }}>
+                  <img src={heroSlides[0].img} alt={heroSlides[0].title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 </div>
-              ))}
-              
-              {/* Carousel Indicators */}
-              <div style={{ position: 'absolute', bottom: '20px', left: 0, right: 0, display: 'flex', justifyContent: 'center', gap: '0.5rem', zIndex: 20 }}>
-                {heroSlides.map((_, index) => (
-                  <button 
-                    key={index}
-                    onClick={() => setCurrentSlide(index)}
-                    style={{ 
-                      width: currentSlide === index ? '24px' : '8px', 
-                      height: '8px', 
-                      borderRadius: '4px',
-                      background: currentSlide === index ? 'var(--accent-color)' : 'rgba(255,255,255,0.4)',
-                      border: 'none',
-                      transition: 'all 0.3s ease',
-                      cursor: 'pointer'
-                    }}
-                    aria-label={`Ir a la imagen ${index + 1}`}
-                  />
-                ))}
-              </div>
+                <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '1.5rem', background: 'linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.6) 50%, transparent 100%)', pointerEvents: 'none' }}>
+                  <h3 style={{ margin: 0, fontSize: '1.5rem', color: 'white' }}>{heroSlides[0].title}</h3>
+                  <p style={{ margin: '0.25rem 0 0', color: 'var(--text-muted)', fontSize: '0.9rem' }}>{heroSlides[0].subtitle}</p>
+                </div>
+              </Link>
+
+              {/* Top right card */}
+              <Link to="/productos?categoria=Cintas%20Adhesivas" className="card" style={{ position: 'relative', borderRadius: '12px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.08)', boxShadow: '0 10px 20px rgba(0,0,0,0.3)', padding: 0 }}>
+                <div className="card-img-wrapper" style={{ height: '100%', width: '100%' }}>
+                  <img src={heroSlides[1].img} alt={heroSlides[1].title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                </div>
+                <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '1rem', background: 'linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.6) 50%, transparent 100%)', pointerEvents: 'none' }}>
+                  <h3 style={{ margin: 0, fontSize: '1.1rem', color: 'white' }}>{heroSlides[1].title}</h3>
+                  <p style={{ margin: '0.2rem 0 0', color: 'var(--text-muted)', fontSize: '0.75rem' }}>{heroSlides[1].subtitle}</p>
+                </div>
+              </Link>
+
+              {/* Bottom right card */}
+              <Link to="/productos?categoria=Cartón%20Corrugado" className="card" style={{ position: 'relative', borderRadius: '12px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.08)', boxShadow: '0 10px 20px rgba(0,0,0,0.3)', padding: 0 }}>
+                <div className="card-img-wrapper" style={{ height: '100%', width: '100%' }}>
+                  <img src={heroSlides[2].img} alt={heroSlides[2].title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                </div>
+                <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '1rem', background: 'linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.6) 50%, transparent 100%)', pointerEvents: 'none' }}>
+                  <h3 style={{ margin: 0, fontSize: '1.1rem', color: 'white' }}>{heroSlides[2].title}</h3>
+                  <p style={{ margin: '0.2rem 0 0', color: 'var(--text-muted)', fontSize: '0.75rem' }}>{heroSlides[2].subtitle}</p>
+                </div>
+              </Link>
             </div>
           </div>
         </div>
