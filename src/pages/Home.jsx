@@ -14,7 +14,7 @@ export default function Home() {
   useEffect(() => {
     const timer = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % 3);
-    }, 4000);
+    }, 2500);
     return () => clearInterval(timer);
   }, []);
 
@@ -108,22 +108,18 @@ export default function Home() {
                         style={{
                           position: 'absolute', top: 0, left: 0, width: '100%', height: '100%',
                           opacity: activeIndex === i ? 1 : 0,
-                          transition: 'opacity 1s ease-in-out',
+                          transition: 'opacity 0.8s ease-in-out',
                           zIndex: activeIndex === i ? 5 : 1
                         }}
                       >
-                        <img src={img} alt={`${bento.title} ${i}`} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                        <img src={img} alt={`Imagen ${i}`} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                       </div>
                     ))}
-                    <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: isMain ? '2rem' : '1.5rem', background: 'linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.6) 50%, transparent 100%)', zIndex: 10, pointerEvents: 'none' }}>
-                      <h3 style={{ margin: 0, fontSize: isMain ? '1.8rem' : '1.2rem', color: 'white', fontWeight: 800 }}>{bento.title}</h3>
-                      <p style={{ margin: '0.25rem 0 0', color: 'var(--text-muted)', fontSize: isMain ? '1rem' : '0.85rem' }}>{bento.subtitle}</p>
-                    </div>
                     
                     {/* Tiny indicators inside each card */}
-                    <div style={{ position: 'absolute', top: '1rem', right: '1rem', display: 'flex', gap: '6px', zIndex: 10 }}>
+                    <div style={{ position: 'absolute', bottom: '1rem', right: '1rem', display: 'flex', gap: '6px', zIndex: 10 }}>
                       {bento.images.map((_, i) => (
-                        <div key={i} style={{ width: '6px', height: '6px', borderRadius: '50%', backgroundColor: activeIndex === i ? 'var(--accent-color)' : 'rgba(255,255,255,0.3)', transition: 'background-color 0.3s', boxShadow: activeIndex === i ? '0 0 5px var(--accent-color)' : 'none' }} />
+                        <div key={i} style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: activeIndex === i ? 'var(--accent-color)' : 'rgba(255,255,255,0.4)', transition: 'background-color 0.3s', boxShadow: activeIndex === i ? '0 0 5px var(--accent-color)' : 'none' }} />
                       ))}
                     </div>
                   </Link>
