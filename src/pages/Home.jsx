@@ -1,12 +1,28 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, ShieldCheck, Truck, Zap, Timer, PackageOpen } from 'lucide-react';
 import ProductCard from '../components/ProductCard';
+import ProductQuickView from '../components/ProductQuickView';
 import { products, mainCategories } from '../data/products';
 import './Home.css';
 
 export default function Home() {
+  const [quickViewProduct, setQuickViewProduct] = useState(null);
+  const [currentSlide, setCurrentSlide] = useState(0);
   const newProducts = products.filter(p => p.isNew);
+
+  const heroImages = [
+    '/img/film_stretch_1.jpg',
+    '/img/cinta_torre.jpg',
+    '/img/film_stretch_2.jpg'
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % heroImages.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, [heroImages.length]);
 
   return (
     <div className="home-page animate-fade-in">
@@ -32,20 +48,42 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Right: Organized Product Showcase */}
-            <div className="hero-image-wrapper animate-fade-in" style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-              {/* Top row: 2 images side by side */}
-              <div style={{ display: 'flex', gap: '0.75rem' }}>
-                <div style={{ flex: 1, borderRadius: '12px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.08)' }}>
-                  <img src="/img/film_stretch_1.jpg" alt="Film Stretch" style={{ width: '100%', height: '240px', objectFit: 'cover', display: 'block' }} />
+            {/* Right: Automated Carousel */}
+            <div className="hero-carousel-wrapper animate-fade-in" style={{ position: 'relative', borderRadius: '12px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.08)', height: '450px', boxShadow: '0 20px 40px rgba(0,0,0,0.4)' }}>
+              {heroImages.map((img, index) => (
+                <div 
+                  key={index}
+                  style={{
+                    position: 'absolute', top: 0, left: 0, width: '100%', height: '100%',
+                    opacity: currentSlide === index ? 1 : 0,
+                    transition: 'opacity 0.8s ease-in-out',
+                    zIndex: currentSlide === index ? 10 : 1
+                  }}
+                >
+                  <img src={img} alt={`Industrial slide ${index + 1}`} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                  {/* Subtle dark gradient at the bottom of images for indicator visibility */}
+                  <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '80px', background: 'linear-gradient(to top, rgba(0,0,0,0.8), transparent)' }}></div>
                 </div>
-                <div style={{ flex: 1, borderRadius: '12px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.08)' }}>
-                  <img src="/img/cinta_torre.jpg" alt="Cintas Adhesivas" style={{ width: '100%', height: '240px', objectFit: 'cover', display: 'block' }} />
-                </div>
-              </div>
-              {/* Bottom row */}
-              <div style={{ borderRadius: '12px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.08)' }}>
-                <img src="/img/film_stretch_2.jpg" alt="Embalaje Industrial" style={{ width: '100%', height: '190px', objectFit: 'cover', display: 'block' }} />
+              ))}
+              
+              {/* Carousel Indicators */}
+              <div style={{ position: 'absolute', bottom: '20px', left: 0, right: 0, display: 'flex', justifyContent: 'center', gap: '0.5rem', zIndex: 20 }}>
+                {heroImages.map((_, index) => (
+                  <button 
+                    key={index}
+                    onClick={() => setCurrentSlide(index)}
+                    style={{ 
+                      width: currentSlide === index ? '24px' : '8px', 
+                      height: '8px', 
+                      borderRadius: '4px',
+                      background: currentSlide === index ? 'var(--accent-color)' : 'rgba(255,255,255,0.4)',
+                      border: 'none',
+                      transition: 'all 0.3s ease',
+                      cursor: 'pointer'
+                    }}
+                    aria-label={`Ir a la imagen ${index + 1}`}
+                  />
+                ))}
               </div>
             </div>
           </div>
@@ -107,7 +145,7 @@ export default function Home() {
           </div>
           <div className="grid grid-cols-4">
             {newProducts.map(p => (
-              <ProductCard key={`new-${p.id}`} product={p} />
+              <ProductCard key={`new-${p.id}`} product={p} onQuickView={setQuickViewProduct} />
             ))}
           </div>
         </div>
@@ -158,6 +196,10 @@ export default function Home() {
           <Link to="/contacto" className="btn btn-primary" style={{ padding: '1.25rem 3rem', fontSize: '1rem' }}>Contactar Asesor</Link>
         </div>
       </section>
+
+      {quickViewProduct && (
+        <ProductQuickView product={quickViewProduct} onClose={() => setQuickViewProduct(null)} />
+      )}
     </div>
   );
 }
