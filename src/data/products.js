@@ -9,7 +9,7 @@ export const products = [
   
   // --- CINTAS ADHESIVAS ---
   { id: 'ca-emb-48-100', category: 'Cintas Adhesivas', subcategory: 'Embalaje', title: 'Cinta de Embalar Hotmelt', desc: 'Cinta de polipropileno con adhesivo hotmelt para cierre seguro.', medidas: '48mm x 100m', cantCaja: '36', img: '/img/cinta_caja.jpg', isNew: true },
-  { id: 'ca-emb-72-100', category: 'Cintas Adhesivas', subcategory: 'Embalaje', title: 'Cinta de Embalar Ancha', desc: 'Cinta de embalar de mayor ancho para cajas pesadas o de gran formato.', medidas: '72mm x 100m', cantCaja: '24', img: '/img/cinta_torre.jpg', isNew: true },
+  { id: 'ca-emb-72-100', category: 'Cintas Adhesivas', subcategory: 'Embalaje', title: 'Cinta de Embalar Ancha', desc: 'Cinta de embalar de mayor ancho para cajas pesadas o de gran formato.', medidas: '72mm x 100m', cantCaja: '24', img: '/img/cinta_torre.jpg' },
   { id: 'ca-emb-48-1000', category: 'Cintas Adhesivas', subcategory: 'Embalaje', title: 'Cinta de Embalar Automática', desc: 'Para máquinas precintadoras.', medidas: '48mm x 1000m', cantCaja: '6', img: '/img/cinta_torre.jpg' },
   { id: 'ca-fragil-48', category: 'Cintas Adhesivas', subcategory: 'Frágil', title: 'Cinta Adhesiva FRAGIL', desc: 'Cinta pre-impresa indicadora de mercancía frágil.', medidas: '48mm x 100m', cantCaja: '36', img: '/img/cinta_caja.jpg' },
   { id: 'ca-impres-48', category: 'Cintas Adhesivas', subcategory: 'Impresas', title: 'Cinta Impresa con Logo', desc: 'Fondo cristal/blanco/color con impresión hasta 4 colores.', medidas: '48mm x 100m', cantCaja: '36', img: '/img/cinta_torre.jpg' },

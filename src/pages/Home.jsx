@@ -148,7 +148,7 @@ export default function Home() {
           <div className="grid grid-cols-2" style={{ alignItems: 'center', gap: '4rem' }}>
             <div>
               <span className="badge">Puntos Clave</span>
-              <h2 className="heading-lg" style={{ marginTop: '1rem', lineHeight: '1.2' }}>No vendemos solo productos.<br/><span className="text-accent">Impulsamos la eficiencia de su operación.</span></h2>
+              <h2 className="heading-lg" style={{ marginTop: '1rem', lineHeight: '1.2' }}>No vendemos solo productos<br/><span className="text-accent">Impulsamos la eficiencia de su operación</span></h2>
               <p className="text-muted" style={{ fontSize: '1.1rem', margin: '1.5rem 0', lineHeight: '1.6' }}>
                 En <strong>MAD Packaging</strong> combinamos stock permanente, asesoramiento técnico y soluciones integrales de embalaje para reducir costos, optimizar procesos y asegurar continuidad operativa.
               </p>
