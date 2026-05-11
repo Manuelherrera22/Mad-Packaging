@@ -141,10 +141,10 @@ export default function Home() {
             </div>
             
             <div className="hook-cards" style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '1.5rem' }}>
-              <div className="card" style={{ padding: '2.5rem 1.5rem', background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.05)', textAlign: 'center' }}>
-                <h3 className="text-accent" style={{ fontSize: '2.5rem', marginBottom: '0.5rem' }}>+15 Años</h3>
-                <p style={{ fontWeight: '600', fontSize: '1.2rem', color: '#fff' }}>brindando soluciones en embalaje</p>
-                <p className="text-muted" style={{ fontSize: '0.9rem', marginTop: '0.5rem' }}>Trayectoria comprobable abasteciendo a industrias exigentes.</p>
+              <div className="card" style={{ padding: '3.5rem 1.5rem', background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.05)', textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+                <h3 className="text-accent text-neon-pulse" style={{ fontSize: '4.5rem', marginBottom: '1rem', lineHeight: 1 }}>+15 Años</h3>
+                <p style={{ fontWeight: '600', fontSize: '1.3rem', color: '#fff' }}>brindando soluciones en embalaje</p>
+                <p className="text-muted" style={{ fontSize: '1rem', marginTop: '0.75rem' }}>Trayectoria comprobable abasteciendo a industrias exigentes.</p>
               </div>
             </div>
           </div>
