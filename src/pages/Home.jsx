@@ -116,6 +116,10 @@ export default function Home() {
                       </div>
                     ))}
                     
+                    <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: isMain ? '2rem' : '1.5rem', paddingBottom: '2.5rem', background: 'linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 100%)', zIndex: 10, pointerEvents: 'none' }}>
+                      <h3 style={{ margin: 0, fontSize: isMain ? '1.8rem' : '1.2rem', color: 'white', fontWeight: 800 }}>{bento.title}</h3>
+                    </div>
+
                     {/* Tiny indicators inside each card */}
                     <div style={{ position: 'absolute', bottom: '1rem', right: '1rem', display: 'flex', gap: '6px', zIndex: 10 }}>
                       {bento.images.map((_, i) => (
