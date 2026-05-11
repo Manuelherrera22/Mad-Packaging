@@ -11,18 +11,30 @@ export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const newProducts = products.filter(p => p.isNew);
 
-  const heroImages = [
-    '/img/film_stretch_1.jpg',
-    '/img/cinta_torre.jpg',
-    '/img/film_stretch_2.jpg'
+  const heroSlides = [
+    {
+      img: '/img/film_stretch_1.jpg',
+      title: 'Film Stretch',
+      subtitle: 'Máximo rendimiento para paletizado'
+    },
+    {
+      img: '/img/cinta_torre.jpg',
+      title: 'Cintas Industriales',
+      subtitle: 'Alta adherencia para cierres seguros'
+    },
+    {
+      img: '/img/film_stretch_2.jpg',
+      title: 'Insumos Integrales',
+      subtitle: 'Todo lo que tu línea logística requiere'
+    }
   ];
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % heroImages.length);
+      setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
     }, 4000);
     return () => clearInterval(timer);
-  }, [heroImages.length]);
+  }, [heroSlides.length]);
 
   return (
     <div className="home-page animate-fade-in">
@@ -50,7 +62,7 @@ export default function Home() {
 
             {/* Right: Automated Carousel */}
             <div className="hero-carousel-wrapper animate-fade-in" style={{ position: 'relative', borderRadius: '12px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.08)', height: '450px', boxShadow: '0 20px 40px rgba(0,0,0,0.4)' }}>
-              {heroImages.map((img, index) => (
+              {heroSlides.map((slide, index) => (
                 <div 
                   key={index}
                   style={{
@@ -60,15 +72,18 @@ export default function Home() {
                     zIndex: currentSlide === index ? 10 : 1
                   }}
                 >
-                  <img src={img} alt={`Industrial slide ${index + 1}`} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                  {/* Subtle dark gradient at the bottom of images for indicator visibility */}
-                  <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '80px', background: 'linear-gradient(to top, rgba(0,0,0,0.8), transparent)' }}></div>
+                  <img src={slide.img} alt={slide.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                  {/* Dark gradient to make text readable */}
+                  <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '150px', background: 'linear-gradient(to top, rgba(0,0,0,0.9), transparent)', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', padding: '1.5rem' }}>
+                    <h3 style={{ margin: 0, fontSize: '1.5rem', color: 'white' }}>{slide.title}</h3>
+                    <p style={{ margin: '0.25rem 0 1rem 0', color: 'var(--text-muted)', fontSize: '1rem' }}>{slide.subtitle}</p>
+                  </div>
                 </div>
               ))}
               
               {/* Carousel Indicators */}
               <div style={{ position: 'absolute', bottom: '20px', left: 0, right: 0, display: 'flex', justifyContent: 'center', gap: '0.5rem', zIndex: 20 }}>
-                {heroImages.map((_, index) => (
+                {heroSlides.map((_, index) => (
                   <button 
                     key={index}
                     onClick={() => setCurrentSlide(index)}
