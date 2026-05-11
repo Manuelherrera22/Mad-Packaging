@@ -543,3 +543,40 @@ img {
 .bg-secondary {
   background-color: var(--bg-secondary);
 }
+
+/* ═══════════════════════════════════════════════════════════════
+   B2B CATALOG COMPONENTS
+   ═══════════════════════════════════════════════════════════════ */
+
+.hover-bg-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  transition: background-color var(--transition-fast);
+}
+
+.hover-text-accent:hover {
+  color: var(--accent-color) !important;
+  transition: color var(--transition-fast);
+}
+
+.b2b-list-item {
+  transition: all var(--transition-fast);
+}
+
+.card:hover .quick-view-overlay {
+  opacity: 1 !important;
+}
+
+/* Modal Animations */
+@keyframes slide-up {
+  from { opacity: 0; transform: translate(-50%, 20px); }
+  to { opacity: 1; transform: translate(-50%, 0); }
+}
+
+@keyframes modal-in {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.modal-content.animate-fade-in {
+  animation: modal-in 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}

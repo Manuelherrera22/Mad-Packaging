@@ -1,9 +1,61 @@
 import { useState, useEffect, useMemo } from 'react';
-import { ChevronRight, ShoppingCart, Check, Filter, Search, LayoutGrid, List } from 'lucide-react';
+import { ChevronRight, ShoppingCart, Check, Filter, Search, LayoutGrid, List, ArrowUpDown } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import { products, mainCategories } from '../data/products';
 import ProductCard from '../components/ProductCard';
+import ProductQuickView from '../components/ProductQuickView';
+import CompareFloatingBar from '../components/CompareFloatingBar';
+import CompareModal from '../components/CompareModal';
+
+function B2BListItem({ product, onQuickView }) {
+  const { addItem, items } = useCart();
+  const [justAdded, setJustAdded] = useState(false);
+  const [quantity, setQuantity] = useState(1);
+  const inCart = items.find(item => item.id === product.id);
+
+  const handleAdd = () => {
+    for (let i = 0; i < quantity; i++) {
+        addItem(product);
+    }
+    setJustAdded(true);
+    setTimeout(() => setJustAdded(false), 1200);
+  };
+
+  const isSpecialOrder = product.subcategory === 'Con Mango' || product.isNew;
+
+  return (
+    <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', padding: '1rem', background: 'rgba(255,255,255,0.03)', borderBottom: '1px solid var(--border-color)' }} className="b2b-list-item hover-bg-secondary">
+      <img src={product.img} alt={product.title} style={{ width: '60px', height: '60px', objectFit: 'cover', borderRadius: 'var(--radius-sm)', cursor: 'pointer' }} onClick={() => onQuickView(product)} />
+      <div style={{ flex: '2', minWidth: '200px' }}>
+        <h4 style={{ margin: '0 0 0.25rem 0', cursor: 'pointer' }} onClick={() => onQuickView(product)} className="hover-text-accent">{product.title}</h4>
+        <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>{product.subcategory || product.category}</span>
+      </div>
+      <div style={{ flex: '1', minWidth: '100px', fontSize: '0.9rem', color: 'var(--text-muted)' }}>
+        {product.medidas || '-'}
+      </div>
+      <div style={{ flex: '1', minWidth: '120px' }}>
+        <span style={{ fontSize: '0.8rem', fontWeight: 600, color: isSpecialOrder ? '#eab308' : 'var(--teal)', background: isSpecialOrder ? 'rgba(234, 179, 8, 0.1)' : 'rgba(0, 191, 165, 0.1)', padding: '0.2rem 0.5rem', borderRadius: '100px' }}>
+          {isSpecialOrder ? 'A Pedido' : 'Stock Permanente'}
+        </span>
+      </div>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flex: '1', minWidth: '250px', justifyContent: 'flex-end' }}>
+        <div style={{ display: 'flex', alignItems: 'center', background: 'rgba(255,255,255,0.05)', borderRadius: 'var(--radius-sm)', padding: '0.2rem' }}>
+          <button onClick={() => setQuantity(Math.max(1, quantity - 1))} style={{ border: 'none', background: 'transparent', color: 'white', cursor: 'pointer', padding: '0 0.5rem' }}>-</button>
+          <span style={{ width: '30px', textAlign: 'center', fontSize: '0.9rem' }}>{quantity}</span>
+          <button onClick={() => setQuantity(quantity + 1)} style={{ border: 'none', background: 'transparent', color: 'white', cursor: 'pointer', padding: '0 0.5rem' }}>+</button>
+        </div>
+        <button
+          className={`btn ${justAdded ? 'added' : 'btn-primary'}`}
+          onClick={handleAdd}
+          style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '0.5rem 1rem', fontSize: '0.9rem' }}
+        >
+          {justAdded ? <><Check size={14} /> Listo</> : <><ShoppingCart size={14} /> Añadir</>}
+        </button>
+      </div>
+    </div>
+  );
+}
 
 function AddToCartButton({ product }) {
   const { addItem, items } = useCart();
@@ -42,6 +94,25 @@ export default function Catalogo() {
   const [activeSubcategory, setActiveSubcategory] = useState('Todas');
   const [searchQuery, setSearchQuery] = useState('');
   const [viewMode, setViewMode] = useState('grid'); // 'grid' o 'list'
+  const [sortBy, setSortBy] = useState('relevance');
+  const [quickViewProduct, setQuickViewProduct] = useState(null);
+  const [compareList, setCompareList] = useState([]);
+  const [isCompareModalOpen, setIsCompareModalOpen] = useState(false);
+
+  const toggleCompare = (product) => {
+    setCompareList(prev => {
+      const isSelected = prev.find(p => p.id === product.id);
+      if (isSelected) {
+        return prev.filter(p => p.id !== product.id);
+      } else {
+        if (prev.length >= 3) {
+          alert('Puedes comparar hasta 3 productos a la vez.');
+          return prev;
+        }
+        return [...prev, product];
+      }
+    });
+  };
 
   // Inicializar categoría basada en la URL (ej: /catalogo?categoria=Film%20Stretch)
   useEffect(() => {
@@ -80,8 +151,15 @@ export default function Catalogo() {
         (p.medidas && p.medidas.toLowerCase().includes(q))
       );
     }
+
+    if (sortBy === 'az') {
+      result = [...result].sort((a, b) => a.title.localeCompare(b.title));
+    } else if (sortBy === 'za') {
+      result = [...result].sort((a, b) => b.title.localeCompare(a.title));
+    }
+
     return result;
-  }, [activeCategory, activeSubcategory, searchQuery]);
+  }, [activeCategory, activeSubcategory, searchQuery, sortBy]);
 
   return (
     <div className="animate-fade-in" style={{ paddingTop: '80px', paddingBottom: '4rem', minHeight: '100vh', background: 'var(--bg-primary)' }}>
@@ -155,28 +233,43 @@ export default function Catalogo() {
                 />
               </div>
 
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                <span className="text-muted" style={{ fontSize: '0.9rem', marginRight: '0.5rem' }}>Vista:</span>
-                <button 
-                  onClick={() => setViewMode('grid')}
-                  style={{ 
-                    padding: '0.5rem', borderRadius: 'var(--radius-sm)',
-                    background: viewMode === 'grid' ? 'rgba(255,255,255,0.1)' : 'transparent',
-                    color: viewMode === 'grid' ? 'white' : 'var(--text-muted)'
-                  }}
-                >
-                  <LayoutGrid size={20} />
-                </button>
-                <button 
-                  onClick={() => setViewMode('list')}
-                  style={{ 
-                    padding: '0.5rem', borderRadius: 'var(--radius-sm)',
-                    background: viewMode === 'list' ? 'rgba(255,255,255,0.1)' : 'transparent',
-                    color: viewMode === 'list' ? 'white' : 'var(--text-muted)'
-                  }}
-                >
-                  <List size={20} />
-                </button>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                  <ArrowUpDown size={16} className="text-muted" />
+                  <select 
+                    value={sortBy} 
+                    onChange={(e) => setSortBy(e.target.value)}
+                    style={{ background: 'transparent', border: 'none', color: 'white', outline: 'none', cursor: 'pointer' }}
+                  >
+                    <option value="relevance" style={{ background: 'var(--bg-primary)' }}>Relevancia</option>
+                    <option value="az" style={{ background: 'var(--bg-primary)' }}>Nombre (A-Z)</option>
+                    <option value="za" style={{ background: 'var(--bg-primary)' }}>Nombre (Z-A)</option>
+                  </select>
+                </div>
+
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', borderLeft: '1px solid var(--border-color)', paddingLeft: '1.5rem' }}>
+                  <span className="text-muted" style={{ fontSize: '0.9rem', marginRight: '0.5rem' }}>Vista:</span>
+                  <button 
+                    onClick={() => setViewMode('grid')}
+                    style={{ 
+                      padding: '0.5rem', borderRadius: 'var(--radius-sm)', border: 'none', cursor: 'pointer',
+                      background: viewMode === 'grid' ? 'rgba(255,255,255,0.1)' : 'transparent',
+                      color: viewMode === 'grid' ? 'white' : 'var(--text-muted)'
+                    }}
+                  >
+                    <LayoutGrid size={20} />
+                  </button>
+                  <button 
+                    onClick={() => setViewMode('list')}
+                    style={{ 
+                      padding: '0.5rem', borderRadius: 'var(--radius-sm)', border: 'none', cursor: 'pointer',
+                      background: viewMode === 'list' ? 'rgba(255,255,255,0.1)' : 'transparent',
+                      color: viewMode === 'list' ? 'white' : 'var(--text-muted)'
+                    }}
+                  >
+                    <List size={20} />
+                  </button>
+                </div>
               </div>
             </div>
 
@@ -221,16 +314,52 @@ export default function Catalogo() {
                 <p className="text-muted">No se encontraron productos en esta categoría.</p>
               </div>
             ) : (
-              <div className={viewMode === 'grid' ? 'grid' : 'list-view-container'} style={viewMode === 'grid' ? { gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '2.5rem' } : {}}>
-                {filteredProducts.map(p => (
-                  <ProductCard key={p.id} product={p} />
-                ))}
-              </div>
+              viewMode === 'grid' ? (
+                <div className="grid" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '2.5rem' }}>
+                  {filteredProducts.map(p => (
+                    <ProductCard 
+                      key={p.id} 
+                      product={p} 
+                      onQuickView={setQuickViewProduct}
+                      onToggleCompare={toggleCompare}
+                      isCompared={!!compareList.find(c => c.id === p.id)}
+                    />
+                  ))}
+                </div>
+              ) : (
+                <div className="list-view-container" style={{ background: 'rgba(255,255,255,0.02)', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-color)', overflow: 'hidden' }}>
+                  <div style={{ display: 'flex', padding: '1rem', background: 'rgba(0,0,0,0.2)', borderBottom: '1px solid var(--border-color)', fontWeight: 600, fontSize: '0.9rem', color: 'var(--text-muted)' }}>
+                    <div style={{ width: '60px', marginRight: '1rem' }}></div>
+                    <div style={{ flex: '2', minWidth: '200px' }}>Producto</div>
+                    <div style={{ flex: '1', minWidth: '100px' }}>Medidas</div>
+                    <div style={{ flex: '1', minWidth: '120px' }}>Disponibilidad</div>
+                    <div style={{ flex: '1', minWidth: '250px', textAlign: 'right' }}>Acción</div>
+                  </div>
+                  {filteredProducts.map(p => (
+                    <B2BListItem key={p.id} product={p} onQuickView={setQuickViewProduct} />
+                  ))}
+                </div>
+              )
             )}
           </div>
 
         </div>
       </div>
+
+      {quickViewProduct && (
+        <ProductQuickView product={quickViewProduct} onClose={() => setQuickViewProduct(null)} />
+      )}
+      
+      <CompareFloatingBar 
+        products={compareList} 
+        onRemove={(id) => setCompareList(prev => prev.filter(p => p.id !== id))}
+        onClear={() => setCompareList([])}
+        onCompare={() => setIsCompareModalOpen(true)}
+      />
+
+      {isCompareModalOpen && (
+        <CompareModal products={compareList} onClose={() => setIsCompareModalOpen(false)} />
+      )}
     </div>
   );
 }

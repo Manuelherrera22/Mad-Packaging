@@ -1,0 +1,891 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "label": "App.jsx",
+      "file_type": "code",
+      "source_file": "App.jsx",
+      "source_location": "L1",
+      "id": "app_jsx",
+      "community": 2,
+      "norm_label": "app.jsx"
+    },
+    {
+      "label": "ScrollToTop()",
+      "file_type": "code",
+      "source_file": "App.jsx",
+      "source_location": "L14",
+      "id": "src_app_scrolltotop",
+      "community": 2,
+      "norm_label": "scrolltotop()"
+    },
+    {
+      "label": "App()",
+      "file_type": "code",
+      "source_file": "App.jsx",
+      "source_location": "L24",
+      "id": "src_app_app",
+      "community": 2,
+      "norm_label": "app()"
+    },
+    {
+      "label": "main.jsx",
+      "file_type": "code",
+      "source_file": "main.jsx",
+      "source_location": "L1",
+      "id": "main_jsx",
+      "community": 2,
+      "norm_label": "main.jsx"
+    },
+    {
+      "label": "Cart.jsx",
+      "file_type": "code",
+      "source_file": "components/Cart.jsx",
+      "source_location": "L1",
+      "id": "components_cart_jsx",
+      "community": 0,
+      "norm_label": "cart.jsx"
+    },
+    {
+      "label": "Cart()",
+      "file_type": "code",
+      "source_file": "components/Cart.jsx",
+      "source_location": "L7",
+      "id": "components_cart_cart",
+      "community": 0,
+      "norm_label": "cart()"
+    },
+    {
+      "label": "Footer.jsx",
+      "file_type": "code",
+      "source_file": "components/Footer.jsx",
+      "source_location": "L1",
+      "id": "components_footer_jsx",
+      "community": 7,
+      "norm_label": "footer.jsx"
+    },
+    {
+      "label": "Footer()",
+      "file_type": "code",
+      "source_file": "components/Footer.jsx",
+      "source_location": "L5",
+      "id": "components_footer_footer",
+      "community": 7,
+      "norm_label": "footer()"
+    },
+    {
+      "label": "Navbar.jsx",
+      "file_type": "code",
+      "source_file": "components/Navbar.jsx",
+      "source_location": "L1",
+      "id": "components_navbar_jsx",
+      "community": 5,
+      "norm_label": "navbar.jsx"
+    },
+    {
+      "label": "Navbar()",
+      "file_type": "code",
+      "source_file": "components/Navbar.jsx",
+      "source_location": "L6",
+      "id": "components_navbar_navbar",
+      "community": 5,
+      "norm_label": "navbar()"
+    },
+    {
+      "label": "ProductCard.jsx",
+      "file_type": "code",
+      "source_file": "components/ProductCard.jsx",
+      "source_location": "L1",
+      "id": "components_productcard_jsx",
+      "community": 0,
+      "norm_label": "productcard.jsx"
+    },
+    {
+      "label": "ProductCard()",
+      "file_type": "code",
+      "source_file": "components/ProductCard.jsx",
+      "source_location": "L6",
+      "id": "components_productcard_productcard",
+      "community": 0,
+      "norm_label": "productcard()"
+    },
+    {
+      "label": "WhatsAppButton.jsx",
+      "file_type": "code",
+      "source_file": "components/WhatsAppButton.jsx",
+      "source_location": "L1",
+      "id": "components_whatsappbutton_jsx",
+      "community": 3,
+      "norm_label": "whatsappbutton.jsx"
+    },
+    {
+      "label": "WhatsAppButton()",
+      "file_type": "code",
+      "source_file": "components/WhatsAppButton.jsx",
+      "source_location": "L3",
+      "id": "components_whatsappbutton_whatsappbutton",
+      "community": 3,
+      "norm_label": "whatsappbutton()"
+    },
+    {
+      "label": "WhatsAppIcon.jsx",
+      "file_type": "code",
+      "source_file": "components/WhatsAppIcon.jsx",
+      "source_location": "L1",
+      "id": "components_whatsappicon_jsx",
+      "community": 3,
+      "norm_label": "whatsappicon.jsx"
+    },
+    {
+      "label": "WhatsAppIcon()",
+      "file_type": "code",
+      "source_file": "components/WhatsAppIcon.jsx",
+      "source_location": "L1",
+      "id": "components_whatsappicon_whatsappicon",
+      "community": 3,
+      "norm_label": "whatsappicon()"
+    },
+    {
+      "label": "CartContext.jsx",
+      "file_type": "code",
+      "source_file": "context/CartContext.jsx",
+      "source_location": "L1",
+      "id": "context_cartcontext_jsx",
+      "community": 0,
+      "norm_label": "cartcontext.jsx"
+    },
+    {
+      "label": "CartContext",
+      "file_type": "code",
+      "source_file": "context/CartContext.jsx",
+      "source_location": "L3",
+      "id": "context_cartcontext_cartcontext",
+      "community": 0,
+      "norm_label": "cartcontext"
+    },
+    {
+      "label": "useCart()",
+      "file_type": "code",
+      "source_file": "context/CartContext.jsx",
+      "source_location": "L5",
+      "id": "context_cartcontext_usecart",
+      "community": 0,
+      "norm_label": "usecart()"
+    },
+    {
+      "label": "CartProvider()",
+      "file_type": "code",
+      "source_file": "context/CartContext.jsx",
+      "source_location": "L11",
+      "id": "context_cartcontext_cartprovider",
+      "community": 0,
+      "norm_label": "cartprovider()"
+    },
+    {
+      "label": "products.js",
+      "file_type": "code",
+      "source_file": "data/products.js",
+      "source_location": "L1",
+      "id": "data_products_js",
+      "community": 1,
+      "norm_label": "products.js"
+    },
+    {
+      "label": "products",
+      "file_type": "code",
+      "source_file": "data/products.js",
+      "source_location": "L1",
+      "id": "data_products_products",
+      "community": 1,
+      "norm_label": "products"
+    },
+    {
+      "label": "mainCategories",
+      "file_type": "code",
+      "source_file": "data/products.js",
+      "source_location": "L43",
+      "id": "data_products_maincategories",
+      "community": 1,
+      "norm_label": "maincategories"
+    },
+    {
+      "label": "Catalogo.jsx",
+      "file_type": "code",
+      "source_file": "pages/Catalogo.jsx",
+      "source_location": "L1",
+      "id": "pages_catalogo_jsx",
+      "community": 1,
+      "norm_label": "catalogo.jsx"
+    },
+    {
+      "label": "AddToCartButton()",
+      "file_type": "code",
+      "source_file": "pages/Catalogo.jsx",
+      "source_location": "L8",
+      "id": "pages_catalogo_addtocartbutton",
+      "community": 1,
+      "norm_label": "addtocartbutton()"
+    },
+    {
+      "label": "Catalogo()",
+      "file_type": "code",
+      "source_file": "pages/Catalogo.jsx",
+      "source_location": "L39",
+      "id": "pages_catalogo_catalogo",
+      "community": 1,
+      "norm_label": "catalogo()"
+    },
+    {
+      "label": "Contacto.jsx",
+      "file_type": "code",
+      "source_file": "pages/Contacto.jsx",
+      "source_location": "L1",
+      "id": "pages_contacto_jsx",
+      "community": 0,
+      "norm_label": "contacto.jsx"
+    },
+    {
+      "label": "Contacto()",
+      "file_type": "code",
+      "source_file": "pages/Contacto.jsx",
+      "source_location": "L7",
+      "id": "pages_contacto_contacto",
+      "community": 0,
+      "norm_label": "contacto()"
+    },
+    {
+      "label": "Empresa.jsx",
+      "file_type": "code",
+      "source_file": "pages/Empresa.jsx",
+      "source_location": "L1",
+      "id": "pages_empresa_jsx",
+      "community": 4,
+      "norm_label": "empresa.jsx"
+    },
+    {
+      "label": "Empresa()",
+      "file_type": "code",
+      "source_file": "pages/Empresa.jsx",
+      "source_location": "L3",
+      "id": "pages_empresa_empresa",
+      "community": 4,
+      "norm_label": "empresa()"
+    },
+    {
+      "label": "Home.jsx",
+      "file_type": "code",
+      "source_file": "pages/Home.jsx",
+      "source_location": "L1",
+      "id": "pages_home_jsx",
+      "community": 1,
+      "norm_label": "home.jsx"
+    },
+    {
+      "label": "Home()",
+      "file_type": "code",
+      "source_file": "pages/Home.jsx",
+      "source_location": "L8",
+      "id": "pages_home_home",
+      "community": 1,
+      "norm_label": "home()"
+    },
+    {
+      "label": "Industrias.jsx",
+      "file_type": "code",
+      "source_file": "pages/Industrias.jsx",
+      "source_location": "L1",
+      "id": "pages_industrias_jsx",
+      "community": 6,
+      "norm_label": "industrias.jsx"
+    },
+    {
+      "label": "Industrias()",
+      "file_type": "code",
+      "source_file": "pages/Industrias.jsx",
+      "source_location": "L4",
+      "id": "pages_industrias_industrias",
+      "community": 6,
+      "norm_label": "industrias()"
+    }
+  ],
+  "links": [
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "App.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "app_jsx",
+      "target": "context_cartcontext_jsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "App.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "app_jsx",
+      "target": "context_cartcontext_cartprovider",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "App.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "app_jsx",
+      "target": "components_navbar_jsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "App.jsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "app_jsx",
+      "target": "components_footer_jsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "App.jsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "app_jsx",
+      "target": "components_whatsappbutton_jsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "App.jsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "app_jsx",
+      "target": "components_cart_jsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "App.jsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "app_jsx",
+      "target": "pages_home_jsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "App.jsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "app_jsx",
+      "target": "pages_empresa_jsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "App.jsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "app_jsx",
+      "target": "pages_catalogo_jsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "App.jsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "app_jsx",
+      "target": "pages_industrias_jsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "App.jsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "app_jsx",
+      "target": "pages_contacto_jsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "App.jsx",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "app_jsx",
+      "target": "src_app_scrolltotop",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "App.jsx",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "app_jsx",
+      "target": "src_app_app",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "main.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "main_jsx",
+      "target": "app_jsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/Cart.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "components_cart_jsx",
+      "target": "context_cartcontext_jsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/Cart.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "components_cart_jsx",
+      "target": "context_cartcontext_usecart",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/Cart.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "components_cart_jsx",
+      "target": "components_whatsappicon_jsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/Cart.jsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "components_cart_jsx",
+      "target": "components_cart_cart",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/Cart.jsx",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "components_cart_cart",
+      "target": "context_cartcontext_usecart"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/Footer.jsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "components_footer_jsx",
+      "target": "components_footer_footer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/Navbar.jsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "components_navbar_jsx",
+      "target": "components_navbar_navbar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/ProductCard.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "components_productcard_jsx",
+      "target": "context_cartcontext_jsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/ProductCard.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "components_productcard_jsx",
+      "target": "context_cartcontext_usecart",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/ProductCard.jsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "components_productcard_jsx",
+      "target": "components_productcard_productcard",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "pages/Catalogo.jsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "pages_catalogo_jsx",
+      "target": "components_productcard_jsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "pages/Home.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "pages_home_jsx",
+      "target": "components_productcard_jsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/ProductCard.jsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "components_productcard_productcard",
+      "target": "context_cartcontext_usecart"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/WhatsAppButton.jsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "components_whatsappbutton_jsx",
+      "target": "components_whatsappicon_jsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/WhatsAppButton.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "components_whatsappbutton_jsx",
+      "target": "components_whatsappbutton_whatsappbutton",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/WhatsAppIcon.jsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "components_whatsappicon_jsx",
+      "target": "components_whatsappicon_whatsappicon",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "pages/Contacto.jsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "pages_contacto_jsx",
+      "target": "components_whatsappicon_jsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "context/CartContext.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "context_cartcontext_jsx",
+      "target": "context_cartcontext_cartcontext",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "context/CartContext.jsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "context_cartcontext_jsx",
+      "target": "context_cartcontext_usecart",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "context/CartContext.jsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "context_cartcontext_jsx",
+      "target": "context_cartcontext_cartprovider",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "pages/Catalogo.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "pages_catalogo_jsx",
+      "target": "context_cartcontext_jsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "pages/Contacto.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "pages_contacto_jsx",
+      "target": "context_cartcontext_jsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "pages/Catalogo.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "pages_catalogo_jsx",
+      "target": "context_cartcontext_usecart",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "pages/Contacto.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "pages_contacto_jsx",
+      "target": "context_cartcontext_usecart",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "pages/Catalogo.jsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "pages_catalogo_addtocartbutton",
+      "target": "context_cartcontext_usecart"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "pages/Contacto.jsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "pages_contacto_contacto",
+      "target": "context_cartcontext_usecart"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "data/products.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "data_products_js",
+      "target": "data_products_products",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "data/products.js",
+      "source_location": "L43",
+      "weight": 1.0,
+      "source": "data_products_js",
+      "target": "data_products_maincategories",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "pages/Catalogo.jsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "pages_catalogo_jsx",
+      "target": "data_products_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "pages/Home.jsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "pages_home_jsx",
+      "target": "data_products_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "pages/Catalogo.jsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "pages_catalogo_jsx",
+      "target": "data_products_products",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "pages/Home.jsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "pages_home_jsx",
+      "target": "data_products_products",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "pages/Catalogo.jsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "pages_catalogo_jsx",
+      "target": "data_products_maincategories",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "pages/Home.jsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "pages_home_jsx",
+      "target": "data_products_maincategories",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "pages/Catalogo.jsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "pages_catalogo_jsx",
+      "target": "pages_catalogo_addtocartbutton",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "pages/Catalogo.jsx",
+      "source_location": "L39",
+      "weight": 1.0,
+      "source": "pages_catalogo_jsx",
+      "target": "pages_catalogo_catalogo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "pages/Contacto.jsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "pages_contacto_jsx",
+      "target": "pages_contacto_contacto",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "pages/Empresa.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "pages_empresa_jsx",
+      "target": "pages_empresa_empresa",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "pages/Home.jsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "pages_home_jsx",
+      "target": "pages_home_home",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "pages/Industrias.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "pages_industrias_jsx",
+      "target": "pages_industrias_industrias",
+      "confidence_score": 1.0
+    }
+  ],
+  "hyperedges": []
+}
