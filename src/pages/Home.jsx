@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, ShieldCheck, Truck, Zap, Timer, PackageOpen } from 'lucide-react';
 import ProductCard from '../components/ProductCard';
 import ProductQuickView from '../components/ProductQuickView';
+import ArgentinaMap from '../components/ArgentinaMap';
 import { products, mainCategories } from '../data/products';
 import './Home.css';
 
@@ -169,11 +170,24 @@ export default function Home() {
               </div>
             </div>
             
-            <div className="hook-cards" style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '1.5rem' }}>
+            <div className="hook-cards" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1.5rem' }}>
               <div className="card" style={{ padding: '3.5rem 1.5rem', background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.05)', textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
                 <h3 className="text-accent text-neon-pulse" style={{ fontSize: '4.5rem', marginBottom: '1rem', lineHeight: 1 }}>+15 Años</h3>
                 <p style={{ fontWeight: '600', fontSize: '1.3rem', color: '#fff' }}>brindando soluciones en embalaje</p>
                 <p className="text-muted" style={{ fontSize: '1rem', marginTop: '0.75rem' }}>Trayectoria comprobable abasteciendo a industrias exigentes.</p>
+              </div>
+
+              <div className="card" style={{ padding: '2rem 1.5rem', background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.05)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', position: 'relative', overflow: 'hidden' }}>
+                <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, opacity: 0.6 }}>
+                  <ArgentinaMap />
+                </div>
+                <div style={{ position: 'relative', zIndex: 10, textAlign: 'center', pointerEvents: 'none' }}>
+                  <h3 className="text-white" style={{ fontSize: '2rem', marginBottom: '0.5rem', fontWeight: 800 }}>Cobertura<br/>Nacional</h3>
+                  <p className="text-muted" style={{ fontSize: '0.95rem', lineHeight: 1.4 }}>
+                    Llegamos a <strong>toda la Argentina</strong>.<br/>
+                    Despachos ágiles para que tu planta nunca se detenga.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
