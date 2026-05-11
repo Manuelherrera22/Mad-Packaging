@@ -28,23 +28,7 @@ export default function Home() {
     }
   ];
 
-  const heroSlides = [
-    {
-      img: '/img/film_stretch_1.jpg',
-      title: 'Film Stretch',
-      subtitle: 'Máximo rendimiento para paletizado'
-    },
-    {
-      img: '/img/cinta_torre.jpg',
-      title: 'Cintas Industriales',
-      subtitle: 'Alta adherencia para cierres seguros'
-    },
-    {
-      img: '/img/film_stretch_2.jpg',
-      title: 'Insumos Integrales',
-      subtitle: 'Todo lo que tu línea logística requiere'
-    }
-  ];
+
 
   return (
     <div className="home-page animate-fade-in">
