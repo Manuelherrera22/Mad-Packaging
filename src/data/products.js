@@ -8,12 +8,12 @@ export const products = [
   { id: 'fs-coreless-50', category: 'Film Stretch', subcategory: 'Coreless', title: 'Film Stretch Coreless', desc: '100% film, sin cartón. Ecológico y elimina el desperdicio del tubo.', medidas: '50 cm', peso: '4 kg', cantCaja: '4', img: '/img/film_stretch_2.jpg' },
   
   // --- CINTAS ADHESIVAS ---
-  { id: 'ca-emb-48-100', category: 'Cintas Adhesivas', subcategory: 'Embalaje', title: 'Cinta de Embalar Hotmelt', desc: 'Cinta de polipropileno con adhesivo hotmelt para cierre seguro.', medidas: '48mm x 100m', cantCaja: '36', img: '/img/cinta_caja.jpg', isNew: true },
+  { id: 'ca-emb-48-100', category: 'Cintas Adhesivas', subcategory: 'Embalaje', title: 'Cinta adhesiva para máquina cerradora de cajas', highlightDesc: 'Adhesivo HOTMELT', features: ['Pegado inicial muy fuerte ("tack" alto)', 'Excelente adhesión sobre cartón reciclado o superficies difíciles', 'Mayor resistencia mecánica al impacto y manipulación', 'Desenrollado más silencioso y suave'], medidas: '48mm x 1500m', cantCaja: '6', img: '/img/cinta_caja.jpg', isNew: true },
   { id: 'ca-emb-72-100', category: 'Cintas Adhesivas', subcategory: 'Embalaje', title: 'Cinta de Embalar Ancha', desc: 'Cinta de embalar de mayor ancho para cajas pesadas o de gran formato.', medidas: '72mm x 100m', cantCaja: '24', img: '/img/cinta_torre.jpg' },
   { id: 'ca-emb-48-1000', category: 'Cintas Adhesivas', subcategory: 'Embalaje', title: 'Cinta de Embalar Automática', desc: 'Para máquinas precintadoras.', medidas: '48mm x 1000m', cantCaja: '6', img: '/img/cinta_torre.jpg' },
   { id: 'ca-fragil-48', category: 'Cintas Adhesivas', subcategory: 'Frágil', title: 'Cinta Adhesiva FRAGIL', desc: 'Cinta pre-impresa indicadora de mercancía frágil.', medidas: '48mm x 100m', cantCaja: '36', img: '/img/cinta_caja.jpg' },
   { id: 'ca-impres-48', category: 'Cintas Adhesivas', subcategory: 'Impresas', title: 'Cinta Impresa con Logo', desc: 'Fondo cristal/blanco/color con impresión hasta 4 colores.', medidas: '48mm x 100m', cantCaja: '36', img: '/img/cinta_torre.jpg' },
-  { id: 'ca-papel-48', category: 'Cintas Adhesivas', subcategory: 'Papel', title: 'Cinta de Papel Multiuso', desc: 'Para enmascarar y usos generales.', medidas: '48mm x 40m', cantCaja: '20', img: '/img/cinta_caja.jpg', isNew: true },
+  { id: 'ca-papel-48', category: 'Cintas Adhesivas', subcategory: 'Papel', title: 'Cinta adhesiva de papel Multiuso', highlightDesc: 'Producción, obra y hogar', features: ['Excelente adhesión sobre múltiples superficies', 'Ideal para empalmar, enmascarar, sostener, empaquetar y rotular', 'Despegue limpio'], medidas: '12mm, 18mm, 24mm, 36mm y 48mm de ancho por 40m de largo', cantCaja: '20', img: '/img/cinta_caja.jpg', isNew: true },
   { id: 'ca-papel-alta-48', category: 'Cintas Adhesivas', subcategory: 'Papel', title: 'Cinta de Papel Alta Adherencia', desc: 'Para aplicaciones que requieren mayor fijación.', medidas: '48mm x 50m', cantCaja: '20', img: '/img/cinta_torre.jpg' },
   { id: 'ca-doble-48', category: 'Cintas Adhesivas', subcategory: 'Doble Faz', title: 'Cinta Doble Faz Papel', desc: 'Para montaje y fijación temporal.', medidas: '48mm x 30m', cantCaja: '20', img: '/img/cinta_caja.jpg' },
   { id: 'ca-especial-duct', category: 'Cintas Adhesivas', subcategory: 'Especiales', title: 'Cinta Duct Tape (Plata)', desc: 'Para reparaciones, sellado y sujeción fuerte.', medidas: '48mm x 25m', cantCaja: '10', img: '/img/cinta_torre.jpg' },
@@ -42,10 +42,10 @@ export const products = [
 ];
 
 export const mainCategories = [
-  { id: 'film-stretch', name: 'Film Stretch', desc: 'Manual, Automático, Coreless', img: '/img/film_stretch_1.jpg' },
-  { id: 'cintas-adhesivas', name: 'Cintas Adhesivas', desc: 'Embalaje, Impresas, Papel, Especiales', img: '/img/cinta_caja.jpg' },
-  { id: 'flejes', name: 'Flejes', desc: 'Plásticos Manuales y Automáticos', img: '/img/flejes_hebillas.png' },
-  { id: 'carton-corrugado', name: 'Cartón Corrugado', desc: 'Rollos y Cajas a Medida', img: '/img/bolsas_industriales.png' }, // Usamos imagen disponible
-  { id: 'proteccion-empaque', name: 'Protección y Empaque', desc: 'Esquineros, Burbujas, Cobertores', img: '/img/film_burbujas.png' },
-  { id: 'otros', name: 'Otros Productos', desc: 'Bolsas, Racionadores, Herramientas', img: '/img/bolsas_industriales.png' }
+  { id: 'film-stretch', name: 'Film Stretch', desc: 'Uso manual y automático', img: '/img/film_stretch_1.jpg' },
+  { id: 'cintas-adhesivas', name: 'Cintas Adhesivas', desc: 'Embalaje, papel, doble faz, personalizadas y especiales', img: '/img/cinta_caja.jpg' },
+  { id: 'flejes', name: 'Flejes', desc: 'Plásticos, uso manual y automático', img: '/img/flejes_hebillas.png' },
+  { id: 'carton-corrugado', name: 'Cartón', desc: 'Rollos de cartón corrugado, esquineros, cajas y separadores', img: '/img/bolsas_industriales.png' }, // Usamos imagen disponible
+  { id: 'proteccion-empaque', name: 'Pluribol', desc: 'Rollos de polietileno con burbujas de aire', img: '/img/film_burbujas.png' },
+  { id: 'otros', name: 'Otros Productos', desc: 'Cobertores, film alimenticio, racionadores, bolsas y más', img: '/img/bolsas_industriales.png' }
 ];

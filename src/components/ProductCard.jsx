@@ -14,7 +14,7 @@ export default function ProductCard({ product, onQuickView, onToggleCompare, isC
     setTimeout(() => setJustAdded(false), 1200);
   };
 
-  const isSpecialOrder = product.subcategory === 'Con Mango' || product.isNew;
+  const isSpecialOrder = product.subcategory === 'Con Mango';
 
   return (
     <div className="card text-left product-card" style={{ position: 'relative' }}>
@@ -49,15 +49,23 @@ export default function ProductCard({ product, onQuickView, onToggleCompare, isC
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5rem' }}>
           <span className="badge">{product.subcategory || product.category}</span>
           <span style={{ fontSize: '0.7rem', fontWeight: 600, color: isSpecialOrder ? '#eab308' : 'var(--teal)' }}>
-            {isSpecialOrder ? '• A Pedido' : '• Stock Permanente'}
+            {isSpecialOrder ? '• A Pedido' : '• En Stock'}
           </span>
         </div>
         <h3 style={{ fontSize: '1.25rem', margin: '0 0 0.5rem 0', cursor: 'pointer' }} onClick={() => onQuickView && onQuickView(product)} className="hover-text-accent">
           {product.title}
         </h3>
-        <p className="text-muted" style={{ fontSize: '0.9rem', marginBottom: '1rem', minHeight: '40px' }}>
-          {product.desc}
-        </p>
+        <div className="text-muted" style={{ fontSize: '0.9rem', marginBottom: '1rem', minHeight: '40px' }}>
+          {product.highlightDesc && <p style={{ fontWeight: 600, color: 'var(--text-primary)', marginBottom: '0.5rem' }}>{product.highlightDesc}</p>}
+          {product.desc && <p style={{ marginBottom: product.features ? '0.5rem' : 0 }}>{product.desc}</p>}
+          {product.features && (
+            <ul style={{ paddingLeft: '1.2rem', margin: 0, display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
+              {product.features.map((feat, idx) => (
+                <li key={idx}>{feat}</li>
+              ))}
+            </ul>
+          )}
+        </div>
 
         {/* Technical Specs */}
         <div className="tech-specs">

@@ -22,7 +22,6 @@ export default function Footer() {
             <ul>
               <li><Link to="/empresa">Nuestra Empresa</Link></li>
               <li><Link to="/productos">Catálogo de Productos</Link></li>
-              <li><Link to="/industrias">Sectores Industriales</Link></li>
               <li><Link to="/contacto">Contacto y Cotizaciones</Link></li>
             </ul>
           </div>
@@ -32,7 +31,7 @@ export default function Footer() {
             <ul className="contact-list">
               <li>
                 <MapPin size={20} className="text-accent" />
-                <span>Av. Industrial 1234, Parque Industrial, Ciudad.</span>
+                <span>República del Líbano 4144 – Villa Lynch – San Martín – Bs As. Argentina</span>
               </li>
               <li>
                 <Phone size={20} className="text-accent" />
@@ -61,7 +60,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="footer-bottom">
-          <p>&copy; {new Date().getFullYear()} MAD Packaging Industrial SRL. Todos los derechos reservados.</p>
+          <p>&copy; {new Date().getFullYear()} Mad Packaging SRL. Todos los derechos reservados.</p>
         </div>
       </div>
     </footer>

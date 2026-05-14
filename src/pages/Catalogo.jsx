@@ -22,7 +22,7 @@ function B2BListItem({ product, onQuickView }) {
     setTimeout(() => setJustAdded(false), 1200);
   };
 
-  const isSpecialOrder = product.subcategory === 'Con Mango' || product.isNew;
+  const isSpecialOrder = product.subcategory === 'Con Mango';
 
   return (
     <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', padding: '1rem', background: 'rgba(255,255,255,0.03)', borderBottom: '1px solid var(--border-color)' }} className="b2b-list-item hover-bg-secondary">
@@ -36,7 +36,7 @@ function B2BListItem({ product, onQuickView }) {
       </div>
       <div style={{ flex: '1', minWidth: '120px' }}>
         <span style={{ fontSize: '0.8rem', fontWeight: 600, color: isSpecialOrder ? '#eab308' : 'var(--teal)', background: isSpecialOrder ? 'rgba(234, 179, 8, 0.1)' : 'rgba(0, 191, 165, 0.1)', padding: '0.2rem 0.5rem', borderRadius: '100px' }}>
-          {isSpecialOrder ? 'A Pedido' : 'Stock Permanente'}
+          {isSpecialOrder ? 'A Pedido' : 'En Stock'}
         </span>
       </div>
       <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flex: '1', minWidth: '250px', justifyContent: 'flex-end' }}>

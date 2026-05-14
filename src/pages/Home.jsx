@@ -27,13 +27,13 @@ export default function Home() {
       images: ['/img/film_stretch_1.jpg', '/img/film_stretch_2.jpg', '/img/film_mango.jpg']
     },
     {
-      title: 'Cintas Industriales',
+      title: 'Cintas Adhesivas',
       subtitle: 'Alta adherencia para cierres seguros',
       link: '/productos?categoria=Cintas%20Adhesivas',
       images: ['/img/cinta_torre.jpg', '/img/cinta_caja.jpg', '/img/cinta_torre.jpg'] // using torra/caja twice to ensure 3 images
     },
     {
-      title: 'Insumos Integrales',
+      title: 'Protección y seguridad',
       subtitle: 'Todo lo que tu línea logística requiere',
       link: '/productos?categoria=Protección%20y%20Empaque',
       images: ['/img/bolsas_industriales.png', '/img/flejes_hebillas.png', '/img/film_burbujas.png']
@@ -48,12 +48,12 @@ export default function Home() {
     },
     {
       img: '/img/cinta_torre.jpg',
-      title: 'Cintas Industriales',
+      title: 'Cintas Adhesivas',
       subtitle: 'Alta adherencia para cierres seguros'
     },
     {
       img: '/img/film_stretch_2.jpg',
-      title: 'Insumos Integrales',
+      title: 'Protección y seguridad',
       subtitle: 'Todo lo que tu línea logística requiere'
     }
   ];
@@ -178,14 +178,13 @@ export default function Home() {
               </div>
 
               <div className="card" style={{ padding: '2rem 1.5rem', background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.05)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', position: 'relative', overflow: 'hidden' }}>
-                <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, opacity: 0.6 }}>
+                <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, opacity: 1 }}>
                   <ArgentinaMap />
                 </div>
-                <div style={{ position: 'relative', zIndex: 10, textAlign: 'center', pointerEvents: 'none' }}>
+                <div style={{ position: 'relative', zIndex: 10, textAlign: 'center', pointerEvents: 'none', background: 'radial-gradient(circle, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 80%)', padding: '1rem' }}>
                   <h3 className="text-white" style={{ fontSize: '2rem', marginBottom: '0.5rem', fontWeight: 800 }}>Cobertura<br/>Nacional</h3>
-                  <p className="text-muted" style={{ fontSize: '0.95rem', lineHeight: 1.4 }}>
-                    Llegamos a <strong>toda la Argentina</strong>.<br/>
-                    Despachos ágiles para que tu planta nunca se detenga.
+                  <p className="text-muted" style={{ fontSize: '0.95rem', lineHeight: 1.4, color: '#fff' }}>
+                    Los productos donde los necesites
                   </p>
                 </div>
               </div>
@@ -243,17 +242,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="section cta-section">
-        <div className="container text-center">
-          <PackageOpen size={48} className="text-accent" style={{ margin: '0 auto 1.5rem' }} />
-          <h2 className="heading-lg">¿Requiere un volumen mayorista?</h2>
-          <p className="text-muted" style={{ maxWidth: '600px', margin: '1.5rem auto 2.5rem' }}>
-            Nuestro equipo de técnicos comerciales le asesorará para elegir el material exacto que su línea de producción o logística requiere.
-          </p>
-          <Link to="/contacto" className="btn btn-primary" style={{ padding: '1.25rem 3rem', fontSize: '1rem' }}>Contactar Asesor</Link>
-        </div>
-      </section>
+
 
       {quickViewProduct && (
         <ProductQuickView product={quickViewProduct} onClose={() => setQuickViewProduct(null)} />

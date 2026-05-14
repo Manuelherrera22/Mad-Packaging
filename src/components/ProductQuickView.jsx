@@ -26,7 +26,7 @@ export default function ProductQuickView({ product, onClose }) {
     setTimeout(() => setJustAdded(false), 1200);
   };
 
-  const isSpecialOrder = product.subcategory === 'Con Mango' || product.isNew;
+  const isSpecialOrder = product.subcategory === 'Con Mango';
 
   const modalContent = (
     <div className="modal-backdrop" onClick={onClose} style={{
@@ -55,11 +55,21 @@ export default function ProductQuickView({ product, onClose }) {
           <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '1rem' }}>
             <span className="badge">{product.category}</span>
             <span className="badge" style={{ background: isSpecialOrder ? 'rgba(234, 179, 8, 0.2)' : 'rgba(0, 191, 165, 0.2)', color: isSpecialOrder ? '#eab308' : 'var(--teal)', border: 'none' }}>
-              {isSpecialOrder ? 'A Pedido' : 'Stock Permanente'}
+              {isSpecialOrder ? 'A Pedido' : 'En Stock'}
             </span>
           </div>
           <h2 style={{ fontSize: '2rem', marginBottom: '1rem', lineHeight: 1.2 }}>{product.title}</h2>
-          <p className="text-muted" style={{ fontSize: '1.1rem', marginBottom: '2rem' }}>{product.desc}</p>
+          <div className="text-muted" style={{ fontSize: '1.1rem', marginBottom: '2rem' }}>
+            {product.highlightDesc && <p style={{ fontWeight: 600, color: 'var(--text-primary)', marginBottom: '0.5rem' }}>{product.highlightDesc}</p>}
+            {product.desc && <p style={{ marginBottom: product.features ? '1rem' : 0 }}>{product.desc}</p>}
+            {product.features && (
+              <ul style={{ paddingLeft: '1.5rem', margin: 0, display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                {product.features.map((feat, idx) => (
+                  <li key={idx}>{feat}</li>
+                ))}
+              </ul>
+            )}
+          </div>
 
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '2rem' }}>
             {product.medidas && (
