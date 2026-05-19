@@ -17,17 +17,20 @@ export default function Empresa() {
         <div className="container">
           <div className="grid grid-cols-2" style={{ alignItems: 'center', gap: '4rem' }}>
             <div>
-              <span className="badge">Innovación</span>
-              <h2 className="heading-md">Innovación Constante</h2>
+              <span className="badge">Innovación y Compromiso</span>
+              <h2 className="heading-md">Nuestra Misión</h2>
               <p className="text-muted" style={{ margin: '1.5rem 0' }}>
-                Nacimos con la visión de profesionalizar el sector del empaque industrial. Hoy, nuestras instalaciones albergan tecnología de extrusión de última generación, permitiendo fabricar film tricapa de alto rendimiento y soluciones en polietileno adaptadas a cualquier condición de transporte.
+                Somos una empresa joven y en continua expansión. Durante más de 10 años nos especializamos en la venta de cintas adhesivas y stretch film. Proveemos adicionalmente otros artículos de embalaje indispensables para el proceso de distribución y almacenamiento de mercadería como pluribol, cartón corrugado, esquineros, flejes, bolsas, etc.
+              </p>
+              <p className="text-muted" style={{ margin: '0 0 1.5rem 0' }}>
+                Nuestra misión es proveer artículos de embalajes de primera calidad en forma rápida y confiable. Nuestro objetivo es generar un vínculo cordial y eficiente con su empresa para ser un aliado en su proceso productivo.
               </p>
               <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                 {[
-                  'Desarrollo de films especiales aditivados',
-                  'Asesoría técnica en planta del cliente',
-                  'Optimización de espesores para reducir huella de carbono',
-                  'Laboratorio propio de ensayos de tensión'
+                  'Entregamos la mercadería en su domicilio en menos de 48 hs.',
+                  'Más de 10 años de trayectoria en el mercado brindando asesoramiento.',
+                  'Servicio personalizado con permanente stock disponible.',
+                  'Trabajamos con marcas de primera calidad y diversidad de productos.'
                 ].map((item, i) => (
                   <li key={i} style={{ display: 'flex', gap: '0.75rem', alignItems: 'center' }}>
                     <CheckCircle2 className="text-accent" size={20} />

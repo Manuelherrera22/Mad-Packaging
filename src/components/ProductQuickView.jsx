@@ -48,7 +48,9 @@ export default function ProductQuickView({ product, onClose }) {
         </button>
 
         <div style={{ flex: '1 1 400px', padding: '2rem', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', background: 'rgba(0,0,0,0.2)' }}>
-          <img src={product.img} alt={product.title} style={{ maxWidth: '100%', maxHeight: '400px', objectFit: 'contain' }} />
+          <div style={{ background: '#fff', padding: '2rem', borderRadius: 'var(--radius-md)', borderBottom: '3px solid #d4af37', width: '100%', display: 'flex', justifyContent: 'center', boxShadow: '0 10px 25px rgba(0,0,0,0.5)' }}>
+            <img src={product.img} alt={product.title} style={{ maxWidth: '100%', maxHeight: '320px', objectFit: 'contain', mixBlendMode: 'multiply' }} />
+          </div>
         </div>
 
         <div style={{ flex: '1 1 400px', padding: '2.5rem' }}>

@@ -36,3 +36,30 @@
     opacity: 0;
   }
 }
+
+.map-arrow-path {
+  fill: none;
+  stroke: var(--accent-color);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 8 12;
+  animation: move-arrows 2s linear infinite;
+  opacity: 0.7;
+}
+
+.map-arrow-path.teal {
+  stroke: var(--teal);
+}
+
+.map-arrow-path.steel {
+  stroke: var(--steel);
+}
+
+@keyframes move-arrows {
+  from {
+    stroke-dashoffset: 100;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}

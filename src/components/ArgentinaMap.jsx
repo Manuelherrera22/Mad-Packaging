@@ -17,17 +17,30 @@ export default function ArgentinaMap() {
       </svg>
       
       {/* Animated map pins for key cities */}
-      <div className="map-pin-pulse" style={{ position: 'absolute', top: '35%', right: '35%' }}>
+      <svg style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', pointerEvents: 'none' }} viewBox="0 0 100 100" preserveAspectRatio="none">
+        {/* Hub to North */}
+        <path d="M 60 50 Q 50 40 65 35" className="map-arrow-path" />
+        {/* Hub to South */}
+        <path d="M 60 50 Q 55 60 35 65" className="map-arrow-path steel" />
+        {/* Hub to West */}
+        <path d="M 60 50 Q 45 45 35 50" className="map-arrow-path teal" />
+      </svg>
+
+      <div className="map-pin-pulse" style={{ position: 'absolute', top: '35%', left: '65%', transform: 'translate(-50%, -50%)' }}>
         <MapPin size={16} className="text-accent" />
         <div className="pulse-ring"></div>
       </div>
-      <div className="map-pin-pulse" style={{ position: 'absolute', top: '50%', right: '40%' }}>
-        <MapPin size={14} className="text-teal" />
+      <div className="map-pin-pulse" style={{ position: 'absolute', top: '50%', left: '60%', transform: 'translate(-50%, -50%)' }}>
+        <MapPin size={18} className="text-teal" />
         <div className="pulse-ring teal"></div>
       </div>
-      <div className="map-pin-pulse" style={{ position: 'absolute', top: '65%', left: '35%' }}>
+      <div className="map-pin-pulse" style={{ position: 'absolute', top: '65%', left: '35%', transform: 'translate(-50%, -50%)' }}>
         <MapPin size={12} className="text-steel" />
         <div className="pulse-ring steel" style={{ animationDelay: '1s' }}></div>
+      </div>
+      <div className="map-pin-pulse" style={{ position: 'absolute', top: '50%', left: '35%', transform: 'translate(-50%, -50%)' }}>
+        <MapPin size={14} className="text-accent" />
+        <div className="pulse-ring" style={{ animationDelay: '1.5s' }}></div>
       </div>
     </div>
   );

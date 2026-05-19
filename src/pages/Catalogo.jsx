@@ -26,7 +26,9 @@ function B2BListItem({ product, onQuickView }) {
 
   return (
     <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', padding: '1rem', background: 'rgba(255,255,255,0.03)', borderBottom: '1px solid var(--border-color)' }} className="b2b-list-item hover-bg-secondary">
-      <img src={product.img} alt={product.title} style={{ width: '60px', height: '60px', objectFit: 'cover', borderRadius: 'var(--radius-sm)', cursor: 'pointer' }} onClick={() => onQuickView(product)} />
+      <div style={{ width: '60px', height: '60px', backgroundColor: '#fff', borderRadius: 'var(--radius-sm)', borderBottom: '2px solid #d4af37', padding: '4px', flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }} onClick={() => onQuickView(product)}>
+        <img src={product.img} alt={product.title} style={{ width: '100%', height: '100%', objectFit: 'contain', mixBlendMode: 'multiply' }} />
+      </div>
       <div style={{ flex: '2', minWidth: '200px' }}>
         <h4 style={{ margin: '0 0 0.25rem 0', cursor: 'pointer' }} onClick={() => onQuickView(product)} className="hover-text-accent">{product.title}</h4>
         <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>{product.subcategory || product.category}</span>
