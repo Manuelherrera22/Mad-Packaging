@@ -95,7 +95,7 @@ export default function Catalogo() {
   const [activeCategory, setActiveCategory] = useState('Todos');
   const [activeSubcategory, setActiveSubcategory] = useState('Todas');
   const [searchQuery, setSearchQuery] = useState('');
-  const [viewMode, setViewMode] = useState('grid'); // 'grid' o 'list'
+  const [viewMode, setViewMode] = useState('list'); // 'grid' o 'list'
   const [sortBy, setSortBy] = useState('relevance');
   const [quickViewProduct, setQuickViewProduct] = useState(null);
   const [compareList, setCompareList] = useState([]);
