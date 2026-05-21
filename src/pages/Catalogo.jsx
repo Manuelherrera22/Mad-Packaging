@@ -25,13 +25,13 @@ function B2BListItem({ product, onQuickView }) {
   const isSpecialOrder = product.subcategory === 'Con Mango';
 
   return (
-    <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', padding: '1rem', background: 'rgba(255,255,255,0.03)', borderBottom: '1px solid var(--border-color)' }} className="b2b-list-item hover-bg-secondary">
-      <div style={{ width: '60px', height: '60px', backgroundColor: '#fff', borderRadius: 'var(--radius-sm)', borderBottom: '2px solid #d4af37', padding: '4px', flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }} onClick={() => onQuickView(product)}>
+    <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', padding: '1rem', background: 'rgba(255,255,255,0.03)', borderBottom: '1px solid var(--border-color)' }} className="b2b-list-item hover-bg-secondary">
+      <div style={{ width: '120px', height: '120px', backgroundColor: '#fff', borderRadius: 'var(--radius-sm)', borderBottom: '2px solid #d4af37', padding: '0.5rem', flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }} onClick={() => onQuickView(product)}>
         <img src={product.img} alt={product.title} style={{ width: '100%', height: '100%', objectFit: 'contain', mixBlendMode: 'multiply' }} />
       </div>
       <div style={{ flex: '2', minWidth: '200px' }}>
-        <h4 style={{ margin: '0 0 0.25rem 0', cursor: 'pointer' }} onClick={() => onQuickView(product)} className="hover-text-accent">{product.title}</h4>
-        <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>{product.subcategory || product.category}</span>
+        <h4 style={{ margin: '0 0 0.25rem 0', cursor: 'pointer', fontSize: '1.1rem' }} onClick={() => onQuickView(product)} className="hover-text-accent">{product.title}</h4>
+        <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>{product.subcategory || product.category}</span>
       </div>
       <div style={{ flex: '1', minWidth: '100px', fontSize: '0.9rem', color: 'var(--text-muted)' }}>
         {product.medidas || '-'}
@@ -166,10 +166,12 @@ export default function Catalogo() {
   return (
     <div className="animate-fade-in" style={{ paddingTop: '80px', paddingBottom: '4rem', minHeight: '100vh', background: 'var(--bg-primary)' }}>
       <div className="container" style={{ marginTop: '3rem' }}>
-        <span className="badge" style={{ display: 'block', textAlign: 'center', margin: '0 auto' }}>Nuestros Productos</span>
-        <h1 className="heading-lg text-center text-gradient" style={{ marginBottom: '1rem' }}>Catálogo Técnico</h1>
+        <h1 className="heading-lg text-center text-gradient" style={{ marginBottom: '1rem' }}>CATÁLOGO</h1>
+        <p className="text-muted text-center" style={{ maxWidth: '600px', margin: '0 auto 0.5rem' }}>
+          Seleccione la linea de producto para ver mas detalles
+        </p>
         <p className="text-muted text-center" style={{ maxWidth: '600px', margin: '0 auto 3rem' }}>
-          Seleccione la línea de productos para visualizar las especificaciones técnicas. Puede solicitar cotización directa y rápida.
+          Puede solicitar cotización directa y rápida a tráves de nuestro whatsapp o mail
         </p>
 
         <div className="catalog-layout" style={{ display: 'flex', gap: '3rem', alignItems: 'flex-start' }}>
@@ -330,8 +332,8 @@ export default function Catalogo() {
                 </div>
               ) : (
                 <div className="list-view-container" style={{ background: 'rgba(255,255,255,0.02)', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-color)', overflow: 'hidden' }}>
-                  <div style={{ display: 'flex', padding: '1rem', background: 'rgba(0,0,0,0.2)', borderBottom: '1px solid var(--border-color)', fontWeight: 600, fontSize: '0.9rem', color: 'var(--text-muted)' }}>
-                    <div style={{ width: '60px', marginRight: '1rem' }}></div>
+                  <div style={{ display: 'flex', gap: '1.5rem', padding: '1rem', background: 'rgba(0,0,0,0.2)', borderBottom: '1px solid var(--border-color)', fontWeight: 600, fontSize: '0.9rem', color: 'var(--text-muted)' }}>
+                    <div style={{ width: '120px', flexShrink: 0 }}></div>
                     <div style={{ flex: '2', minWidth: '200px' }}>Producto</div>
                     <div style={{ flex: '1', minWidth: '100px' }}>Medidas</div>
                     <div style={{ flex: '1', minWidth: '120px' }}>Disponibilidad</div>
