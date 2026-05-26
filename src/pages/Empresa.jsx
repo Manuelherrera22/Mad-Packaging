@@ -6,7 +6,7 @@ export default function Empresa() {
       <header className="section" style={{ backgroundColor: 'var(--bg-secondary)', borderBottom: '1px solid var(--border-color)' }}>
         <div className="container text-center">
           <span className="badge">Nuestra Empresa</span>
-          <h1 className="heading-lg" style={{ marginTop: '1rem' }}>Trayectoria y Solidez<br/>en <span className="text-accent">Packaging Industrial</span></h1>
+          <h1 className="heading-lg" style={{ marginTop: '1rem' }}>Mad Packaging,<br/><span className="text-accent">una empresa al servicio de la industria.</span></h1>
           <p className="text-muted" style={{ maxWidth: '700px', margin: '1.5rem auto 0', fontSize: '1.1rem' }}>
             Desde hace más de 15 años, aportamos valor a la cadena de suministro de cientos de empresas en la región a través de envolturas y empaques confiables.
           </p>
@@ -18,12 +18,9 @@ export default function Empresa() {
           <div className="grid grid-cols-2" style={{ alignItems: 'center', gap: '4rem' }}>
             <div>
               <span className="badge">Innovación y Compromiso</span>
-              <h2 className="heading-md">Nuestra Misión</h2>
-              <p className="text-muted" style={{ margin: '1.5rem 0' }}>
-                Somos una empresa joven y en continua expansión. Durante más de 10 años nos especializamos en la venta de cintas adhesivas y stretch film. Proveemos adicionalmente otros artículos de embalaje indispensables para el proceso de distribución y almacenamiento de mercadería como pluribol, cartón corrugado, esquineros, flejes, bolsas, etc.
-              </p>
-              <p className="text-muted" style={{ margin: '0 0 1.5rem 0' }}>
-                Nuestra misión es proveer artículos de embalajes de primera calidad en forma rápida y confiable. Nuestro objetivo es generar un vínculo cordial y eficiente con su empresa para ser un aliado en su proceso productivo.
+              <h2 className="heading-md">Quienes somos.</h2>
+              <p className="text-muted" style={{ margin: '1.5rem 0', lineHeight: '1.8' }}>
+                Somos una empresa joven con más de quince años de experiencia en el mercado de embalaje industrial. Nacimos especializados en cintas adhesivas y evolucionamos incorporando stretch film y una amplia línea de materiales de empaque y protección. Abastecemos a empresas de distintos rubros y las acompañamos con asesoramiento técnico para optimizar sus procesos de embalaje, mejorar la protección de sus productos y fortalecer la eficiencia logística. Nuestro foco es brindar soluciones confiables, con atención cercana, stock permanente y tiempos de respuesta ágiles.
               </p>
               <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                 {[
