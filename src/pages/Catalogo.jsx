@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo } from 'react';
-import { ChevronRight, ShoppingCart, Check, Filter, Search, LayoutGrid, List, ArrowUpDown } from 'lucide-react';
+import { ChevronRight, ShoppingCart, Check, Filter, Search, LayoutGrid, List, ArrowUpDown, Maximize, Weight, PackageOpen } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import { products, mainCategories } from '../data/products';
@@ -29,12 +29,43 @@ function B2BListItem({ product, onQuickView }) {
       <div style={{ width: '160px', height: '160px', backgroundColor: '#fff', borderRadius: 'var(--radius-sm)', borderBottom: '2px solid #d4af37', padding: '0.2rem', flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
         <img src={product.img} alt={product.title} style={{ width: '100%', height: '100%', objectFit: 'contain', mixBlendMode: 'multiply', transform: 'scale(1.05)' }} />
       </div>
-      <div style={{ flex: '2', minWidth: '200px' }}>
-        <h4 style={{ margin: '0 0 0.25rem 0', fontSize: '1.1rem' }}>{product.title}</h4>
-        {product.subtitle && <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>{product.subtitle}</span>}
-      </div>
-      <div style={{ flex: '1', minWidth: '100px', fontSize: '0.9rem', color: 'var(--text-muted)' }}>
-        {product.medidas || '-'}
+      <div style={{ flex: '3', minWidth: '250px', display: 'flex', flexDirection: 'column', gap: '0.5rem', padding: '0.5rem 0' }}>
+        <div>
+          <h4 style={{ margin: '0 0 0.25rem 0', fontSize: '1.1rem' }}>{product.title}</h4>
+          {product.subtitle && <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>{product.subtitle}</span>}
+        </div>
+        
+        {product.desc && (
+          <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', margin: 0, lineHeight: '1.4' }}>{product.desc}</p>
+        )}
+
+        {/* Tech Specs */}
+        <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', marginTop: '0.25rem' }}>
+          {product.medidas && (
+            <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.05)', padding: '0.5rem', borderRadius: 'var(--radius-sm)' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem', color: 'var(--steel)', marginBottom: '0.1rem' }}>
+                <Maximize size={12} /> <span style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.5px' }}>MEDIDAS</span>
+              </div>
+              <div style={{ fontSize: '0.8rem', color: 'var(--text-primary)' }}>{product.medidas}</div>
+            </div>
+          )}
+          {product.peso && (
+            <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.05)', padding: '0.5rem', borderRadius: 'var(--radius-sm)' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem', color: 'var(--teal)', marginBottom: '0.1rem' }}>
+                <Weight size={12} /> <span style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.5px' }}>PESO</span>
+              </div>
+              <div style={{ fontSize: '0.8rem', color: 'var(--text-primary)' }}>{product.peso}</div>
+            </div>
+          )}
+          {product.cantCaja && (
+            <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.05)', padding: '0.5rem', borderRadius: 'var(--radius-sm)' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem', color: 'var(--accent-color)', marginBottom: '0.1rem' }}>
+                <PackageOpen size={12} /> <span style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.5px' }}>PACKAGING</span>
+              </div>
+              <div style={{ fontSize: '0.8rem', color: 'var(--text-primary)' }}>{product.cantCaja} por caja</div>
+            </div>
+          )}
+        </div>
       </div>
       <div style={{ flex: '1', minWidth: '120px' }}>
         <span style={{ fontSize: '0.8rem', fontWeight: 600, color: isSpecialOrder ? '#eab308' : 'var(--teal)', background: isSpecialOrder ? 'rgba(234, 179, 8, 0.1)' : 'rgba(0, 191, 165, 0.1)', padding: '0.2rem 0.5rem', borderRadius: '100px' }}>
@@ -332,8 +363,7 @@ export default function Catalogo() {
                 <div className="list-view-container" style={{ background: 'rgba(255,255,255,0.02)', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-color)', overflow: 'hidden' }}>
                   <div style={{ display: 'flex', gap: '1.5rem', padding: '1rem', background: 'rgba(0,0,0,0.2)', borderBottom: '1px solid var(--border-color)', fontWeight: 600, fontSize: '0.9rem', color: 'var(--text-muted)' }}>
                     <div style={{ width: '120px', flexShrink: 0 }}></div>
-                    <div style={{ flex: '2', minWidth: '200px' }}>Producto</div>
-                    <div style={{ flex: '1', minWidth: '100px' }}>Medidas</div>
+                    <div style={{ flex: '3', minWidth: '250px' }}>Producto</div>
                     <div style={{ flex: '1', minWidth: '120px' }}>Disponibilidad</div>
                     <div style={{ flex: '1', minWidth: '250px', textAlign: 'right' }}>Acción</div>
                   </div>
