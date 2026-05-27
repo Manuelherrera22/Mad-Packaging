@@ -226,10 +226,7 @@ export default function Home() {
                   <img src={cat.img} alt={cat.name} loading="lazy" />
                 </div>
                 <div className="card-content">
-                  <h3 style={{ fontSize: '1.5rem', margin: '0.5rem 0' }}>{cat.name}</h3>
-                  <p className="text-muted" style={{ fontSize: '0.9rem', marginBottom: '1.5rem', minHeight: '40px' }}>
-                    {cat.desc}
-                  </p>
+                  <h3 style={{ fontSize: '1.5rem', margin: '0.5rem 0 1.5rem 0' }}>{cat.name}</h3>
                   <div style={{ borderTop: '1px solid var(--border-color)', paddingTop: '1rem' }}>
                     <span className="text-accent" style={{ fontWeight: 700, display: 'flex', alignItems: 'center', gap: '0.25rem', fontSize: '0.85rem' }}>
                       Ver Productos <ArrowRight size={16} />

@@ -1,11 +1,11 @@
 export const products = [
   // --- FILM STRETCH ---
-  { id: 'fs-1', category: 'Film Stretch', title: 'Stretch film Uso Manual', desc: 'Material cristal virgen tricapa 23/25/30 micrones', medidas: 'Bobinas de 4 Kg a 5 Kg, en caja de 4 unidades o granel', img: '/img/scraped/manual-1.jpg' },
-  { id: 'fs-2', category: 'Film Stretch', title: 'Stretch film Uso Manual con Mango', desc: 'Material cristal virgen tricapa 23/25/30 micrones', medidas: 'Bobinas de 2,5 Kg a 3 Kg, en caja de 6 unidades o granel', img: '/img/scraped/mango-1.jpg' },
+  { id: 'fs-1', category: 'Film Stretch', title: 'Stretch film Uso Manual', subtitle: '50 cm de ancho', desc: 'Material cristal virgen tricapa 23/25/30 micrones', medidas: 'Bobinas de 4 Kg a 5 Kg, en caja de 4 unidades o granel', img: '/img/scraped/manual-1.jpg' },
+  { id: 'fs-2', category: 'Film Stretch', title: 'Stretch film Uso Manual con Mango', subtitle: '50 cm de ancho', desc: 'Material cristal virgen tricapa 23/25/30 micrones', medidas: 'Bobinas de 2,5 Kg a 3 Kg, en caja de 6 unidades o granel', img: '/img/scraped/mango-1.jpg' },
   { id: 'fs-3', category: 'Film Stretch', title: 'Stretch film Uso Manual 10 cm', desc: 'Material cristal virgen tricapa 23/25/30 micrones', medidas: 'Bobinas de 450g, en caja de 20 unidades', img: '/img/scraped/manual_corto-2.jpg' },
-  { id: 'fs-4', category: 'Film Stretch', title: 'Stretch film automático para paletizadora', desc: 'Material cristal virgen tricapa 23/25/30 micrones', medidas: 'Bobinas de 12 Kg a 16 Kg, a granel', img: '/img/scraped/automatico-1.jpg' },
-  { id: 'fs-5', category: 'Film Stretch', title: 'Stretch film Uso Manual Coreless', desc: 'Material cristal virgen tricapa 23/25/30 micrones', medidas: 'Bobinas de 4 Kg a 5 Kg, en caja de 4 unidades o granel', img: '/img/scraped/coreless-1.jpg' },
-  { id: 'fs-6', category: 'Film Stretch', title: 'Stretch film colores', desc: 'Cualquier presentación en opción de colores', medidas: 'Consulte medidas', img: '/img/scraped/colores.jpg' },
+  { id: 'fs-4', category: 'Film Stretch', title: 'Stretch film automático para paletizadora', subtitle: '50 cm de ancho', desc: 'Material cristal virgen tricapa 23/25/30 micrones', medidas: 'Bobinas de 12 Kg a 16 Kg, a granel', img: '/img/scraped/automatico-1.jpg' },
+  { id: 'fs-5', category: 'Film Stretch', title: 'Stretch film Uso Manual Coreless', subtitle: '50 cm de ancho', desc: 'Material cristal virgen tricapa 23/25/30 micrones', medidas: 'Bobinas de 4 Kg a 5 Kg, en caja de 4 unidades o granel', img: '/img/scraped/coreless-1.jpg' },
+  { id: 'fs-6', category: 'Film Stretch', title: 'Stretch film colores', desc: 'Cualquier presentación en opción de colores', medidas: 'Consulte medidas y disponibilidad de colores', img: '/img/scraped/colores.jpg' },
 
   // --- CINTAS ADHESIVAS (PARA EMBALAJE) ---
   { id: 'ca-1', category: 'Cintas Adhesivas', subcategory: 'Para Embalaje', title: 'Cinta adhesiva para embalaje', desc: 'Cinta adhesiva de polipropileno para cerrar cajas o multiples usos. Opción en 40 o 45 micrones de espesor.', medidas: '36mm, 48mm y 72mm de ancho', img: '/img/cinta_caja_zoomed.jpg' },

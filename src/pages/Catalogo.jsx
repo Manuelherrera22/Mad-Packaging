@@ -26,12 +26,12 @@ function B2BListItem({ product, onQuickView }) {
 
   return (
     <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', padding: '1rem', background: 'rgba(255,255,255,0.03)', borderBottom: '1px solid var(--border-color)' }} className="b2b-list-item hover-bg-secondary">
-      <div style={{ width: '120px', height: '120px', backgroundColor: '#fff', borderRadius: 'var(--radius-sm)', borderBottom: '2px solid #d4af37', padding: '0.5rem', flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }} onClick={() => onQuickView(product)}>
-        <img src={product.img} alt={product.title} style={{ width: '100%', height: '100%', objectFit: 'contain', mixBlendMode: 'multiply' }} />
+      <div style={{ width: '160px', height: '160px', backgroundColor: '#fff', borderRadius: 'var(--radius-sm)', borderBottom: '2px solid #d4af37', padding: '0.2rem', flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
+        <img src={product.img} alt={product.title} style={{ width: '100%', height: '100%', objectFit: 'contain', mixBlendMode: 'multiply', transform: 'scale(1.05)' }} />
       </div>
       <div style={{ flex: '2', minWidth: '200px' }}>
-        <h4 style={{ margin: '0 0 0.25rem 0', cursor: 'pointer', fontSize: '1.1rem' }} onClick={() => onQuickView(product)} className="hover-text-accent">{product.title}</h4>
-        <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>{product.subcategory || product.category}</span>
+        <h4 style={{ margin: '0 0 0.25rem 0', fontSize: '1.1rem' }}>{product.title}</h4>
+        {product.subtitle && <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>{product.subtitle}</span>}
       </div>
       <div style={{ flex: '1', minWidth: '100px', fontSize: '0.9rem', color: 'var(--text-muted)' }}>
         {product.medidas || '-'}
@@ -97,7 +97,6 @@ export default function Catalogo() {
   const [searchQuery, setSearchQuery] = useState('');
   const [viewMode, setViewMode] = useState('list'); // 'grid' o 'list'
   const [sortBy, setSortBy] = useState('relevance');
-  const [quickViewProduct, setQuickViewProduct] = useState(null);
   const [compareList, setCompareList] = useState([]);
   const [isCompareModalOpen, setIsCompareModalOpen] = useState(false);
 
@@ -324,7 +323,6 @@ export default function Catalogo() {
                     <ProductCard 
                       key={p.id} 
                       product={p} 
-                      onQuickView={setQuickViewProduct}
                       onToggleCompare={toggleCompare}
                       isCompared={!!compareList.find(c => c.id === p.id)}
                     />
@@ -340,7 +338,7 @@ export default function Catalogo() {
                     <div style={{ flex: '1', minWidth: '250px', textAlign: 'right' }}>Acción</div>
                   </div>
                   {filteredProducts.map(p => (
-                    <B2BListItem key={p.id} product={p} onQuickView={setQuickViewProduct} />
+                    <B2BListItem key={p.id} product={p} />
                   ))}
                 </div>
               )
@@ -349,10 +347,6 @@ export default function Catalogo() {
 
         </div>
       </div>
-
-      {quickViewProduct && (
-        <ProductQuickView product={quickViewProduct} onClose={() => setQuickViewProduct(null)} />
-      )}
       
       <CompareFloatingBar 
         products={compareList} 

@@ -70,9 +70,14 @@ export default function ProductCard({ product, onQuickView, onToggleCompare, isC
             {isSpecialOrder ? '• A Pedido' : '• En Stock'}
           </span>
         </div>
-        <h3 style={{ fontSize: '1.25rem', margin: '0 0 0.5rem 0', cursor: 'pointer' }} onClick={() => onQuickView && onQuickView(product)} className="hover-text-accent">
+        <h3 style={{ fontSize: '1.25rem', margin: '0 0 0.5rem 0', cursor: onQuickView ? 'pointer' : 'default' }} onClick={() => onQuickView && onQuickView(product)} className={onQuickView ? "hover-text-accent" : ""}>
           {product.title}
         </h3>
+        {product.subtitle && (
+          <div style={{ fontSize: '0.9rem', color: 'var(--text-primary)', fontWeight: 600, marginBottom: '0.5rem' }}>
+            {product.subtitle}
+          </div>
+        )}
         <div className="text-muted" style={{ fontSize: '0.9rem', marginBottom: '1rem', minHeight: '40px' }}>
           {product.highlightDesc && (
             <div style={{ marginBottom: '1rem' }}>
@@ -101,24 +106,30 @@ export default function ProductCard({ product, onQuickView, onToggleCompare, isC
           )}
         </div>
 
-        {/* Technical Specs */}
-        <div className="tech-specs">
+        {/* Technical Specs grouped aesthetically */}
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '0.5rem', marginBottom: '1.5rem' }}>
           {product.medidas && (
-            <div className="spec-item">
-              <Maximize size={14} className="text-steel" />
-              <span className="spec-text">{product.medidas}</span>
+            <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.05)', padding: '0.75rem', borderRadius: 'var(--radius-sm)' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--steel)', marginBottom: '0.25rem' }}>
+                <Maximize size={14} /> <span style={{ fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.5px' }}>MEDIDAS</span>
+              </div>
+              <div style={{ fontSize: '0.9rem', color: 'var(--text-primary)' }}>{product.medidas}</div>
             </div>
           )}
           {product.peso && (
-            <div className="spec-item">
-              <Weight size={14} className="text-teal" />
-              <span className="spec-text">{product.peso}</span>
+            <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.05)', padding: '0.75rem', borderRadius: 'var(--radius-sm)' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--teal)', marginBottom: '0.25rem' }}>
+                <Weight size={14} /> <span style={{ fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.5px' }}>PESO</span>
+              </div>
+              <div style={{ fontSize: '0.9rem', color: 'var(--text-primary)' }}>{product.peso}</div>
             </div>
           )}
           {product.cantCaja && (
-            <div className="spec-item">
-              <PackageOpen size={14} className="text-accent" />
-              <span className="spec-text">{product.cantCaja} por caja</span>
+            <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.05)', padding: '0.75rem', borderRadius: 'var(--radius-sm)' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--accent-color)', marginBottom: '0.25rem' }}>
+                <PackageOpen size={14} /> <span style={{ fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.5px' }}>PACKAGING</span>
+              </div>
+              <div style={{ fontSize: '0.9rem', color: 'var(--text-primary)' }}>{product.cantCaja} por caja</div>
             </div>
           )}
         </div>
