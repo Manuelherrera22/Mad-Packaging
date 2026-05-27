@@ -32,18 +32,36 @@ export default function ProductCard({ product, onQuickView, onToggleCompare, isC
         </div>
       )}
 
-      <div className="card-img-wrapper" style={{ position: 'relative', cursor: 'pointer' }} onClick={() => onQuickView && onQuickView(product)}>
+      <div className="card-img-wrapper" style={{ position: 'relative' }}>
         {product.isNew && (
           <span className="badge-new">NUEVO</span>
         )}
         <img src={product.img} alt={product.title} loading="lazy" />
-        <div className="quick-view-overlay" style={{
-          position: 'absolute', top: 0, left: 0, right: 0, bottom: 0,
-          background: 'rgba(0,0,0,0.5)', display: 'flex', alignItems: 'center', justifyContent: 'center',
-          opacity: 0, transition: 'opacity 0.3s', color: 'white', fontWeight: 600
-        }}>
-          Vista Rápida
-        </div>
+        {onQuickView && (
+          <div 
+            className="quick-view-overlay"
+            style={{
+              position: 'absolute',
+              top: 0, left: 0, right: 0, bottom: 0,
+              background: 'rgba(0,0,0,0.5)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              opacity: 0,
+              transition: 'opacity 0.3s ease',
+              cursor: 'pointer'
+            }}
+            onClick={() => onQuickView(product)}
+          >
+            <span style={{ 
+              background: 'white', color: 'black', 
+              padding: '0.5rem 1rem', borderRadius: '100px',
+              fontWeight: 'bold', fontSize: '0.85rem'
+            }}>
+              Vista Rápida
+            </span>
+          </div>
+        )}
       </div>
       <div className="card-content">
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5rem' }}>
@@ -56,7 +74,23 @@ export default function ProductCard({ product, onQuickView, onToggleCompare, isC
           {product.title}
         </h3>
         <div className="text-muted" style={{ fontSize: '0.9rem', marginBottom: '1rem', minHeight: '40px' }}>
-          {product.highlightDesc && <p style={{ fontWeight: 600, color: 'var(--text-primary)', marginBottom: '0.5rem' }}>{product.highlightDesc}</p>}
+          {product.highlightDesc && (
+            <div style={{ marginBottom: '1rem' }}>
+              <span style={{ 
+                display: 'inline-block', 
+                color: 'var(--text-primary)', 
+                fontWeight: 700, 
+                padding: '0.2rem 0.5rem', 
+                borderRadius: 'var(--radius-sm)', 
+                fontSize: '0.85rem',
+                border: '1px solid var(--border-color)',
+                backgroundColor: 'rgba(255,255,255,0.05)',
+                letterSpacing: '0.5px'
+              }}>
+                {product.highlightDesc}
+              </span>
+            </div>
+          )}
           {product.desc && <p style={{ marginBottom: product.features ? '0.5rem' : 0 }}>{product.desc}</p>}
           {product.features && (
             <ul style={{ paddingLeft: '1.2rem', margin: 0, display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>

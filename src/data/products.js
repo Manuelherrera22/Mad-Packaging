@@ -41,9 +41,8 @@ export const products = [
       'Despegue limpio'
     ],
     medidas: '12mm, 18mm, 24mm, 36mm y 48mm de ancho por 40m de largo', 
-    cantCaja: '20',
     isNew: true, 
-    img: '/img/cinta_torre_zoomed.jpg' 
+    img: '/img/cinta_papel_zoomed.png' 
   },
   { id: 'ca-6', category: 'Cintas Adhesivas', subcategory: 'De Papel', title: 'Cinta adhesiva de papel negro', desc: 'Cinta de papel negro para múltiples usos, ofreciendo una identificación particular.', medidas: 'Consulte por medidas disponibles', img: '/img/scraped/Cinta_Papel_negra.jpg' },
   { id: 'ca-7', category: 'Cintas Adhesivas', subcategory: 'De Papel', title: 'Cinta de papel Flat Back', desc: 'Cinta de papel saturado con adhesivo de caucho resina para una amplia variedad de aplicaciones de unión y sujeción donde se requiere gran adhesión. Color: marrón.', medidas: '48mm ancho x 50m largo', img: '/img/scraped/FlatBack.jpg' },
