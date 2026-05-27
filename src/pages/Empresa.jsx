@@ -25,7 +25,7 @@ export default function Empresa() {
               <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                 {[
                   'Entregamos la mercadería en su domicilio en menos de 48 hs.',
-                  'Más de 10 años de trayectoria en el mercado brindando asesoramiento.',
+                  'Más de 15 años de trayectoria en el mercado brindando asesoramiento.',
                   'Servicio personalizado con permanente stock disponible.',
                   'Trabajamos con marcas de primera calidad y diversidad de productos.'
                 ].map((item, i) => (
@@ -49,12 +49,7 @@ export default function Empresa() {
 
       <section className="section" style={{ backgroundColor: 'var(--bg-tertiary)' }}>
         <div className="container">
-          <div className="grid grid-cols-3">
-            <div className="card text-center" style={{ padding: '2rem' }}>
-              <Factory size={48} className="text-steel" style={{ margin: '0 auto 1.5rem' }} />
-              <h3 style={{ marginBottom: '1rem' }}>Capacidad Productiva</h3>
-              <p className="text-muted">Más de 500 toneladas mensuales de procesamiento plástico para abastecer alta demanda.</p>
-            </div>
+          <div className="grid grid-cols-2" style={{ maxWidth: '900px', margin: '0 auto' }}>
             <div className="card text-center" style={{ padding: '2rem' }}>
               <Globe2 size={48} className="text-steel" style={{ margin: '0 auto 1.5rem' }} />
               <h3 style={{ marginBottom: '1rem' }}>Distribución Nacional</h3>

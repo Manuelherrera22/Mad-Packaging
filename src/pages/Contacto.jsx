@@ -27,8 +27,8 @@ export default function Contacto() {
   };
 
   const email = "ventas@madpackaging.com";
-  const phone = "+54 9 11 1234-5678";
-  const waNumber = "5491112345678";
+  const phone = "5263-3648";
+  const waNumber = "5491152633648";
 
   const getMailtoLink = () => {
     const subject = encodeURIComponent("Solicitud de Cotización Web");
@@ -118,9 +118,18 @@ export default function Contacto() {
               </div>
             </div>
 
-            {/* Simulated Map */}
+            {/* Real Map */}
             <div style={{ width: '100%', height: '350px', backgroundColor: 'var(--bg-tertiary)', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-color)', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
-              <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=800" alt="Mapa de Ubicación" style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.8 }} />
+              <iframe 
+                width="100%" 
+                height="100%" 
+                frameBorder="0" 
+                scrolling="no" 
+                marginHeight="0" 
+                marginWidth="0" 
+                src="https://www.openstreetmap.org/export/embed.html?bbox=-58.535,-34.595,-58.515,-34.580&amp;layer=mapnik&amp;marker=-34.588,-58.526" 
+                style={{ border: 'none', filter: 'grayscale(1) contrast(1.2) invert(0.1)' }}
+              ></iframe>
             </div>
           </div>
         </div>
