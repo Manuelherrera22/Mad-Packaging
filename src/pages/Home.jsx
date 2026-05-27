@@ -200,7 +200,7 @@ export default function Home() {
             <Zap size={32} className="text-accent" />
             <h2 className="heading-lg" style={{ margin: 0 }}>Nuevos Productos</h2>
           </div>
-          <div className="grid grid-cols-3">
+          <div className="grid grid-cols-2" style={{ maxWidth: '800px', margin: '0 auto', gap: '3rem' }}>
             {newProducts.map(p => (
               <ProductCard key={`new-${p.id}`} product={p} onQuickView={setQuickViewProduct} />
             ))}

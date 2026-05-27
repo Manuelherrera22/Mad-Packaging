@@ -1,6 +1,6 @@
 export const products = [
   // --- FILM STRETCH ---
-  { id: 'fs-1', category: 'Film Stretch', title: 'Stretch film Uso Manual', desc: 'Material cristal virgen tricapa 23/25/30 micrones', medidas: 'Bobinas de 4 Kg a 5 Kg, en caja de 4 unidades o granel', isNew: true, img: '/img/scraped/manual-1.jpg' },
+  { id: 'fs-1', category: 'Film Stretch', title: 'Stretch film Uso Manual', desc: 'Material cristal virgen tricapa 23/25/30 micrones', medidas: 'Bobinas de 4 Kg a 5 Kg, en caja de 4 unidades o granel', img: '/img/scraped/manual-1.jpg' },
   { id: 'fs-2', category: 'Film Stretch', title: 'Stretch film Uso Manual con Mango', desc: 'Material cristal virgen tricapa 23/25/30 micrones', medidas: 'Bobinas de 2,5 Kg a 3 Kg, en caja de 6 unidades o granel', img: '/img/scraped/mango-1.jpg' },
   { id: 'fs-3', category: 'Film Stretch', title: 'Stretch film Uso Manual 10 cm', desc: 'Material cristal virgen tricapa 23/25/30 micrones', medidas: 'Bobinas de 450g, en caja de 20 unidades', img: '/img/scraped/manual_corto-2.jpg' },
   { id: 'fs-4', category: 'Film Stretch', title: 'Stretch film automático para paletizadora', desc: 'Material cristal virgen tricapa 23/25/30 micrones', medidas: 'Bobinas de 12 Kg a 16 Kg, a granel', img: '/img/scraped/automatico-1.jpg' },
@@ -8,13 +8,43 @@ export const products = [
   { id: 'fs-6', category: 'Film Stretch', title: 'Stretch film colores', desc: 'Cualquier presentación en opción de colores', medidas: 'Consulte medidas', img: '/img/scraped/colores.jpg' },
 
   // --- CINTAS ADHESIVAS (PARA EMBALAJE) ---
-  { id: 'ca-1', category: 'Cintas Adhesivas', subcategory: 'Para Embalaje', title: 'Cinta adhesiva para embalaje', desc: 'Cinta adhesiva de polipropileno para cerrar cajas o multiples usos. Opción en 40 o 45 micrones de espesor.', medidas: '36mm, 48mm y 72mm de ancho', isNew: true, img: '/img/scraped/Lisa.jpg' },
-  { id: 'ca-2', category: 'Cintas Adhesivas', subcategory: 'Para Embalaje', title: 'Cinta adhesiva para máquinas cerradoras de cajas', desc: 'Cinta adhesiva de polipropileno con adhesivo acrílico, para uso en máquinas automáticas. Opción en 40, 45 o 50 micrones de espesor.', medidas: '48mm y 72mm de ancho x 1000/1500 metros.', img: '/img/scraped/Rollos_cerradora-1.jpg' },
+  { id: 'ca-1', category: 'Cintas Adhesivas', subcategory: 'Para Embalaje', title: 'Cinta adhesiva para embalaje', desc: 'Cinta adhesiva de polipropileno para cerrar cajas o multiples usos. Opción en 40 o 45 micrones de espesor.', medidas: '36mm, 48mm y 72mm de ancho', img: '/img/cinta_caja_zoomed.jpg' },
+  { 
+    id: 'ca-2', 
+    category: 'Cintas Adhesivas', 
+    subcategory: 'EMBALAJE', 
+    title: 'Cinta adhesiva para máquina cerradora de cajas', 
+    highlightDesc: 'Adhesivo HOTMELT',
+    features: [
+      'Pegado inicial muy fuerte ("tack" alto)',
+      'Excelente adhesión sobre cartón reciclado o superficies difíciles',
+      'Mayor resistencia mecánica al impacto y manipulación',
+      'Desenrollado más silencioso y suave'
+    ],
+    medidas: '48mm x 1500m', 
+    cantCaja: '6',
+    isNew: true, 
+    img: '/img/cinta_caja_zoomed.jpg' 
+  },
   { id: 'ca-3', category: 'Cintas Adhesivas', subcategory: 'Para Embalaje', title: 'Cinta adhesiva para embalaje de colores', desc: 'Cinta adhesiva de polipropileno en colores, para cerrar cajas o multiples usos. Ideales para identificar mercadería.', medidas: '36mm, 48mm y 72mm de ancho', img: '/img/scraped/Lisa.jpg' },
   { id: 'ca-4', category: 'Cintas Adhesivas', subcategory: 'Para Embalaje', title: 'Cinta adhesiva con logo personalizado', desc: 'Imprimí el logo de tu empresa o cualquier leyenda sobre la cinta para lograr personalizar tus envíos', medidas: '24mm, 36mm, 48mm y 72mm de ancho', img: '/img/scraped/Impresas.jpg' },
 
   // --- CINTAS ADHESIVAS (DE PAPEL) ---
-  { id: 'ca-5', category: 'Cintas Adhesivas', subcategory: 'De Papel', title: 'Cinta de papel multiuso, pintura o industrial', desc: 'Cintas de papel crepeado y adhesivo en base a caucho natural. Distintos productos según aplicación/destino. Opción para resistencia hasta 90ºC.', medidas: '6mm, 10mm, 12mm, 18mm, 24mm, 36mm, 48mm, 72mm, 96mm, 144mm', img: '/img/scraped/Cinta-de-papel.jpg' },
+  { 
+    id: 'ca-5', 
+    category: 'Cintas Adhesivas', 
+    subcategory: 'Producción, obra y hogar', 
+    title: 'Cinta adhesiva de papel Multiuso', 
+    features: [
+      'Excelente adhesión sobre múltiples superficies',
+      'Ideal para empalmar, enmascarar, sostener, empaquetar y rotular',
+      'Despegue limpio'
+    ],
+    medidas: '12mm, 18mm, 24mm, 36mm y 48mm de ancho por 40m de largo', 
+    cantCaja: '20',
+    isNew: true, 
+    img: '/img/cinta_torre_zoomed.jpg' 
+  },
   { id: 'ca-6', category: 'Cintas Adhesivas', subcategory: 'De Papel', title: 'Cinta adhesiva de papel negro', desc: 'Cinta de papel negro para múltiples usos, ofreciendo una identificación particular.', medidas: 'Consulte por medidas disponibles', img: '/img/scraped/Cinta_Papel_negra.jpg' },
   { id: 'ca-7', category: 'Cintas Adhesivas', subcategory: 'De Papel', title: 'Cinta de papel Flat Back', desc: 'Cinta de papel saturado con adhesivo de caucho resina para una amplia variedad de aplicaciones de unión y sujeción donde se requiere gran adhesión. Color: marrón.', medidas: '48mm ancho x 50m largo', img: '/img/scraped/FlatBack.jpg' },
 
@@ -30,7 +60,7 @@ export const products = [
   { id: 'ca-14', category: 'Cintas Adhesivas', subcategory: 'Cintas Filamentosas', title: 'Cinta adhesiva con filamentos de vidrio', desc: 'Cinta sensible a la presión, de poliéster reforzado con fibra de vidrio como soporte, adhesivada en una de sus caras.', medidas: 'Consulte por medidas disponibles', img: '/img/scraped/Filamentosa.jpg' },
 
   // --- CARTÓN ---
-  { id: 'ct-1', category: 'Cartón', title: 'Rollos de cartón corrugado', desc: 'Rollos de cartón corrugado para embalaje y protección de superficies y mercadería.', medidas: 'Anchos desde 1m a 2m', isNew: true, img: '/img/scraped/Corrugado.jpg' },
+  { id: 'ct-1', category: 'Cartón', title: 'Rollos de cartón corrugado', desc: 'Rollos de cartón corrugado para embalaje y protección de superficies y mercadería.', medidas: 'Anchos desde 1m a 2m', img: '/img/scraped/Corrugado.jpg' },
   { id: 'ct-2', category: 'Cartón', title: 'Esquineros', desc: 'Esquineros de cartón (color Kraft o blanco) para protección en cargas de pallets.', medidas: 'Amplia variedad de medidas. Consulte.', img: '/img/scraped/Esquineros.jpg' },
   { id: 'ct-3', category: 'Cartón', title: 'Separadores', desc: 'Planchas de cartón corrugado o compacto que se colocan entre las diferentes filas o niveles de mercadería en pallets, para dar mayor firmeza y protección.', medidas: '1m x 1,20m', img: '/img/scraped/Corrugado.jpg' },
   { id: 'ct-4', category: 'Cartón', title: 'Cajas', desc: 'Cajas de cartón corrugado para almacenamiento y traslado de mercadería. Múltiples medidas estándar con disponibilidad permanente', medidas: 'Consulte medidas estandar.', img: '/img/scraped/Cajas.jpg' },
