@@ -128,7 +128,7 @@ export default function Contacto() {
                 marginHeight="0" 
                 marginWidth="0" 
                 src="https://www.openstreetmap.org/export/embed.html?bbox=-58.535,-34.595,-58.515,-34.580&amp;layer=mapnik&amp;marker=-34.588,-58.526" 
-                style={{ border: 'none', filter: 'grayscale(1) contrast(1.2) invert(0.1)' }}
+                style={{ border: 'none' }}
               ></iframe>
             </div>
           </div>
