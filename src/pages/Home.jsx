@@ -9,34 +9,26 @@ import './Home.css';
 
 export default function Home() {
   const [quickViewProduct, setQuickViewProduct] = useState(null);
-  const [activeIndex, setActiveIndex] = useState(0);
   const newProducts = products.filter(p => p.isNew);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % 3);
-    }, 2500);
-    return () => clearInterval(timer);
-  }, []);
 
   const bentoData = [
     {
       title: 'Film Stretch',
       subtitle: 'Máximo rendimiento para paletizado',
       link: '/productos?categoria=Film%20Stretch',
-      images: ['/img/film_stretch_1.jpg', '/img/film_stretch_2.jpg', '/img/film_mango.jpg']
+      image: '/img/film_stretch_1.jpg'
     },
     {
       title: 'Cintas Adhesivas',
       subtitle: 'Alta adherencia para cierres seguros',
       link: '/productos?categoria=Cintas%20Adhesivas',
-      images: ['/img/cinta_torre.jpg', '/img/cinta_caja.jpg', '/img/cinta_torre.jpg'] // using torra/caja twice to ensure 3 images
+      image: '/img/cinta_torre.jpg'
     },
     {
-      title: 'Protección y seguridad',
-      subtitle: 'Todo lo que tu línea logística requiere',
+      title: 'Protección y Empaque',
+      subtitle: 'Todo lo que tu línea requiere',
       link: '/productos?categoria=Protección%20y%20Empaque',
-      images: ['/img/bolsas_industriales.png', '/img/flejes_hebillas.png', '/img/film_burbujas.png']
+      image: '/img/film_burbujas.png'
     }
   ];
 
@@ -103,29 +95,13 @@ export default function Home() {
                       display: 'block'
                     }}
                   >
-                    {bento.images.map((img, i) => (
-                      <div 
-                        key={i}
-                        style={{
-                          position: 'absolute', top: 0, left: 0, width: '100%', height: '100%',
-                          opacity: activeIndex === i ? 1 : 0,
-                          transition: 'opacity 0.8s ease-in-out',
-                          zIndex: activeIndex === i ? 5 : 1
-                        }}
-                      >
-                        <img src={img} alt={`Imagen ${i}`} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                      </div>
-                    ))}
-                    
-                    <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: isMain ? '2rem' : '1.5rem', paddingBottom: '2.5rem', background: 'linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 100%)', zIndex: 10, pointerEvents: 'none' }}>
-                      <h3 style={{ margin: 0, fontSize: isMain ? '1.8rem' : '1.2rem', color: 'white', fontWeight: 800 }}>{bento.title}</h3>
+                    <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}>
+                      <img src={bento.image} alt={bento.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                     </div>
-
-                    {/* Tiny indicators inside each card */}
-                    <div style={{ position: 'absolute', bottom: '1rem', right: '1rem', display: 'flex', gap: '6px', zIndex: 10 }}>
-                      {bento.images.map((_, i) => (
-                        <div key={i} style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: activeIndex === i ? 'var(--accent-color)' : 'rgba(255,255,255,0.4)', transition: 'background-color 0.3s', boxShadow: activeIndex === i ? '0 0 5px var(--accent-color)' : 'none' }} />
-                      ))}
+                    
+                    <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: isMain ? '2.5rem 2rem' : '2rem 1.5rem', background: 'linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.5) 60%, transparent 100%)', zIndex: 10, pointerEvents: 'none' }}>
+                      <h3 style={{ margin: 0, fontSize: isMain ? '2rem' : '1.3rem', color: 'white', fontWeight: 800, textShadow: '0 2px 10px rgba(0,0,0,0.6)' }}>{bento.title}</h3>
+                      <p style={{ margin: '0.5rem 0 0 0', color: 'rgba(255,255,255,0.85)', fontSize: '0.95rem', fontWeight: 500 }}>{bento.subtitle}</p>
                     </div>
                   </Link>
                 )
