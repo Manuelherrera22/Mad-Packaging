@@ -10,6 +10,7 @@ import Empresa from './pages/Empresa';
 import Catalogo from './pages/Catalogo';
 import Industrias from './pages/Industrias';
 import Contacto from './pages/Contacto';
+import Admin from './pages/Admin';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -35,6 +36,7 @@ function App() {
               <Route path="/productos" element={<Catalogo />} />
               <Route path="/industrias" element={<Industrias />} />
               <Route path="/contacto" element={<Contacto />} />
+              <Route path="/admin" element={<Admin />} />
             </Routes>
           </main>
           <Footer />

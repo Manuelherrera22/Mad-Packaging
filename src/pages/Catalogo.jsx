@@ -2,7 +2,7 @@ import { useState, useEffect, useMemo } from 'react';
 import { ChevronRight, ShoppingCart, Check, Filter, Search, LayoutGrid, List, ArrowUpDown, Maximize, Weight, PackageOpen } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
-import { products, mainCategories } from '../data/products';
+import { supabase } from '../supabaseClient';
 import ProductCard from '../components/ProductCard';
 import ProductQuickView from '../components/ProductQuickView';
 import CompareFloatingBar from '../components/CompareFloatingBar';
@@ -57,12 +57,12 @@ function B2BListItem({ product, onQuickView }) {
               <div style={{ fontSize: '0.8rem', color: 'var(--text-primary)' }}>{product.peso}</div>
             </div>
           )}
-          {product.cantCaja && (
+          {product.cant_caja && (
             <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.05)', padding: '0.5rem', borderRadius: 'var(--radius-sm)' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem', color: 'var(--accent-color)', marginBottom: '0.1rem' }}>
                 <PackageOpen size={12} /> <span style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.5px' }}>PACKAGING</span>
               </div>
-              <div style={{ fontSize: '0.8rem', color: 'var(--text-primary)' }}>{product.cantCaja} por caja</div>
+              <div style={{ fontSize: '0.8rem', color: 'var(--text-primary)' }}>{product.cant_caja} por caja</div>
             </div>
           )}
         </div>
@@ -123,6 +123,10 @@ function AddToCartButton({ product }) {
 
 export default function Catalogo() {
   const location = useLocation();
+  const [products, setProducts] = useState([]);
+  const [mainCategories, setMainCategories] = useState([]);
+  const [loading, setLoading] = useState(true);
+
   const [activeCategory, setActiveCategory] = useState('Todos');
   const [activeSubcategory, setActiveSubcategory] = useState('Todas');
   const [searchQuery, setSearchQuery] = useState('');
@@ -130,6 +134,17 @@ export default function Catalogo() {
   const [sortBy, setSortBy] = useState('relevance');
   const [compareList, setCompareList] = useState([]);
   const [isCompareModalOpen, setIsCompareModalOpen] = useState(false);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const { data: prods } = await supabase.from('products').select('*');
+      const { data: cats } = await supabase.from('categories').select('*');
+      if (prods) setProducts(prods);
+      if (cats) setMainCategories(cats);
+      setLoading(false);
+    };
+    fetchData();
+  }, []);
 
   const toggleCompare = (product) => {
     setCompareList(prev => {

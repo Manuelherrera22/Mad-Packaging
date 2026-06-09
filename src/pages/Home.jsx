@@ -1,115 +1,44 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, ShieldCheck, Truck, Zap, Timer, PackageOpen } from 'lucide-react';
+import { supabase } from '../supabaseClient';
 import ProductCard from '../components/ProductCard';
 import ProductQuickView from '../components/ProductQuickView';
 import ArgentinaMap from '../components/ArgentinaMap';
-import { products, mainCategories } from '../data/products';
+import { HeroVariant1, HeroVariant2, HeroVariant3 } from '../components/HeroVariants';
 import './Home.css';
 
 export default function Home() {
   const [quickViewProduct, setQuickViewProduct] = useState(null);
-  const newProducts = products.filter(p => p.isNew);
+  const [heroVariant, setHeroVariant] = useState(1);
+  const [products, setProducts] = useState([]);
+  const [mainCategories, setMainCategories] = useState([]);
 
-  const bentoData = [
-    {
-      title: 'Film Stretch',
-      subtitle: 'Máximo rendimiento para paletizado',
-      link: '/productos?categoria=Film%20Stretch',
-      image: '/img/film_stretch_1.jpg'
-    },
-    {
-      title: 'Cintas Adhesivas',
-      subtitle: 'Alta adherencia para cierres seguros',
-      link: '/productos?categoria=Cintas%20Adhesivas',
-      image: '/img/cinta_torre.jpg'
-    },
-    {
-      title: 'Protección y Empaque',
-      subtitle: 'Todo lo que tu línea requiere',
-      link: '/productos?categoria=Protección%20y%20Empaque',
-      image: '/img/film_burbujas.png'
-    }
-  ];
+  useEffect(() => {
+    const fetchData = async () => {
+      const { data: prods } = await supabase.from('products').select('*');
+      const { data: cats } = await supabase.from('categories').select('*');
+      if (prods) setProducts(prods);
+      if (cats) setMainCategories(cats);
+    };
+    fetchData();
+  }, []);
 
-  const heroSlides = [
-    {
-      img: '/img/film_stretch_1.jpg',
-      title: 'Film Stretch',
-      subtitle: 'Máximo rendimiento para paletizado'
-    },
-    {
-      img: '/img/cinta_torre.jpg',
-      title: 'Cintas Adhesivas',
-      subtitle: 'Alta adherencia para cierres seguros'
-    },
-    {
-      img: '/img/film_stretch_2.jpg',
-      title: 'Protección y seguridad',
-      subtitle: 'Todo lo que tu línea logística requiere'
-    }
-  ];
-
-
+  const newProducts = products.filter(p => p.is_new);
 
   return (
     <div className="home-page animate-fade-in">
-      {/* Ultra Modern Hero Section */}
-      <section className="hero" style={{ padding: '6rem 0', position: 'relative', overflow: 'hidden' }}>
-        <div className="hero-overlay" style={{ background: 'linear-gradient(90deg, rgba(3,3,5,1) 0%, rgba(3,3,5,0.8) 50%, rgba(3,3,5,0.4) 100%)' }}></div>
-        <div className="hero-bg-pattern"></div>
-        
-        <div className="container" style={{ position: 'relative', zIndex: 10 }}>
-          <div className="grid grid-cols-2" style={{ alignItems: 'center', gap: '4rem' }}>
-            {/* Left: Clear Copy */}
-            <div className="hero-content text-left">
-              <span className="badge" style={{ marginBottom: '1.5rem', animation: 'pulse-glow 2s infinite' }}>Calidad Garantizada</span>
-              <h1 className="heading-xl" style={{ fontSize: '3.5rem', lineHeight: '1.1', color: 'white' }}>
-                Soluciones completas en <span className="text-accent">embalaje industrial</span>
-              </h1>
-              <p className="hero-subtitle text-muted" style={{ maxWidth: '600px', margin: '2rem 0', fontSize: '1.2rem', lineHeight: '1.6' }}>
-                Stretch film, cintas adhesivas, flejes, esquineros, pluribol, cartón y mucho más. Nos ocupamos de brindarte lo necesario para proteger y trasladar tus productos, garantizando su integridad en cada etapa.
-              </p>
-              <div style={{ display: 'flex', gap: '1rem' }}>
-                <a href="#catalogo" className="btn btn-primary" onClick={(e) => { e.preventDefault(); document.getElementById('catalogo').scrollIntoView({ behavior: 'smooth' }); }} style={{ padding: '1rem 2rem' }}>Ver Catálogo</a>
-                <Link to="/contacto" className="btn btn-outline" style={{ padding: '1rem 2rem' }}>Contactar</Link>
-              </div>
-            </div>
+      {/* Selector temporal para revisión del cliente */}
+      <div style={{ position: 'fixed', top: '100px', right: '20px', zIndex: 9999, background: 'rgba(10,10,12,0.85)', padding: '12px', borderRadius: '12px', border: '1px solid var(--accent-color)', display: 'flex', gap: '10px', backdropFilter: 'blur(10px)', boxShadow: '0 10px 25px rgba(0,0,0,0.5)', alignItems: 'center' }}>
+        <span style={{color:'white', fontSize:'0.85rem', fontWeight:'600'}}>Propuestas Hero:</span>
+        <button onClick={() => setHeroVariant(1)} className={`btn ${heroVariant === 1 ? 'btn-primary' : 'btn-outline'}`} style={{padding: '0.4rem 0.8rem', fontSize:'0.8rem', minHeight: 'auto'}}>1. Dividido</button>
+        <button onClick={() => setHeroVariant(2)} className={`btn ${heroVariant === 2 ? 'btn-primary' : 'btn-outline'}`} style={{padding: '0.4rem 0.8rem', fontSize:'0.8rem', minHeight: 'auto'}}>2. Carrusel</button>
+        <button onClick={() => setHeroVariant(3)} className={`btn ${heroVariant === 3 ? 'btn-primary' : 'btn-outline'}`} style={{padding: '0.4rem 0.8rem', fontSize:'0.8rem', minHeight: 'auto'}}>3. Minimal</button>
+      </div>
 
-            {/* Right: Bento Grid of Products */}
-            <div className="hero-bento-wrapper animate-fade-in" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gridTemplateRows: '1fr 1fr', gap: '1rem', height: '480px' }}>
-              {bentoData.map((bento, index) => {
-                const isMain = index === 0;
-                return (
-                  <Link 
-                    to={bento.link} 
-                    key={index}
-                    className="bento-card"
-                    style={{ 
-                      gridRow: isMain ? '1 / span 2' : 'auto', 
-                      position: 'relative', 
-                      borderRadius: '16px', 
-                      overflow: 'hidden', 
-                      border: '1px solid rgba(255,255,255,0.08)', 
-                      background: 'var(--bg-tertiary)',
-                      display: 'block'
-                    }}
-                  >
-                    <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}>
-                      <img src={bento.image} alt={bento.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                    </div>
-                    
-                    <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: isMain ? '2.5rem 2rem' : '2rem 1.5rem', background: 'linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.5) 60%, transparent 100%)', zIndex: 10, pointerEvents: 'none' }}>
-                      <h3 style={{ margin: 0, fontSize: isMain ? '2rem' : '1.3rem', color: 'white', fontWeight: 800, textShadow: '0 2px 10px rgba(0,0,0,0.6)' }}>{bento.title}</h3>
-                      <p style={{ margin: '0.5rem 0 0 0', color: 'rgba(255,255,255,0.85)', fontSize: '0.95rem', fontWeight: 500 }}>{bento.subtitle}</p>
-                    </div>
-                  </Link>
-                )
-              })}
-            </div>
-          </div>
-        </div>
-      </section>
+      {heroVariant === 1 && <HeroVariant1 />}
+      {heroVariant === 2 && <HeroVariant2 />}
+      {heroVariant === 3 && <HeroVariant3 />}
 
       {/* 48hs Delivery Emphasis Banner */}
       <div className="delivery-banner">

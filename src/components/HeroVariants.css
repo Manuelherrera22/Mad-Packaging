@@ -1,0 +1,182 @@
+/* Variant 1: Split Screen */
+.hero-v1 {
+  display: flex;
+  min-height: 85vh;
+  margin-top: 80px; /* offset for navbar */
+  background-color: var(--bg-primary);
+  border-bottom: 1px solid var(--border-color);
+  align-items: stretch;
+}
+.hero-v1-left {
+  flex: 1;
+  padding: 4rem 4rem 4rem 8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 10;
+}
+.hero-v1-right {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+.hero-v1-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 40px 0 0 40px;
+  box-shadow: -15px 0 40px rgba(0,0,0,0.6);
+}
+
+/* Variant 2: Slider */
+.hero-v2 {
+  position: relative;
+  min-height: 90vh;
+  margin-top: 80px;
+  overflow: hidden;
+}
+.hero-v2-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1s ease-in-out, transform 8s linear;
+  transform: scale(1.05);
+}
+.hero-v2-slide.active {
+  opacity: 1;
+  transform: scale(1);
+  z-index: 10;
+}
+.hero-v2-overlay {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: linear-gradient(90deg, rgba(3,3,5,0.95) 0%, rgba(3,3,5,0.7) 40%, transparent 100%);
+}
+.hero-v2-content {
+  position: relative;
+  z-index: 20;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 2rem;
+}
+.hero-v2-dots {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 30;
+  display: flex;
+  gap: 12px;
+}
+.hero-v2-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.3);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+  padding: 0;
+}
+.hero-v2-dot.active {
+  background: var(--accent-color);
+  transform: scale(1.4);
+  box-shadow: 0 0 10px var(--accent-color);
+}
+
+/* Variant 3: Typographic */
+.hero-v3 {
+  min-height: 95vh;
+  margin-top: 80px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background-color: var(--bg-primary);
+}
+.hero-v3-bg {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background-image: radial-gradient(circle at 50% 0%, rgba(228, 71, 46, 0.1) 0%, transparent 50%),
+                    radial-gradient(circle at 50% 100%, rgba(0, 112, 167, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+}
+.hero-v3-content {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 5rem;
+}
+.hero-v3-images {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 2rem;
+  width: 100%;
+  padding-bottom: 2rem;
+}
+.hero-v3-img-card {
+  width: 260px;
+  height: 340px;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: transform 0.4s, border-color 0.4s;
+  position: relative;
+}
+.hero-v3-img-card::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: linear-gradient(to top, rgba(0,0,0,0.4) 0%, transparent 50%);
+  pointer-events: none;
+}
+.hero-v3-img-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.hero-v3-img-card:hover {
+  transform: translateY(-15px) !important;
+  border-color: rgba(228, 71, 46, 0.5);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.7), 0 0 20px rgba(228, 71, 46, 0.2);
+}
+
+.float-anim-1 { animation: float-v3 6s ease-in-out infinite; }
+.float-anim-2 { animation: float-v3 7s ease-in-out infinite reverse; }
+.float-anim-3 { animation: float-v3 8s ease-in-out infinite; }
+
+@keyframes float-v3 {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+@media (max-width: 1024px) {
+  .hero-v1-left { padding: 3rem; }
+  .hero-v3-img-card { width: 220px; height: 300px; }
+}
+
+@media (max-width: 768px) {
+  .hero-v1 { flex-direction: column; }
+  .hero-v1-right { min-height: 400px; }
+  .hero-v1-left { padding: 2rem; }
+  .hero-v1-img { border-radius: 0; }
+  .hero-v3-images { flex-direction: column; gap: 2rem; }
+  .hero-v3-img-card { width: 100%; max-width: 320px; }
+  .hero-v2-content h1 { fontSize: 3rem !important; }
+}
