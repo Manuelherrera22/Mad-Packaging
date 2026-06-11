@@ -57,9 +57,15 @@ export function HeroVariant1() {
 }
 
 export function HeroVariant2() {
-  // Propuesta 2: Tres Columnas Flotantes Elegantes
-  // En lugar de una imagen gigante que se ve mal cortada, usamos 3 tarjetas verticales
-  // de igual tamaño que le dan un look mucho más moderno y equilibrado tipo Apple/Stripe.
+  const [current, setCurrent] = useState(0);
+  
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % bentoData.length);
+    }, 3500);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <section className="hero" style={{ padding: '6rem 0', position: 'relative', overflow: 'hidden', background: '#0a0a0c', minHeight: '90vh', display: 'flex', alignItems: 'center', marginTop: '80px' }}>
       {/* Sutil resplandor en el fondo */}
@@ -69,15 +75,79 @@ export function HeroVariant2() {
         <div className="grid grid-cols-2" style={{ alignItems: 'center', gap: '3rem' }}>
           <LeftContent />
           
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1rem', height: '450px' }}>
-            {bentoData.map((item, index) => (
-              <Link to={item.link} key={index} className="v2-card" style={{ position: 'relative', borderRadius: '20px', overflow: 'hidden', transform: `translateY(${index === 1 ? '30px' : '0px'})` }}>
-                <img src={item.image} alt={item.title} style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s' }} className="v2-img" />
-                <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '2rem 1rem', background: 'linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.5) 50%, transparent 100%)', textAlign: 'center' }}>
-                  <h3 style={{ color: 'white', margin: 0, fontSize: '1.1rem', fontWeight: 700 }}>{item.title}</h3>
-                </div>
-              </Link>
-            ))}
+          <div style={{ position: 'relative', height: '480px', width: '100%', perspective: '1000px' }}>
+            {bentoData.map((item, index) => {
+              // Calculate relative position for carousel effect
+              let offset = index - current;
+              if (offset < 0) offset += bentoData.length;
+              
+              let translateX = 0;
+              let translateZ = 0;
+              let opacity = 1;
+              let zIndex = 10;
+
+              if (offset === 0) {
+                // Active item
+                translateX = 0;
+                translateZ = 0;
+                opacity = 1;
+                zIndex = 20;
+              } else if (offset === 1 || offset === -2) {
+                // Next item
+                translateX = 120;
+                translateZ = -100;
+                opacity = 0.6;
+                zIndex = 10;
+              } else {
+                // Previous item (or hidden if more than 3)
+                translateX = -120;
+                translateZ = -100;
+                opacity = 0.6;
+                zIndex = 10;
+              }
+
+              return (
+                <Link 
+                  to={item.link} 
+                  key={index} 
+                  style={{ 
+                    position: 'absolute', 
+                    top: 0, 
+                    left: '10%',
+                    width: '80%', 
+                    height: '100%', 
+                    borderRadius: '20px', 
+                    overflow: 'hidden', 
+                    transform: `translateX(${translateX}px) translateZ(${translateZ}px)`,
+                    opacity: opacity,
+                    zIndex: zIndex,
+                    transition: 'all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1)',
+                    boxShadow: offset === 0 ? '0 20px 50px rgba(0,0,0,0.5)' : '0 10px 30px rgba(0,0,0,0.3)',
+                    border: offset === 0 ? '1px solid rgba(255,255,255,0.1)' : '1px solid rgba(255,255,255,0.05)',
+                  }}
+                >
+                  <img src={item.image} alt={item.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                  <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '2rem', background: 'linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.5) 50%, transparent 100%)', textAlign: 'center' }}>
+                    <h3 style={{ color: 'white', margin: 0, fontSize: offset === 0 ? '1.5rem' : '1.1rem', fontWeight: 700, transition: 'all 0.3s' }}>{item.title}</h3>
+                  </div>
+                </Link>
+              );
+            })}
+            
+            {/* Nav dots */}
+            <div style={{ position: 'absolute', bottom: '-40px', left: '0', right: '0', display: 'flex', justifyContent: 'center', gap: '10px' }}>
+              {bentoData.map((_, idx) => (
+                <button 
+                  key={idx} 
+                  onClick={() => setCurrent(idx)}
+                  style={{ 
+                    width: '10px', height: '10px', borderRadius: '50%', 
+                    background: idx === current ? 'var(--accent-color)' : 'rgba(255,255,255,0.2)', 
+                    border: 'none', cursor: 'pointer', transition: 'all 0.3s' 
+                  }} 
+                />
+              ))}
+            </div>
           </div>
         </div>
       </div>
