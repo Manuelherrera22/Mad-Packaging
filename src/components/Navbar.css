@@ -40,6 +40,12 @@
   gap: 1rem;
 }
 
+@media (max-width: 768px) {
+  .top-bar-socials {
+    display: none;
+  }
+}
+
 .top-bar-socials a {
   color: var(--text-muted);
   transition: color var(--transition-fast);

@@ -221,14 +221,14 @@ img {
 
 /* ── Heading Sizes ── */
 .heading-xl {
-  font-size: clamp(3rem, 5vw, 5rem);
+  font-size: clamp(2.2rem, 8vw, 4rem);
   line-height: 1.05;
   letter-spacing: -0.03em;
   font-weight: 900;
 }
 
 .heading-lg {
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: clamp(1.8rem, 6vw, 3rem);
   font-weight: 700;
 }
 
@@ -475,6 +475,26 @@ img {
 }
 
 
+.hero-bento-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 1rem;
+  height: 480px;
+}
+
+@media (max-width: 768px) {
+  .hero-bento-wrapper {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    height: auto;
+  }
+  .bento-card {
+    grid-row: auto !important;
+    height: 250px;
+  }
+}
+
 .card-img-wrapper {
   overflow: hidden;
   position: relative;
@@ -508,11 +528,13 @@ img {
   background: linear-gradient(90deg, var(--bg-primary), rgba(0, 191, 165, 0.1), var(--bg-primary));
   border-top: 1px solid rgba(0, 191, 165, 0.2);
   border-bottom: 1px solid rgba(0, 191, 165, 0.2);
-  padding: 2rem 0;
+  padding: 2rem 1rem;
   display: flex;
+  flex-wrap: wrap;
+  text-align: center;
   align-items: center;
   justify-content: center;
-  gap: 2rem;
+  gap: 1.5rem;
   animation: bg-slide 10s linear infinite;
   background-size: 200% 100%;
 }
@@ -523,7 +545,7 @@ img {
 }
 
 .delivery-text {
-  font-size: 1.5rem;
+  font-size: clamp(1.1rem, 4vw, 1.5rem);
   font-weight: 800;
   letter-spacing: -0.5px;
 }

@@ -6,15 +6,15 @@ import './HeroVariants.css';
 const LeftContent = () => (
   <div className="hero-content text-left" style={{ zIndex: 10, position: 'relative' }}>
     <span className="badge" style={{ marginBottom: '1.5rem', animation: 'pulse-glow 2s infinite' }}>CALIDAD GARANTIZADA</span>
-    <h1 className="heading-xl" style={{ fontSize: '3.5rem', lineHeight: '1.1', color: 'white' }}>
+    <h1 className="heading-xl" style={{ lineHeight: '1.1', color: 'white' }}>
       Soluciones completas en <span className="text-accent">embalaje industrial</span>
     </h1>
-    <p className="hero-subtitle text-muted" style={{ maxWidth: '600px', margin: '2rem 0', fontSize: '1.2rem', lineHeight: '1.6' }}>
+    <p className="hero-subtitle text-muted" style={{ maxWidth: '600px', margin: '2rem 0', fontSize: '1.1rem', lineHeight: '1.6' }}>
       Stretch film, cintas adhesivas, flejes, esquineros, pluribol, cartón y mucho más. Nos ocupamos de brindarte lo necesario para proteger y trasladar tus productos, garantizando su integridad en cada etapa.
     </p>
-    <div style={{ display: 'flex', gap: '1rem' }}>
-      <a href="#catalogo" className="btn btn-primary" onClick={(e) => { e.preventDefault(); document.getElementById('catalogo').scrollIntoView({ behavior: 'smooth' }); }} style={{ padding: '1rem 2rem' }}>VER CATÁLOGO</a>
-      <Link to="/contacto" className="btn btn-outline" style={{ padding: '1rem 2rem' }}>CONTACTAR</Link>
+    <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+      <a href="#catalogo" className="btn btn-primary" onClick={(e) => { e.preventDefault(); document.getElementById('catalogo').scrollIntoView({ behavior: 'smooth' }); }} style={{ padding: '1rem 2rem', flex: '1 1 auto', textAlign: 'center' }}>VER CATÁLOGO</a>
+      <Link to="/contacto" className="btn btn-outline" style={{ padding: '1rem 2rem', flex: '1 1 auto', textAlign: 'center' }}>CONTACTAR</Link>
     </div>
   </div>
 );
@@ -37,7 +37,7 @@ export function HeroVariant1() {
         <div className="grid grid-cols-2" style={{ alignItems: 'center', gap: '4rem' }}>
           <LeftContent />
           
-          <div className="hero-bento-wrapper animate-fade-in" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gridTemplateRows: '1fr 1fr', gap: '1rem', height: '480px' }}>
+          <div className="hero-bento-wrapper animate-fade-in">
             {bentoData.map((bento, index) => {
               const isMain = index === 0;
               return (
@@ -176,7 +176,7 @@ export function HeroVariant3() {
           <LeftContent />
           
           <div style={{ display: 'flex', justifyContent: 'center' }}>
-            <div style={{ width: '400px', height: '480px', borderRadius: '24px', overflow: 'hidden', position: 'relative', boxShadow: '0 30px 60px rgba(0,0,0,0.6)', border: '1px solid rgba(255,255,255,0.1)' }}>
+            <div style={{ width: '100%', maxWidth: '400px', height: '480px', borderRadius: '24px', overflow: 'hidden', position: 'relative', boxShadow: '0 30px 60px rgba(0,0,0,0.6)', border: '1px solid rgba(255,255,255,0.1)' }}>
               {bentoData.map((slide, index) => (
                 <div key={index} style={{
                   position: 'absolute', top: 0, left: 0, width: '100%', height: '100%',
